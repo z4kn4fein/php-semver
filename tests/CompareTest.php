@@ -2,10 +2,9 @@
 
 namespace z4kn4fein\SemVer\Tests;
 
-use PHPUnit\Framework\TestCase;
 use z4kn4fein\SemVer\Version;
 
-class CompareTests extends TestCase
+class CompareTest extends \PHPUnit_Framework_TestCase
 {
     public function testLessThanByNumbers()
     {

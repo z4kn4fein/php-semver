@@ -2,11 +2,10 @@
 
 namespace z4kn4fein\SemVer\Tests;
 
-use PHPUnit\Framework\TestCase;
 use z4kn4fein\SemVer\Version;
 use z4kn4fein\SemVer\VersionFormatException;
 
-class ParseTests extends TestCase
+class ParseTest extends \PHPUnit_Framework_TestCase
 {
     public function testNull()
     {

@@ -11,7 +11,7 @@
         processIsolation="false"
         stopOnFailure="false">
     <testsuites>
-        <testsuite name="Semver Tests">
+        <testsuite name="Unit Tests">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

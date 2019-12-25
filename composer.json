@@ -3,7 +3,7 @@
   "type": "library",
   "description": "Semantic version parser and comparator for PHP.",
   "minimum-stability": "stable",
-  "keywords": ["Semantic version", "semver"],
+  "keywords": ["Semantic version", "semver", "semver-parsing", "semver-compare"],
   "homepage": "https://github.com/z4kn4fein/php-semver",
   "license": "MIT",
   "authors": [
