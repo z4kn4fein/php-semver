@@ -23,6 +23,24 @@ class CompareTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($version->isLessThanOrEqual('5.2.3-alpha.2'));
     }
 
+    public function testCompareByPreReleaseNumberAlphabetical()
+    {
+        $version = Version::parse('5.2.3-alpha.2');
+        $this->assertTrue($version->isLessThan('5.2.3-alpha.a'));
+
+        $version = Version::parse('5.2.3-alpha.a');
+        $this->assertTrue($version->isGreaterThan('5.2.3-alpha.2'));
+    }
+
+    public function testCompareByPreReleaseAndStable()
+    {
+        $version = Version::parse('5.2.3');
+        $this->assertTrue($version->isGreaterThan('5.2.3-alpha'));
+
+        $version = Version::parse('5.2.3-alpha');
+        $this->assertTrue($version->isLessThan('5.2.3'));
+    }
+
     public function testGreaterThanByNumbers()
     {
         $version = Version::parse('5.2.3');
