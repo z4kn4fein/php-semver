@@ -1,0 +1,31 @@
+{
+  "name": "z4kn4fein/php-semver",
+  "type": "library",
+  "description": "Semantic version parser and comparator for PHP.",
+  "minimum-stability": "stable",
+  "keywords": ["Semantic version", "semver"],
+  "homepage": "https://github.com/z4kn4fein/php-semver",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Peter Csajtai",
+      "email": "peter.csajtai@outlook.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4"
+  },
+  "autoload": {
+    "psr-4": {
+      "z4kn4fein\\SemVer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "z4kn4fein\\SemVer\\Tests\\": "tests/"
+    }
+  }
+}
