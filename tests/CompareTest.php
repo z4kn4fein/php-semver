@@ -65,6 +65,13 @@ class CompareTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($version->isEqual('5.2.3-alpha.5'));
     }
 
+    public function testEqualOnlyVersions()
+    {
+        $version = Version::parse('5.2.3');
+        $this->assertTrue($version->isEqual('5.2.3'));
+        $this->assertFalse($version->isEqual('5.2.4'));
+    }
+
     public function testEqualIgnoreBuild()
     {
         $version = Version::parse('5.2.3-alpha.2+build.34');
