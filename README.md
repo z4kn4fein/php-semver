@@ -31,7 +31,7 @@ echo $version->getPreRelease();     // alpha.12
 echo $version->getBuildMeta();      // build.34
 echo $version->getVersionString();  // 2.5.6-alpha.12+build.34
 ```
-#### Compare two versions
+#### Comparing two versions
 ```php
 <?php
 
