@@ -45,11 +45,9 @@ class ParseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1, $version->getMajor());
         $this->assertEquals(2, $version->getMinor());
         $this->assertEquals(3, $version->getPatch());
-        $this->assertEquals('alpha.1', $version->getPreRelease());
+        $this->assertEquals('alpha.1', (string)$version->getPreRelease());
         $this->assertEquals('build.3.b', $version->getBuildMeta());
-        $this->assertEquals('1.2.3-alpha.1+build.3.b', $version->getVersionString());
-
-        $this->assertArraySubset(['alpha','1'], $version->getPreReleaseParts());
+        $this->assertEquals('1.2.3-alpha.1+build.3.b', (string)$version);
     }
 
     public function testWithPreRelease()
@@ -58,10 +56,8 @@ class ParseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1, $version->getMajor());
         $this->assertEquals(2, $version->getMinor());
         $this->assertEquals(3, $version->getPatch());
-        $this->assertEquals('alpha.1.a.34', $version->getPreRelease());
+        $this->assertEquals('alpha.1.a.34', (string)$version->getPreRelease());
         $this->assertEmpty($version->getBuildMeta());
-
-        $this->assertArraySubset(['alpha','1', 'a', '34'], $version->getPreReleaseParts());
     }
 
     public function testWithBuild()
@@ -72,7 +68,5 @@ class ParseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(3, $version->getPatch());
         $this->assertEquals('build.3.b', $version->getBuildMeta());
         $this->assertEmpty($version->getPreRelease());
-
-        $this->assertEmpty($version->getPreReleaseParts());
     }
 }

@@ -8,6 +8,7 @@ namespace z4kn4fein\SemVer;
  */
 class Version
 {
+    // phpcs:ignore
     const VERSION_REGEX = "/^(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?:-(?P<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/";
 
     /** @var int */
@@ -16,21 +17,17 @@ class Version
     private $minor;
     /** @var int */
     private $patch;
-    /** @var null|string */
+    /** @var null|PreRelease */
     private $preRelease;
     /** @var null|string */
     private $buildMeta;
-    /** @var array */
-    private $preReleaseParts;
-    /** @var string */
-    private $versionString;
 
     /**
      * Version constructor.
      * @param $versionString string The version string.
      * @throws VersionFormatException When the $versionString is invalid.
      */
-    public function __construct($versionString)
+    private function __construct($versionString)
     {
         $versionString = trim($versionString);
         if (empty($versionString)) {
@@ -41,20 +38,26 @@ class Version
             throw new VersionFormatException(sprintf("Invalid version: %s.", $versionString));
         }
 
-        $this->versionString = $versionString;
         $this->major = intval($matches['major']);
         $this->minor = intval($matches['minor']);
         $this->patch = intval($matches['patch']);
-        $this->preRelease = isset($matches['prerelease']) ? $matches['prerelease'] : null;
-        $this->buildMeta = isset($matches['buildmetadata']) ? $matches['buildmetadata'] : null;
-
-        if (!empty($this->preRelease)) {
-            $this->preReleaseParts = explode('.', $this->preRelease);
-        }
+        $this->preRelease = isset($matches['prerelease']) && $matches['prerelease'] != "" ? PreRelease::parse($matches['prerelease']) : null;
+        $this->buildMeta = isset($matches['buildmetadata']) && $matches['buildmetadata'] != "" ? $matches['buildmetadata'] : null;
     }
 
     /**
-     * @return int
+     * @return string The string representation of the version.
+     */
+    public function __toString()
+    {
+        $result = implode('.', [$this->major, $this->minor, $this->patch]);
+        $result .= isset($this->preRelease) ? '-' . $this->preRelease : '';
+        $result .= isset($this->buildMeta) ? '+' . $this->buildMeta : '';
+        return $result;
+    }
+
+    /**
+     * @return int The major version number.
      */
     public function getMajor()
     {
@@ -62,7 +65,7 @@ class Version
     }
 
     /**
-     * @return int
+     * @return int The minor version number.
      */
     public function getMinor()
     {
@@ -70,7 +73,7 @@ class Version
     }
 
     /**
-     * @return int
+     * @return int The patch version number.
      */
     public function getPatch()
     {
@@ -78,7 +81,7 @@ class Version
     }
 
     /**
-     * @return null|string
+     * @return null|PreRelease The prerelease part.
      */
     public function getPreRelease()
     {
@@ -86,7 +89,7 @@ class Version
     }
 
     /**
-     * @return null|string
+     * @return null|string The build metadata part.
      */
     public function getBuildMeta()
     {
@@ -94,24 +97,11 @@ class Version
     }
 
     /**
-     * @return array
+     * @return bool True when the version is a prerelease version.
      */
-    public function getPreReleaseParts()
+    public function isPreRelease()
     {
-        return $this->preReleaseParts;
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersionString()
-    {
-        return $this->versionString;
-    }
-
-    public function hasPreRelease()
-    {
-        return !empty($this->preReleaseParts);
+        return !empty($this->preRelease);
     }
 
     /**
@@ -245,17 +235,17 @@ class Version
             $v2 = self::parse($v2);
         }
 
-        $major = self::comparePrimitive($v1->getMajor(), $v2->getMajor());
+        $major = Utils::comparePrimitive($v1->getMajor(), $v2->getMajor());
         if ($major != 0) {
             return $major;
         }
 
-        $minor = self::comparePrimitive($v1->getMinor(), $v2->getMinor());
+        $minor = Utils::comparePrimitive($v1->getMinor(), $v2->getMinor());
         if ($minor != 0) {
             return $minor;
         }
 
-        $patch = self::comparePrimitive($v1->getPatch(), $v2->getPatch());
+        $patch = Utils::comparePrimitive($v1->getPatch(), $v2->getPatch());
         if ($patch != 0) {
             return $patch;
         }
@@ -267,75 +257,20 @@ class Version
      * @param $v1 Version The left side of the comparison.
      * @param $v2 Version The right side of the comparison.
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
+     * @throws VersionFormatException When the given prerelease values are invalid.
      */
     private static function compareByPreRelease($v1, $v2)
     {
-        if ($v1->hasPreRelease() && !$v2->hasPreRelease()) {
+        if ($v1->isPreRelease() && !$v2->isPreRelease()) {
             return -1;
         }
 
-        if (!$v1->hasPreRelease() && $v2->hasPreRelease()) {
+        if (!$v1->isPreRelease() && $v2->isPreRelease()) {
             return 1;
         }
 
-        if ($v1->hasPreRelease() && $v2->hasPreRelease()) {
-            return self::compareByPreReleaseParts($v1->getPreReleaseParts(), $v2->getPreReleaseParts());
-        }
-
-        return 0;
-    }
-
-    /**
-     * @param $v1 array The left side of the comparison.
-     * @param $v2 array The right side of the comparison.
-     * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
-     */
-    private static function compareByPreReleaseParts(array $v1, array $v2)
-    {
-        $v1Size = sizeof($v1);
-        $v2Size = sizeof($v2);
-
-        $count = $v1Size > $v2Size ? $v2Size : $v1Size;
-
-        for ($i = 0; $i < $count; $i++) {
-            $part = self::comparePart($v1[$i], $v2[$i]);
-            if ($part != 0) {
-                return $part;
-            }
-        }
-
-        return self::comparePrimitive($v1Size, $v2Size);
-    }
-
-    /**
-     * @param $a mixed The left side of the comparison.
-     * @param $b mixed The right side of the comparison.
-     * @return int -1 when $a < $b, 0 when $a == $b, 1 when $v1 > $b.
-     */
-    private static function comparePart($a, $b)
-    {
-        if (is_numeric($a) && !is_numeric($b)) {
-            return -1;
-        }
-
-        if (!is_numeric($a) && is_numeric($b)) {
-            return 1;
-        }
-
-        return is_numeric($a) && is_numeric($b)
-            ? self::comparePrimitive(intval($a), intval($b))
-            : self::comparePrimitive($a, $b);
-    }
-
-    /**
-     * @param $a int|string The left side of the comparison.
-     * @param $b int|string The right side of the comparison.
-     * @return int -1 when $a < $b, 0 when $a == $b, 1 when $a > $b.
-     */
-    private static function comparePrimitive($a, $b)
-    {
-        if ($a != $b) {
-            return $a < $b ? -1 : 1;
+        if ($v1->isPreRelease() && $v2->isPreRelease()) {
+            return PreRelease::compare($v1->getPreRelease(), $v2->getPreRelease());
         }
 
         return 0;
