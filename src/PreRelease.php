@@ -8,6 +8,15 @@ class PreRelease
     private $preReleaseParts;
 
     /**
+     * PreRelease constructor.
+     * @param array $preReleaseParts The prerelease parts.
+     */
+    private function __construct($preReleaseParts)
+    {
+        $this->preReleaseParts = $preReleaseParts;
+    }
+
+    /**
      * @return PreRelease The incremented prerelease
      */
     public function increment()
@@ -39,9 +48,7 @@ class PreRelease
 
     private function copy()
     {
-        $result = new PreRelease();
-        $result->preReleaseParts = $this->preReleaseParts;
-        return $result;
+        return new PreRelease($this->preReleaseParts);
     }
 
     /**
@@ -52,20 +59,22 @@ class PreRelease
         foreach ($this->preReleaseParts as $part) {
             if ($this->hasOnlyNumbers($part)) {
                 if (strlen($part) > 1 && $part[0] == "0") {
-                    throw new VersionFormatException(sprintf("The prerelease part '%s' is numeric but contains a leading zero.", $part));
+                    throw new VersionFormatException(sprintf(
+                        "The prerelease part '%s' is numeric but contains a leading zero.", $part));
                 } else {
                     continue;
                 }
             }
 
             if (!$this->hasOnlyAlphanumericsAndHyphen($part)) {
-                throw new VersionFormatException(sprintf("The prerelease part '%s' contains invalid character.", $part));
+                throw new VersionFormatException(sprintf(
+                    "The prerelease part '%s' contains invalid character.", $part));
             }
         }
     }
 
     /**
-     * @param $part string part to check.
+     * @param string $part part to check.
      * @return bool True when the part is containing only numbers.
      */
     private function hasOnlyNumbers($part)
@@ -74,7 +83,7 @@ class PreRelease
     }
 
     /**
-     * @param $part string The part to check.
+     * @param string $part The part to check.
      * @return bool True when the part is only containing alphanumerics.
      */
     private function hasOnlyAlphanumericsAndHyphen($part)
@@ -83,7 +92,17 @@ class PreRelease
     }
 
     /**
-     * @param $preReleaseString string The prerelease string.
+     * Creates a new prerelease tag with initial default value (-0).
+     *
+     * @return PreRelease The default prerelease tag.
+     */
+    public static function createDefault()
+    {
+        return new PreRelease([0]);
+    }
+
+    /**
+     * @param string $preReleaseString The prerelease string.
      * @return PreRelease The parsed prerelease part.
      * @throws VersionFormatException When the given prerelease string is invalid.
      */
@@ -94,17 +113,15 @@ class PreRelease
             throw new VersionFormatException("preReleaseString cannot be empty.");
         }
 
-        $preRelease = new PreRelease();
-
-        $preRelease->preReleaseParts = explode('.', $preReleaseString);
+        $preRelease = new PreRelease(explode('.', $preReleaseString));
         $preRelease->validate();
 
         return $preRelease;
     }
 
     /**
-     * @param $p1 string|PreRelease The left side of the comparison.
-     * @param $p2 string|PreRelease The right side of the comparison.
+     * @param string|PreRelease $p1 The left side of the comparison.
+     * @param string|PreRelease $p2 The right side of the comparison.
      * @return int -1 when $p1 < $p2, 0 when $p1 == $p2, 1 when $p1 > $p2.
      * @throws VersionFormatException When the given prerelease values are invalid.
      */
@@ -134,8 +151,8 @@ class PreRelease
     }
 
     /**
-     * @param $a mixed The left side of the comparison.
-     * @param $b mixed The right side of the comparison.
+     * @param mixed $a The left side of the comparison.
+     * @param mixed $b The right side of the comparison.
      * @return int -1 when $a < $b, 0 when $a == $b, 1 when $v1 > $b.
      */
     private static function comparePart($a, $b)

@@ -24,25 +24,20 @@ class Version
 
     /**
      * Version constructor.
-     * @param $versionString string The version string.
-     * @throws VersionFormatException When the $versionString is invalid.
+     *
+     * @param $major int The major version number.
+     * @param $minor int The minor version number.
+     * @param $patch int The patch version number.
+     * @param null|PreRelease $preRelease The prerelease part.
+     * @param null|string $buildMeta The build metadata.
      */
-    private function __construct($versionString)
+    private function __construct($major, $minor, $patch, $preRelease = null, $buildMeta = null)
     {
-        $versionString = trim($versionString);
-        if (empty($versionString)) {
-            throw new VersionFormatException("versionString cannot be empty.");
-        }
-
-        if (!preg_match(self::VERSION_REGEX, $versionString, $matches)) {
-            throw new VersionFormatException(sprintf("Invalid version: %s.", $versionString));
-        }
-
-        $this->major = intval($matches['major']);
-        $this->minor = intval($matches['minor']);
-        $this->patch = intval($matches['patch']);
-        $this->preRelease = isset($matches['prerelease']) && $matches['prerelease'] != "" ? PreRelease::parse($matches['prerelease']) : null;
-        $this->buildMeta = isset($matches['buildmetadata']) && $matches['buildmetadata'] != "" ? $matches['buildmetadata'] : null;
+        $this->major = $major;
+        $this->minor = $minor;
+        $this->patch = $patch;
+        $this->preRelease = $preRelease;
+        $this->buildMeta = $buildMeta;
     }
 
     /**
@@ -57,6 +52,8 @@ class Version
     }
 
     /**
+     * Returns the major version number.
+     *
      * @return int The major version number.
      */
     public function getMajor()
@@ -65,6 +62,8 @@ class Version
     }
 
     /**
+     * Returns the minor version number.
+     *
      * @return int The minor version number.
      */
     public function getMinor()
@@ -73,6 +72,8 @@ class Version
     }
 
     /**
+     * Returns the patch version number.
+     *
      * @return int The patch version number.
      */
     public function getPatch()
@@ -81,6 +82,8 @@ class Version
     }
 
     /**
+     * Returns the prerelease tag.
+     *
      * @return null|PreRelease The prerelease part.
      */
     public function getPreRelease()
@@ -89,6 +92,8 @@ class Version
     }
 
     /**
+     * Returns the build metadata.
+     *
      * @return null|string The build metadata part.
      */
     public function getBuildMeta()
@@ -97,15 +102,62 @@ class Version
     }
 
     /**
+     * Returns true when the version has a prerelease tag.
+     *
      * @return bool True when the version is a prerelease version.
      */
     public function isPreRelease()
     {
-        return !empty($this->preRelease);
+        return $this->preRelease != null;
     }
 
     /**
-     * @param $v string|Version The the version to compare.
+     * Produces the next major version.
+     *
+     * @return Version The next major version.
+     */
+    public function getNextMajorVersion()
+    {
+        return new Version($this->major + 1, 0, 0);
+    }
+
+    /**
+     * Produces the next minor version.
+     *
+     * @return Version The next minor version.
+     */
+    public function getNextMinorVersion()
+    {
+        return new Version($this->major, $this->minor + 1, 0);
+    }
+
+    /**
+     * Produces the next patch version.
+     *
+     * @return Version The next patch version.
+     */
+    public function getNextPatchVersion()
+    {
+        return new Version($this->major, $this->minor, $this->isPreRelease() ? $this->patch : $this->patch + 1);
+    }
+
+    /**
+     * Produces the next prerelease version.
+     *
+     * @return Version The next prerelease version.
+     */
+    public function getNextPreReleaseVersion()
+    {
+        return new Version($this->major,
+            $this->minor,
+            $this->isPreRelease() ? $this->patch : $this->patch + 1,
+            $this->isPreRelease() ? $this->preRelease->increment() : PreRelease::createDefault());
+    }
+
+    /**
+     * Compares the version with the given one, returns true when the current is less than the other.
+     *
+     * @param string|Version $v The the version to compare.
      * @return bool True when instance < $v. Otherwise false.
      * @throws VersionFormatException When the given version is invalid.
      */
@@ -115,7 +167,9 @@ class Version
     }
 
     /**
-     * @param $v string|Version The the version to compare.
+     * Compares the version with the given one, returns true when the current is less than the other or equal.
+     *
+     * @param string|Version $v The the version to compare.
      * @return bool True when instance <= $v. Otherwise false.
      * @throws VersionFormatException When the given version is invalid.
      */
@@ -125,7 +179,9 @@ class Version
     }
 
     /**
-     * @param $v string|Version The the version to compare.
+     * Compares the version with the given one, returns true when the current is greater than the other.
+     *
+     * @param string|Version $v The the version to compare.
      * @return bool True when instance > $v. Otherwise false.
      * @throws VersionFormatException When the given version is invalid.
      */
@@ -135,7 +191,9 @@ class Version
     }
 
     /**
-     * @param $v string|Version The the version to compare.
+     * Compares the version with the given one, returns true when the current is greater than the other or equal.
+     *
+     * @param string|Version $v The the version to compare.
      * @return bool True when instance >= $v. Otherwise false.
      * @throws VersionFormatException When the given version is invalid.
      */
@@ -145,7 +203,9 @@ class Version
     }
 
     /**
-     * @param $v string|Version The the version to compare.
+     * Compares the version with the given one, returns true when they are equal.
+     *
+     * @param string|Version $v The the version to compare.
      * @return bool True when instance == $v. Otherwise false.
      * @throws VersionFormatException When the given version is invalid.
      */
@@ -155,18 +215,63 @@ class Version
     }
 
     /**
-     * @param $v string The version string.
+     * Parses a new version from the given version string.
+     *
+     * @param string $versionString The version string.
      * @return Version The parsed version.
      * @throws VersionFormatException When the given version string is invalid.
      */
-    public static function parse($v)
+    public static function parse($versionString)
     {
-        return new Version($v);
+        $versionString = trim($versionString);
+        if (empty($versionString)) {
+            throw new VersionFormatException("versionString cannot be empty.");
+        }
+
+        if (!preg_match(self::VERSION_REGEX, $versionString, $matches)) {
+            throw new VersionFormatException(sprintf("Invalid version: %s.", $versionString));
+        }
+
+        return new Version(intval($matches['major']),
+            intval($matches['minor']),
+            intval($matches['patch']),
+            isset($matches['prerelease']) && $matches['prerelease'] != ""
+                ? PreRelease::parse($matches['prerelease'])
+                : null,
+            isset($matches['buildmetadata']) && $matches['buildmetadata'] != ""
+                ? $matches['buildmetadata']
+                : null);
     }
 
     /**
-     * @param $v1 string|Version The left side of the comparison.
-     * @param $v2 string|Version The right side of the comparison.
+     * Creates a new version.
+     *
+     * @param $major int The major version number.
+     * @param $minor int The minor version number.
+     * @param $patch int The patch version number.
+     * @param null|string $preRelease The prerelease part.
+     * @param null|string $buildMeta The build metadata.
+     * @return Version The new version.
+     * @throws VersionFormatException When the version parts are invalid.
+     */
+    public static function create($major, $minor, $patch, $preRelease = null, $buildMeta = null)
+    {
+        self::ensureValidState($major >= 0, "The major number must be >= 0.");
+        self::ensureValidState($minor >= 0, "The minor number must be >= 0.");
+        self::ensureValidState($patch >= 0, "The patch number must be >= 0.");
+
+        return new Version($major,
+            $minor,
+            $patch,
+            $preRelease != null ? PreRelease::parse($preRelease) : null,
+            $buildMeta);
+    }
+
+    /**
+     * Compares two versions and returns true when the first is less than the second.
+     *
+     * @param string|Version $v1 The left side of the comparison.
+     * @param string|Version $v2 The right side of the comparison.
      * @return bool True when $v1 < $v2. Otherwise false.
      * @throws VersionFormatException When the given versions are invalid.
      */
@@ -176,8 +281,10 @@ class Version
     }
 
     /**
-     * @param $v1 string|Version The left side of the comparison.
-     * @param $v2 string|Version The right side of the comparison.
+     * Compares two versions and returns true when the first is less than the second or equal.
+     *
+     * @param string|Version $v1 The left side of the comparison.
+     * @param string|Version $v2 The right side of the comparison.
      * @return bool True when $v1 <= $v2. Otherwise false.
      * @throws VersionFormatException When the given versions are invalid.
      */
@@ -187,8 +294,10 @@ class Version
     }
 
     /**
-     * @param $v1 string|Version The left side of the comparison.
-     * @param $v2 string|Version The right side of the comparison.
+     * Compares two versions and returns true when the first is greater than the second.
+     *
+     * @param string|Version $v1 The left side of the comparison.
+     * @param string|Version $v2 The right side of the comparison.
      * @return bool True when $v1 > $v2. Otherwise false.
      * @throws VersionFormatException When the given versions are invalid.
      */
@@ -198,8 +307,10 @@ class Version
     }
 
     /**
-     * @param $v1 string|Version The left side of the comparison.
-     * @param $v2 string|Version The right side of the comparison.
+     * Compares two versions and returns true when the first is greater than the second or equal.
+     *
+     * @param string|Version $v1 The left side of the comparison.
+     * @param string|Version $v2 The right side of the comparison.
      * @return bool True when $v1 >= $v2. Otherwise false.
      * @throws VersionFormatException When the given versions are invalid.
      */
@@ -209,8 +320,10 @@ class Version
     }
 
     /**
-     * @param $v1 string|Version The left side of the comparison.
-     * @param $v2 string|Version The right side of the comparison.
+     * Compares two versions and returns true when the first and second are equal.
+     *
+     * @param string|Version $v1 The left side of the comparison.
+     * @param string|Version $v2 The right side of the comparison.
      * @return bool True when $v1 == $v2. Otherwise false.
      * @throws VersionFormatException When the given versions are invalid.
      */
@@ -220,8 +333,8 @@ class Version
     }
 
     /**
-     * @param $v1 string|Version The left side of the comparison.
-     * @param $v2 string|Version The right side of the comparison.
+     * @param string|Version $v1 The left side of the comparison.
+     * @param string|Version $v2 The right side of the comparison.
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
      * @throws VersionFormatException When the given versions are invalid.
      */
@@ -254,8 +367,8 @@ class Version
     }
 
     /**
-     * @param $v1 Version The left side of the comparison.
-     * @param $v2 Version The right side of the comparison.
+     * @param string|Version $v1 The left side of the comparison.
+     * @param string|Version $v2 The right side of the comparison.
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
      * @throws VersionFormatException When the given prerelease values are invalid.
      */
@@ -274,5 +387,17 @@ class Version
         }
 
         return 0;
+    }
+
+    /**
+     * @param bool $condition The condition must be met.
+     * @param string $message The exception message.
+     * @throws VersionFormatException When the condition failed.
+     */
+    private static function ensureValidState($condition, $message)
+    {
+        if (!$condition) {
+            throw new VersionFormatException($message);
+        }
     }
 }

@@ -39,21 +39,21 @@ class PreReleaseTest extends \PHPUnit_Framework_TestCase
 
     public function testValid()
     {
-        $preRelease = PreRelease::parse("alpha-3.Beta.13");
-        $this->assertNotNull($preRelease);
+        $this->assertNotNull(PreRelease::parse("0alpha-3.Beta.13"));
+    }
+
+    public function testIncrementWithoutNumeric()
+    {
+        $this->assertEquals("alpha-3.Beta.0", (string)PreRelease::parse("alpha-3.Beta")->increment());
     }
 
     public function testIncrementWithNumeric()
     {
-        $preRelease = PreRelease::parse("alpha-3.13.Beta");
-        $incremented = $preRelease->increment();
-        $this->assertEquals("alpha-3.14.Beta", (string)$incremented);
+        $this->assertEquals("alpha-3.14.Beta", (string)PreRelease::parse("alpha-3.13.Beta")->increment());
     }
 
     public function testIncrementWithMultipleNumeric()
     {
-        $preRelease = PreRelease::parse("alpha.5.Beta.7");
-        $incremented = $preRelease->increment();
-        $this->assertEquals("alpha.5.Beta.8", (string)$incremented);
+        $this->assertEquals("alpha.5.Beta.8", (string)PreRelease::parse("alpha.5.Beta.7")->increment());
     }
 }

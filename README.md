@@ -24,12 +24,12 @@ use z4kn4fein\SemVer\Version;
 
 $version = Version::parse('2.5.6-alpha.12+build.34');
 
-echo $version->getMajor();          // 2
-echo $version->getMinor();          // 5
-echo $version->getPatch();          // 6
-echo $version->getPreRelease();     // alpha.12
-echo $version->getBuildMeta();      // build.34
-echo $version->getVersionString();  // 2.5.6-alpha.12+build.34
+echo $version->getMajor();                  // 2
+echo $version->getMinor();                  // 5
+echo $version->getPatch();                  // 6
+echo (string)$version->getPreRelease();     // alpha.12
+echo $version->getBuildMeta();              // build.34
+echo (string)$version;                      // 2.5.6-alpha.12+build.34
 ```
 #### Comparing two versions
 ```php
@@ -52,6 +52,19 @@ echo $version->isLessThanOrEqual('2.5.6-alpha.15');  // true
 echo $version->isGreaterThan('2.5.6');               // false
 echo $version->isLessThanOrEqual('2.5.6-alpha.12');  // true
 echo $version->isEqual('2.5.6-alpha.12+build.56');   // true
+```
+#### Producing incremented versions
+```php
+<?php
+
+use z4kn4fein\SemVer\Version;
+
+$version = Version::create(2, 3, 5, "alpha.4", "build.2");
+
+echo (string)$version->getNextMajorVersion();        // 3.0.0
+echo (string)$version->getNextMinorVersion();        // 2.4.0
+echo (string)$version->getNextPatchVersion();        // 2.3.5
+echo (string)$version->getNextPreReleaseVersion();   // 2.3.5-alpha.5
 ```
 ## Invalid version handling
 When the version parsing fails due to an invalid format, the library throws a specific `VersionFormatException`.
