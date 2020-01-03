@@ -60,7 +60,9 @@ class PreRelease
             if ($this->hasOnlyNumbers($part)) {
                 if (strlen($part) > 1 && $part[0] == "0") {
                     throw new VersionFormatException(sprintf(
-                        "The prerelease part '%s' is numeric but contains a leading zero.", $part));
+                        "The prerelease part '%s' is numeric but contains a leading zero.",
+                        $part
+                    ));
                 } else {
                     continue;
                 }
@@ -68,7 +70,9 @@ class PreRelease
 
             if (!$this->hasOnlyAlphanumericsAndHyphen($part)) {
                 throw new VersionFormatException(sprintf(
-                    "The prerelease part '%s' contains invalid character.", $part));
+                    "The prerelease part '%s' contains invalid character.",
+                    $part
+                ));
             }
         }
     }

@@ -148,10 +148,12 @@ class Version
      */
     public function getNextPreReleaseVersion()
     {
-        return new Version($this->major,
+        return new Version(
+            $this->major,
             $this->minor,
             $this->isPreRelease() ? $this->patch : $this->patch + 1,
-            $this->isPreRelease() ? $this->preRelease->increment() : PreRelease::createDefault());
+            $this->isPreRelease() ? $this->preRelease->increment() : PreRelease::createDefault()
+        );
     }
 
     /**
@@ -232,7 +234,8 @@ class Version
             throw new VersionFormatException(sprintf("Invalid version: %s.", $versionString));
         }
 
-        return new Version(intval($matches['major']),
+        return new Version(
+            intval($matches['major']),
             intval($matches['minor']),
             intval($matches['patch']),
             isset($matches['prerelease']) && $matches['prerelease'] != ""
@@ -240,7 +243,8 @@ class Version
                 : null,
             isset($matches['buildmetadata']) && $matches['buildmetadata'] != ""
                 ? $matches['buildmetadata']
-                : null);
+            : null
+        );
     }
 
     /**
@@ -260,11 +264,13 @@ class Version
         self::ensureValidState($minor >= 0, "The minor number must be >= 0.");
         self::ensureValidState($patch >= 0, "The patch number must be >= 0.");
 
-        return new Version($major,
+        return new Version(
+            $major,
             $minor,
             $patch,
             $preRelease != null ? PreRelease::parse($preRelease) : null,
-            $buildMeta);
+            $buildMeta
+        );
     }
 
     /**
