@@ -3,7 +3,7 @@
 namespace z4kn4fein\SemVer;
 
 /**
- * Class Version This class describes a semantic version and related operations.
+ * This class describes a semantic version and related operations.
  * @package z4kn4fein\SemVer
  */
 class Version
@@ -23,7 +23,7 @@ class Version
     private $buildMeta;
 
     /**
-     * Version constructor.
+     * Constructs a semantic version.
      *
      * @param $major int The major version number.
      * @param $minor int The minor version number.
@@ -82,13 +82,13 @@ class Version
     }
 
     /**
-     * Returns the prerelease tag.
+     * Returns the pre-release tag.
      *
-     * @return null|PreRelease The prerelease part.
+     * @return null|string The prerelease part.
      */
     public function getPreRelease()
     {
-        return $this->preRelease;
+        return $this->preRelease != null ? (string)$this->preRelease : null;
     }
 
     /**
@@ -102,9 +102,9 @@ class Version
     }
 
     /**
-     * Returns true when the version has a prerelease tag.
+     * Returns true when the version has a pre-release tag.
      *
-     * @return bool True when the version is a prerelease version.
+     * @return bool True when the version is a pre-release version.
      */
     public function isPreRelease()
     {
@@ -142,9 +142,9 @@ class Version
     }
 
     /**
-     * Produces the next prerelease version.
+     * Produces the next pre-release version.
      *
-     * @return Version The next prerelease version.
+     * @return Version The next pre-release version.
      */
     public function getNextPreReleaseVersion()
     {
@@ -159,8 +159,8 @@ class Version
     /**
      * Compares the version with the given one, returns true when the current is less than the other.
      *
-     * @param string|Version $v The the version to compare.
-     * @return bool True when instance < $v. Otherwise false.
+     * @param string|Version $v The version to compare.
+     * @return bool True when instance < $v. Otherwise, false.
      * @throws VersionFormatException When the given version is invalid.
      */
     public function isLessThan($v)
@@ -171,8 +171,8 @@ class Version
     /**
      * Compares the version with the given one, returns true when the current is less than the other or equal.
      *
-     * @param string|Version $v The the version to compare.
-     * @return bool True when instance <= $v. Otherwise false.
+     * @param string|Version $v The version to compare.
+     * @return bool True when instance <= $v. Otherwise, false.
      * @throws VersionFormatException When the given version is invalid.
      */
     public function isLessThanOrEqual($v)
@@ -183,8 +183,8 @@ class Version
     /**
      * Compares the version with the given one, returns true when the current is greater than the other.
      *
-     * @param string|Version $v The the version to compare.
-     * @return bool True when instance > $v. Otherwise false.
+     * @param string|Version $v The version to compare.
+     * @return bool True when instance > $v. Otherwise, false.
      * @throws VersionFormatException When the given version is invalid.
      */
     public function isGreaterThan($v)
@@ -195,8 +195,8 @@ class Version
     /**
      * Compares the version with the given one, returns true when the current is greater than the other or equal.
      *
-     * @param string|Version $v The the version to compare.
-     * @return bool True when instance >= $v. Otherwise false.
+     * @param string|Version $v The version to compare.
+     * @return bool True when instance >= $v. Otherwise, false.
      * @throws VersionFormatException When the given version is invalid.
      */
     public function isGreaterThanOrEqual($v)
@@ -207,13 +207,35 @@ class Version
     /**
      * Compares the version with the given one, returns true when they are equal.
      *
-     * @param string|Version $v The the version to compare.
-     * @return bool True when instance == $v. Otherwise false.
+     * @param string|Version $v The version to compare.
+     * @return bool True when instance == $v. Otherwise, false.
      * @throws VersionFormatException When the given version is invalid.
      */
     public function isEqual($v)
     {
         return self::equal($this, $v);
+    }
+
+    /**
+     * Constructs a copy of the version. The copied object's properties can be altered with the optional parameters.
+     *
+     * @param null|int $major The major version number.
+     * @param null|int $minor The minor version number.
+     * @param null|int $patch The patch version number.
+     * @param null|string $preRelease The pre-release part.
+     * @param null|string $buildMeta The build metadata.
+     * @return Version The new version.
+     * @throws VersionFormatException When the version parts are invalid.
+     */
+    public function copy($major = null, $minor = null, $patch = null, $preRelease = null, $buildMeta = null)
+    {
+        return Version::create(
+            $major == null ? $this->major : $major,
+            $minor == null ? $this->minor : $minor,
+            $patch == null ? $this->patch : $patch,
+            $preRelease == null ? $this->preRelease : $preRelease,
+            $buildMeta == null ? $this->buildMeta : $buildMeta
+        );
     }
 
     /**
@@ -250,10 +272,10 @@ class Version
     /**
      * Creates a new version.
      *
-     * @param $major int The major version number.
-     * @param $minor int The minor version number.
-     * @param $patch int The patch version number.
-     * @param null|string $preRelease The prerelease part.
+     * @param int $major The major version number.
+     * @param int $minor The minor version number.
+     * @param int $patch The patch version number.
+     * @param null|string $preRelease The pre-release part.
      * @param null|string $buildMeta The build metadata.
      * @return Version The new version.
      * @throws VersionFormatException When the version parts are invalid.
@@ -278,7 +300,7 @@ class Version
      *
      * @param string|Version $v1 The left side of the comparison.
      * @param string|Version $v2 The right side of the comparison.
-     * @return bool True when $v1 < $v2. Otherwise false.
+     * @return bool True when $v1 < $v2. Otherwise, false.
      * @throws VersionFormatException When the given versions are invalid.
      */
     public static function lessThan($v1, $v2)
@@ -291,7 +313,7 @@ class Version
      *
      * @param string|Version $v1 The left side of the comparison.
      * @param string|Version $v2 The right side of the comparison.
-     * @return bool True when $v1 <= $v2. Otherwise false.
+     * @return bool True when $v1 <= $v2. Otherwise, false.
      * @throws VersionFormatException When the given versions are invalid.
      */
     public static function lessThanOrEqual($v1, $v2)
@@ -304,7 +326,7 @@ class Version
      *
      * @param string|Version $v1 The left side of the comparison.
      * @param string|Version $v2 The right side of the comparison.
-     * @return bool True when $v1 > $v2. Otherwise false.
+     * @return bool True when $v1 > $v2. Otherwise, false.
      * @throws VersionFormatException When the given versions are invalid.
      */
     public static function greaterThan($v1, $v2)
@@ -317,7 +339,7 @@ class Version
      *
      * @param string|Version $v1 The left side of the comparison.
      * @param string|Version $v2 The right side of the comparison.
-     * @return bool True when $v1 >= $v2. Otherwise false.
+     * @return bool True when $v1 >= $v2. Otherwise, false.
      * @throws VersionFormatException When the given versions are invalid.
      */
     public static function greaterThanOrEqual($v1, $v2)
@@ -330,7 +352,7 @@ class Version
      *
      * @param string|Version $v1 The left side of the comparison.
      * @param string|Version $v2 The right side of the comparison.
-     * @return bool True when $v1 == $v2. Otherwise false.
+     * @return bool True when $v1 == $v2. Otherwise, false.
      * @throws VersionFormatException When the given versions are invalid.
      */
     public static function equal($v1, $v2)
@@ -376,7 +398,7 @@ class Version
      * @param string|Version $v1 The left side of the comparison.
      * @param string|Version $v2 The right side of the comparison.
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
-     * @throws VersionFormatException When the given prerelease values are invalid.
+     * @throws VersionFormatException When the given pre-release values are invalid.
      */
     private static function compareByPreRelease($v1, $v2)
     {

@@ -29,4 +29,17 @@ class CreateTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertNotNull(Version::create(0, 0,0));
     }
+
+    public function testCopy()
+    {
+        $version = Version::create(0, 0,0, "alpha", "build");
+        $this->assertEquals($version, $version->copy());
+
+        $this->assertEquals("2.0.0-alpha+build", (string)$version->copy(2));
+        $this->assertEquals("0.2.0-alpha+build", (string)$version->copy(null, 2));
+        $this->assertEquals("0.0.2-alpha+build", (string)$version->copy(null, null, 2));
+        $this->assertEquals("0.0.0-beta+build", (string)$version->copy(null, null, null, "beta"));
+        $this->assertEquals("0.0.0-alpha+build2", (string)$version->copy(null, null, null, null, "build2"));
+        $this->assertEquals("2.3.4-alpha+build", (string)$version->copy(2, 3, 4));
+    }
 }

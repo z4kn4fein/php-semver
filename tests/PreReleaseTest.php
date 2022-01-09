@@ -19,10 +19,22 @@ class PreReleaseTest extends \PHPUnit_Framework_TestCase
         PreRelease::parse("");
     }
 
+    public function testEmptyPart()
+    {
+        $this->setExpectedException(VersionFormatException::class);
+        PreRelease::parse("alpha.");
+    }
+
     public function testWhitespace()
     {
         $this->setExpectedException(VersionFormatException::class);
         PreRelease::parse(" ");
+    }
+
+    public function testWhitespacePart()
+    {
+        $this->setExpectedException(VersionFormatException::class);
+        PreRelease::parse("alpha. ");
     }
 
     public function testInvalid()
@@ -40,6 +52,11 @@ class PreReleaseTest extends \PHPUnit_Framework_TestCase
     public function testValid()
     {
         $this->assertNotNull(PreRelease::parse("0alpha-3.Beta.13"));
+    }
+
+    public function testValidAlphaNumeric()
+    {
+        $this->assertNotNull(PreRelease::parse("0alpha"));
     }
 
     public function testIncrementWithoutNumeric()

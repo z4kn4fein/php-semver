@@ -9,7 +9,7 @@ class PreRelease
 
     /**
      * PreRelease constructor.
-     * @param array $preReleaseParts The prerelease parts.
+     * @param array $preReleaseParts The pre-release parts.
      */
     private function __construct($preReleaseParts)
     {
@@ -17,7 +17,7 @@ class PreRelease
     }
 
     /**
-     * @return PreRelease The incremented prerelease
+     * @return PreRelease The incremented pre-release.
      */
     public function increment()
     {
@@ -39,13 +39,16 @@ class PreRelease
     }
 
     /**
-     * @return string The string representation of the prerelease.
+     * @return string The string representation of the pre-release.
      */
     public function __toString()
     {
         return implode('.', $this->preReleaseParts);
     }
 
+    /**
+     * @return PreRelease The copied pre-release.
+     */
     private function copy()
     {
         return new PreRelease($this->preReleaseParts);
@@ -57,20 +60,16 @@ class PreRelease
     private function validate()
     {
         foreach ($this->preReleaseParts as $part) {
-            if ($this->hasOnlyNumbers($part)) {
-                if (strlen($part) > 1 && $part[0] == "0") {
-                    throw new VersionFormatException(sprintf(
-                        "The prerelease part '%s' is numeric but contains a leading zero.",
-                        $part
-                    ));
-                } else {
-                    continue;
-                }
+            if ($this->hasOnlyNumbers($part) && strlen($part) > 1 && $part[0] == "0") {
+                throw new VersionFormatException(sprintf(
+                    "The pre-release part '%s' is numeric but contains a leading zero.",
+                    $part
+                ));
             }
 
             if (!$this->hasOnlyAlphanumericsAndHyphen($part)) {
                 throw new VersionFormatException(sprintf(
-                    "The prerelease part '%s' contains invalid character.",
+                    "The pre-release part '%s' contains invalid character.",
                     $part
                 ));
             }
@@ -79,26 +78,26 @@ class PreRelease
 
     /**
      * @param string $part part to check.
-     * @return bool True when the part is containing only numbers.
+     * @return bool True when the part has only numbers.
      */
     private function hasOnlyNumbers($part)
     {
-        return !preg_match("/[^0-9]/", $part);
+        return preg_match("/^[0-9]+$/", $part);
     }
 
     /**
      * @param string $part The part to check.
-     * @return bool True when the part is only containing alphanumerics.
+     * @return bool True when the part has only alphanumerics.
      */
     private function hasOnlyAlphanumericsAndHyphen($part)
     {
-        return !preg_match("/[^0-9A-Za-z-]/", $part);
+        return preg_match("/^[0-9A-Za-z-]+$/", $part);
     }
 
     /**
-     * Creates a new prerelease tag with initial default value (-0).
+     * Creates a new pre-release tag with initial default value (-0).
      *
-     * @return PreRelease The default prerelease tag.
+     * @return PreRelease The default pre-release tag.
      */
     public static function createDefault()
     {
@@ -106,9 +105,9 @@ class PreRelease
     }
 
     /**
-     * @param string $preReleaseString The prerelease string.
-     * @return PreRelease The parsed prerelease part.
-     * @throws VersionFormatException When the given prerelease string is invalid.
+     * @param string $preReleaseString The pre-release string.
+     * @return PreRelease The parsed pre-release part.
+     * @throws VersionFormatException When the given pre-release string is invalid.
      */
     public static function parse($preReleaseString)
     {
@@ -127,7 +126,7 @@ class PreRelease
      * @param string|PreRelease $p1 The left side of the comparison.
      * @param string|PreRelease $p2 The right side of the comparison.
      * @return int -1 when $p1 < $p2, 0 when $p1 == $p2, 1 when $p1 > $p2.
-     * @throws VersionFormatException When the given prerelease values are invalid.
+     * @throws VersionFormatException When the given pre-release values are invalid.
      */
     public static function compare($p1, $p2)
     {
