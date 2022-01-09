@@ -99,7 +99,7 @@ $version = Version::parse("1.0.0-alpha.2+build.1");
 echo (string)$version->copy(3)                                       // 3.0.0
 echo (string)$version->copy(null, 4)                                 // 1.4.0
 echo (string)$version->copy(null, null, 5)                           // 1.0.5
-echo (string)$version->copy(null, null, null, "alpha.4")             // 1.0.0-alpha.4
+echo (string)$version->copy(null, null, null, "alpha.4")             // 1.0.0-alpha.4+build.1
 echo (string)$version->copy(null, null, null, null, "build.3")       // 1.0.0-alpha.2+build.3
 echo (string)$version->copy(3, 4, 5)                                 // 3.4.5-alpha.2+build.1
 ```
