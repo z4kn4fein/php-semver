@@ -23,6 +23,23 @@ class CompareTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($version->isLessThanOrEqual('5.2.3-alpha.2'));
     }
 
+    public function testPrecedenceFromSpex()
+    {
+        $this->assertTrue(Version::parse('1.0.0')->isLessThan('2.0.0'));
+        $this->assertTrue(Version::parse('2.0.0')->isLessThan('2.1.0'));
+        $this->assertTrue(Version::parse('2.1.0')->isLessThan('2.1.1'));
+
+        $this->assertTrue(Version::parse('1.0.0-alpha')->isLessThan('1.0.0'));
+
+        $this->assertTrue(Version::parse('1.0.0-alpha')->isLessThan('1.0.0-alpha.1'));
+        $this->assertTrue(Version::parse('1.0.0-alpha.1')->isLessThan('1.0.0-alpha.beta'));
+        $this->assertTrue(Version::parse('1.0.0-alpha.beta')->isLessThan('1.0.0-beta'));
+        $this->assertTrue(Version::parse('1.0.0-beta')->isLessThan('1.0.0-beta.2'));
+        $this->assertTrue(Version::parse('1.0.0-beta.2')->isLessThan('1.0.0-beta.11'));
+        $this->assertTrue(Version::parse('1.0.0-beta.11')->isLessThan('1.0.0-rc.1'));
+        $this->assertTrue(Version::parse('1.0.0-rc.1')->isLessThan('1.0.0'));
+    }
+
     public function testCompareByPreReleaseNumberAlphabetical()
     {
         $version = Version::parse('5.2.3-alpha.2');

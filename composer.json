@@ -1,7 +1,7 @@
 {
   "name": "z4kn4fein/php-semver",
   "type": "library",
-  "description": "Semantic version utility library with parser and comparator written in PHP. It provides full support for the semver 2.0.0 standards.",
+  "description": "Semantic Versioning library for PHP. It implements the full semantic version 2.0.0 specification and provides ability to parse, compare, and increment semantic versions.",
   "minimum-stability": "stable",
   "keywords": ["Semantic version", "semver", "semver-parsing", "semver-compare"],
   "homepage": "https://github.com/z4kn4fein/php-semver",
