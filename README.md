@@ -5,7 +5,8 @@
 [![Total Downloads](https://poser.pugx.org/z4kn4fein/php-semver/downloads)](https://packagist.org/packages/z4kn4fein/php-semver)
 [![Latest Unstable Version](https://poser.pugx.org/z4kn4fein/php-semver/v/unstable)](https://packagist.org/packages/z4kn4fein/php-semver)
 
-Semantic Versioning library for PHP. It implements the full [semantic version 2.0.0](https://semver.org/spec/v2.0.0.html) specification.
+Semantic Versioning library for PHP. It implements the full [semantic version 2.0.0](https://semver.org/spec/v2.0.0.html) specification and
+provides ability to **parse**, **compare**, and **increment** semantic versions.
 
 ## Requirements
 [PHP](https://www.php.net/) >= 5.5
