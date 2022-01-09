@@ -1,5 +1,5 @@
 # php-semver
-[![Build Status](https://travis-ci.com/z4kn4fein/php-semver.svg?branch=master)](https://travis-ci.com/z4kn4fein/php-semver)
+[![Build Status](https://travis-ci.com/z4kn4fein/php-semver.svg?branch=master)](https://app.travis-ci.com/github/z4kn4fein/php-semver)
 [![Coverage Status](https://img.shields.io/codecov/c/github/z4kn4fein/php-semver.svg)](https://codecov.io/gh/z4kn4fein/php-semver)
 [![Latest Stable Version](https://poser.pugx.org/z4kn4fein/php-semver/version)](https://packagist.org/packages/z4kn4fein/php-semver)
 [![Total Downloads](https://poser.pugx.org/z4kn4fein/php-semver/downloads)](https://packagist.org/packages/z4kn4fein/php-semver)
