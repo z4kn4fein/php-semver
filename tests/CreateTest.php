@@ -2,26 +2,27 @@
 
 namespace z4kn4fein\SemVer\Tests;
 
+use PHPUnit\Framework\TestCase;
 use z4kn4fein\SemVer\Version;
 use z4kn4fein\SemVer\VersionFormatException;
 
-class CreateTest extends \PHPUnit_Framework_TestCase
+class CreateTest extends TestCase
 {
     public function testInvalidMajor()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         Version::create(-1, 0,0);
     }
 
     public function testInvalidMinor()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         Version::create(0, -1,0);
     }
 
     public function testInvalidPatch()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         Version::create(0, 0,-1);
     }
 

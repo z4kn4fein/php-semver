@@ -2,32 +2,27 @@
 
 namespace z4kn4fein\SemVer\Tests;
 
+use PHPUnit\Framework\TestCase;
 use z4kn4fein\SemVer\Version;
 use z4kn4fein\SemVer\VersionFormatException;
 
-class ParseTest extends \PHPUnit_Framework_TestCase
+class ParseTest extends TestCase
 {
-    public function testNull()
-    {
-        $this->setExpectedException(VersionFormatException::class);
-        Version::parse(null);
-    }
-
     public function testEmpty()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         Version::parse('');
     }
 
     public function testInvalid()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         Version::parse('1.0');
     }
 
     public function testNegative()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         Version::parse('-1.0.0');
     }
 

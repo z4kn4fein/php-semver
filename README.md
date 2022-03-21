@@ -9,7 +9,7 @@ Semantic Versioning library for PHP. It implements the full [semantic version 2.
 provides ability to **parse**, **compare**, and **increment** semantic versions.
 
 ## Requirements
-[PHP](https://www.php.net/) >= 5.5
+[PHP](https://www.php.net/) >= 7.1
 
 ## Install with [Composer](https://getcomposer.org/)
 ```shell

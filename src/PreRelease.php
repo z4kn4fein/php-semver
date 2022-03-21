@@ -11,7 +11,7 @@ class PreRelease
      * PreRelease constructor.
      * @param array $preReleaseParts The pre-release parts.
      */
-    private function __construct($preReleaseParts)
+    private function __construct(array $preReleaseParts)
     {
         $this->preReleaseParts = $preReleaseParts;
     }
@@ -19,7 +19,7 @@ class PreRelease
     /**
      * @return PreRelease The incremented pre-release.
      */
-    public function increment()
+    public function increment(): PreRelease
     {
         $result = $this->copy();
         $lastNumericIndex = 0;
@@ -49,7 +49,7 @@ class PreRelease
     /**
      * @return PreRelease The copied pre-release.
      */
-    private function copy()
+    private function copy(): PreRelease
     {
         return new PreRelease($this->preReleaseParts);
     }
@@ -57,7 +57,7 @@ class PreRelease
     /**
      * @throws VersionFormatException When the $preReleaseString is invalid.
      */
-    private function validate()
+    private function validate(): void
     {
         foreach ($this->preReleaseParts as $part) {
             if ($this->hasOnlyNumbers($part) && strlen($part) > 1 && $part[0] == "0") {
@@ -80,7 +80,7 @@ class PreRelease
      * @param string $part part to check.
      * @return bool True when the part has only numbers.
      */
-    private function hasOnlyNumbers($part)
+    private function hasOnlyNumbers(string $part): bool
     {
         return preg_match("/^[0-9]+$/", $part);
     }
@@ -89,7 +89,7 @@ class PreRelease
      * @param string $part The part to check.
      * @return bool True when the part has only alphanumerics.
      */
-    private function hasOnlyAlphanumericsAndHyphen($part)
+    private function hasOnlyAlphanumericsAndHyphen(string $part): bool
     {
         return preg_match("/^[0-9A-Za-z-]+$/", $part);
     }
@@ -99,7 +99,7 @@ class PreRelease
      *
      * @return PreRelease The default pre-release tag.
      */
-    public static function createDefault()
+    public static function createDefault(): PreRelease
     {
         return new PreRelease([0]);
     }
@@ -109,7 +109,7 @@ class PreRelease
      * @return PreRelease The parsed pre-release part.
      * @throws VersionFormatException When the given pre-release string is invalid.
      */
-    public static function parse($preReleaseString)
+    public static function parse(string $preReleaseString): PreRelease
     {
         $preReleaseString = trim($preReleaseString);
         if ($preReleaseString == null || $preReleaseString == "") {
@@ -128,7 +128,7 @@ class PreRelease
      * @return int -1 when $p1 < $p2, 0 when $p1 == $p2, 1 when $p1 > $p2.
      * @throws VersionFormatException When the given pre-release values are invalid.
      */
-    public static function compare($p1, $p2)
+    public static function compare($p1, $p2): int
     {
         if (!$p1 instanceof PreRelease) {
             $p1 = self::parse($p1);
@@ -158,7 +158,7 @@ class PreRelease
      * @param mixed $b The right side of the comparison.
      * @return int -1 when $a < $b, 0 when $a == $b, 1 when $v1 > $b.
      */
-    private static function comparePart($a, $b)
+    private static function comparePart($a, $b): int
     {
         if (is_numeric($a) && !is_numeric($b)) {
             return -1;

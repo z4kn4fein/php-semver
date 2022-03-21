@@ -2,9 +2,10 @@
 
 namespace z4kn4fein\SemVer\Tests;
 
+use PHPUnit\Framework\TestCase;
 use z4kn4fein\SemVer\Version;
 
-class NextVersionsTest extends \PHPUnit_Framework_TestCase
+class NextVersionsTest extends TestCase
 {
     public function testNextVersions()
     {

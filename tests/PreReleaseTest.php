@@ -2,50 +2,45 @@
 
 namespace z4kn4fein\SemVer\Tests;
 
+use PHPUnit\Framework\TestCase;
 use z4kn4fein\SemVer\PreRelease;
 use z4kn4fein\SemVer\VersionFormatException;
 
-class PreReleaseTest extends \PHPUnit_Framework_TestCase
+class PreReleaseTest extends TestCase
 {
-    public function testNull()
-    {
-        $this->setExpectedException(VersionFormatException::class);
-        PreRelease::parse(null);
-    }
-
     public function testEmpty()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         PreRelease::parse("");
     }
 
     public function testEmptyPart()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         PreRelease::parse("alpha.");
     }
 
     public function testWhitespace()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         PreRelease::parse(" ");
     }
 
     public function testWhitespacePart()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         PreRelease::parse("alpha. ");
     }
 
     public function testInvalid()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         PreRelease::parse("alpha$");
     }
 
     public function testInvalidNumeric()
     {
-        $this->setExpectedException(VersionFormatException::class);
+        $this->expectException(VersionFormatException::class);
         PreRelease::parse("alpha.012");
     }
 

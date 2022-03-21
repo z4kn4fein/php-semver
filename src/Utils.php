@@ -9,7 +9,7 @@ class Utils
      * @param $b int|string The right side of the comparison.
      * @return int -1 when $a < $b, 0 when $a == $b, 1 when $a > $b.
      */
-    public static function comparePrimitive($a, $b)
+    public static function comparePrimitive($a, $b): int
     {
         if ($a != $b) {
             return $a < $b ? -1 : 1;

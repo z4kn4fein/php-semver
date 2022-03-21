@@ -28,10 +28,10 @@ class Version
      * @param $major int The major version number.
      * @param $minor int The minor version number.
      * @param $patch int The patch version number.
-     * @param null|PreRelease $preRelease The prerelease part.
-     * @param null|string $buildMeta The build metadata.
+     * @param PreRelease|null $preRelease The prerelease part.
+     * @param string|null $buildMeta The build metadata.
      */
-    private function __construct($major, $minor, $patch, $preRelease = null, $buildMeta = null)
+    private function __construct(int $major, int $minor, int $patch, PreRelease $preRelease = null, string $buildMeta = null)
     {
         $this->major = $major;
         $this->minor = $minor;
@@ -56,7 +56,7 @@ class Version
      *
      * @return int The major version number.
      */
-    public function getMajor()
+    public function getMajor(): int
     {
         return $this->major;
     }
@@ -66,7 +66,7 @@ class Version
      *
      * @return int The minor version number.
      */
-    public function getMinor()
+    public function getMinor(): int
     {
         return $this->minor;
     }
@@ -76,7 +76,7 @@ class Version
      *
      * @return int The patch version number.
      */
-    public function getPatch()
+    public function getPatch(): int
     {
         return $this->patch;
     }
@@ -86,7 +86,7 @@ class Version
      *
      * @return null|string The prerelease part.
      */
-    public function getPreRelease()
+    public function getPreRelease(): ?string
     {
         return $this->preRelease != null ? (string)$this->preRelease : null;
     }
@@ -96,7 +96,7 @@ class Version
      *
      * @return null|string The build metadata part.
      */
-    public function getBuildMeta()
+    public function getBuildMeta(): ?string
     {
         return $this->buildMeta;
     }
@@ -106,7 +106,7 @@ class Version
      *
      * @return bool True when the version is a pre-release version.
      */
-    public function isPreRelease()
+    public function isPreRelease(): bool
     {
         return $this->preRelease != null;
     }
@@ -116,7 +116,7 @@ class Version
      *
      * @return Version The next major version.
      */
-    public function getNextMajorVersion()
+    public function getNextMajorVersion(): Version
     {
         return new Version($this->major + 1, 0, 0);
     }
@@ -126,7 +126,7 @@ class Version
      *
      * @return Version The next minor version.
      */
-    public function getNextMinorVersion()
+    public function getNextMinorVersion(): Version
     {
         return new Version($this->major, $this->minor + 1, 0);
     }
@@ -136,7 +136,7 @@ class Version
      *
      * @return Version The next patch version.
      */
-    public function getNextPatchVersion()
+    public function getNextPatchVersion(): Version
     {
         return new Version($this->major, $this->minor, $this->isPreRelease() ? $this->patch : $this->patch + 1);
     }
@@ -146,7 +146,7 @@ class Version
      *
      * @return Version The next pre-release version.
      */
-    public function getNextPreReleaseVersion()
+    public function getNextPreReleaseVersion(): Version
     {
         return new Version(
             $this->major,
@@ -163,7 +163,7 @@ class Version
      * @return bool True when instance < $v. Otherwise, false.
      * @throws VersionFormatException When the given version is invalid.
      */
-    public function isLessThan($v)
+    public function isLessThan($v): bool
     {
         return self::lessThan($this, $v);
     }
@@ -175,7 +175,7 @@ class Version
      * @return bool True when instance <= $v. Otherwise, false.
      * @throws VersionFormatException When the given version is invalid.
      */
-    public function isLessThanOrEqual($v)
+    public function isLessThanOrEqual($v): bool
     {
         return self::lessThanOrEqual($this, $v);
     }
@@ -187,7 +187,7 @@ class Version
      * @return bool True when instance > $v. Otherwise, false.
      * @throws VersionFormatException When the given version is invalid.
      */
-    public function isGreaterThan($v)
+    public function isGreaterThan($v): bool
     {
         return self::greaterThan($this, $v);
     }
@@ -199,7 +199,7 @@ class Version
      * @return bool True when instance >= $v. Otherwise, false.
      * @throws VersionFormatException When the given version is invalid.
      */
-    public function isGreaterThanOrEqual($v)
+    public function isGreaterThanOrEqual($v): bool
     {
         return self::greaterThanOrEqual($this, $v);
     }
@@ -211,7 +211,7 @@ class Version
      * @return bool True when instance == $v. Otherwise, false.
      * @throws VersionFormatException When the given version is invalid.
      */
-    public function isEqual($v)
+    public function isEqual($v): bool
     {
         return self::equal($this, $v);
     }
@@ -219,15 +219,15 @@ class Version
     /**
      * Constructs a copy of the version. The copied object's properties can be altered with the optional parameters.
      *
-     * @param null|int $major The major version number.
-     * @param null|int $minor The minor version number.
-     * @param null|int $patch The patch version number.
-     * @param null|string $preRelease The pre-release part.
-     * @param null|string $buildMeta The build metadata.
+     * @param int|null $major The major version number.
+     * @param int|null $minor The minor version number.
+     * @param int|null $patch The patch version number.
+     * @param string|null $preRelease The pre-release part.
+     * @param string|null $buildMeta The build metadata.
      * @return Version The new version.
      * @throws VersionFormatException When the version parts are invalid.
      */
-    public function copy($major = null, $minor = null, $patch = null, $preRelease = null, $buildMeta = null)
+    public function copy(int $major = null, int $minor = null, int $patch = null, string $preRelease = null, string $buildMeta = null): Version
     {
         return Version::create(
             $major == null ? $this->major : $major,
@@ -245,7 +245,7 @@ class Version
      * @return Version The parsed version.
      * @throws VersionFormatException When the given version string is invalid.
      */
-    public static function parse($versionString)
+    public static function parse(string $versionString): Version
     {
         $versionString = trim($versionString);
         if (empty($versionString)) {
@@ -265,7 +265,7 @@ class Version
                 : null,
             isset($matches['buildmetadata']) && $matches['buildmetadata'] != ""
                 ? $matches['buildmetadata']
-            : null
+                : null
         );
     }
 
@@ -280,7 +280,7 @@ class Version
      * @return Version The new version.
      * @throws VersionFormatException When the version parts are invalid.
      */
-    public static function create($major, $minor, $patch, $preRelease = null, $buildMeta = null)
+    public static function create(int $major, int $minor, int $patch, string $preRelease = null, string $buildMeta = null): Version
     {
         self::ensureValidState($major >= 0, "The major number must be >= 0.");
         self::ensureValidState($minor >= 0, "The minor number must be >= 0.");
@@ -303,7 +303,7 @@ class Version
      * @return bool True when $v1 < $v2. Otherwise, false.
      * @throws VersionFormatException When the given versions are invalid.
      */
-    public static function lessThan($v1, $v2)
+    public static function lessThan($v1, $v2): bool
     {
         return self::compare($v1, $v2) < 0;
     }
@@ -316,7 +316,7 @@ class Version
      * @return bool True when $v1 <= $v2. Otherwise, false.
      * @throws VersionFormatException When the given versions are invalid.
      */
-    public static function lessThanOrEqual($v1, $v2)
+    public static function lessThanOrEqual($v1, $v2): bool
     {
         return self::compare($v1, $v2) <= 0;
     }
@@ -329,7 +329,7 @@ class Version
      * @return bool True when $v1 > $v2. Otherwise, false.
      * @throws VersionFormatException When the given versions are invalid.
      */
-    public static function greaterThan($v1, $v2)
+    public static function greaterThan($v1, $v2): bool
     {
         return self::compare($v1, $v2) > 0;
     }
@@ -342,7 +342,7 @@ class Version
      * @return bool True when $v1 >= $v2. Otherwise, false.
      * @throws VersionFormatException When the given versions are invalid.
      */
-    public static function greaterThanOrEqual($v1, $v2)
+    public static function greaterThanOrEqual($v1, $v2): bool
     {
         return self::compare($v1, $v2) >= 0;
     }
@@ -355,7 +355,7 @@ class Version
      * @return bool True when $v1 == $v2. Otherwise, false.
      * @throws VersionFormatException When the given versions are invalid.
      */
-    public static function equal($v1, $v2)
+    public static function equal($v1, $v2): bool
     {
         return self::compare($v1, $v2) == 0;
     }
@@ -366,7 +366,7 @@ class Version
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
      * @throws VersionFormatException When the given versions are invalid.
      */
-    private static function compare($v1, $v2)
+    private static function compare($v1, $v2): int
     {
         if (!$v1 instanceof Version) {
             $v1 = self::parse($v1);
@@ -400,7 +400,7 @@ class Version
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
      * @throws VersionFormatException When the given pre-release values are invalid.
      */
-    private static function compareByPreRelease($v1, $v2)
+    private static function compareByPreRelease($v1, $v2): int
     {
         if ($v1->isPreRelease() && !$v2->isPreRelease()) {
             return -1;
@@ -422,7 +422,7 @@ class Version
      * @param string $message The exception message.
      * @throws VersionFormatException When the condition failed.
      */
-    private static function ensureValidState($condition, $message)
+    private static function ensureValidState(bool $condition, string $message)
     {
         if (!$condition) {
             throw new VersionFormatException($message);
