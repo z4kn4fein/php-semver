@@ -2,24 +2,23 @@
 
 namespace z4kn4fein\SemVer;
 
+use InvalidArgumentException;
+
 /**
  * This class describes a semantic version and related operations.
  * @package z4kn4fein\SemVer
  */
 class Version
 {
-    // phpcs:ignore
-    const VERSION_REGEX = "/^(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?:-(?P<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/";
-
     /** @var int */
     private $major;
     /** @var int */
     private $minor;
     /** @var int */
     private $patch;
-    /** @var null|PreRelease */
+    /** @var PreRelease|null */
     private $preRelease;
-    /** @var null|string */
+    /** @var string|null */
     private $buildMeta;
 
     /**
@@ -28,7 +27,7 @@ class Version
      * @param $major int The major version number.
      * @param $minor int The minor version number.
      * @param $patch int The patch version number.
-     * @param PreRelease|null $preRelease The prerelease part.
+     * @param PreRelease|null $preRelease The pre-release part.
      * @param string|null $buildMeta The build metadata.
      */
     private function __construct(int $major, int $minor, int $patch, PreRelease $preRelease = null, string $buildMeta = null)
@@ -84,7 +83,7 @@ class Version
     /**
      * Returns the pre-release tag.
      *
-     * @return null|string The prerelease part.
+     * @return null|string The pre-release part.
      */
     public function getPreRelease(): ?string
     {
@@ -112,108 +111,163 @@ class Version
     }
 
     /**
+     * Determines whether the version is considered stable or not.
+     * Stable versions have a positive major number and no pre-release identifier.
+     *
+     * @return bool True when the version is a stable version.
+     */
+    public function isStable(): bool
+    {
+        return $this->major > 0 && !$this->isPreRelease();
+    }
+
+    /**
      * Produces the next major version.
      *
+     * @param string|null $preRelease The pre-release part.
      * @return Version The next major version.
+     * @throws SemverException When the pre-release tag is non-null and invalid.
      */
-    public function getNextMajorVersion(): Version
+    public function getNextMajorVersion(string $preRelease = null): Version
     {
-        return new Version($this->major + 1, 0, 0);
+        return new Version($this->major + 1,
+            0,
+            0,
+            !is_null($preRelease) ? PreRelease::parse($preRelease) : null
+        );
     }
 
     /**
      * Produces the next minor version.
      *
+     * @param string|null $preRelease The pre-release part.
      * @return Version The next minor version.
+     * @throws SemverException When the pre-release tag is non-null and invalid.
      */
-    public function getNextMinorVersion(): Version
+    public function getNextMinorVersion(string $preRelease = null): Version
     {
-        return new Version($this->major, $this->minor + 1, 0);
+        return new Version($this->major,
+            $this->minor + 1,
+            0,
+            !is_null($preRelease) ? PreRelease::parse($preRelease) : null
+        );
     }
 
     /**
      * Produces the next patch version.
      *
+     * @param string|null $preRelease The pre-release part.
      * @return Version The next patch version.
+     * @throws SemverException When the pre-release tag is non-null and invalid.
      */
-    public function getNextPatchVersion(): Version
+    public function getNextPatchVersion(string $preRelease = null): Version
     {
-        return new Version($this->major, $this->minor, $this->isPreRelease() ? $this->patch : $this->patch + 1);
+        return new Version($this->major,
+            $this->minor,
+            !$this->isPreRelease() || !is_null($preRelease) ? $this->patch + 1 : $this->patch,
+            !is_null($preRelease) ? PreRelease::parse($preRelease) : null
+        );
     }
 
     /**
      * Produces the next pre-release version.
      *
+     * @param string|null $preRelease The pre-release part.
      * @return Version The next pre-release version.
+     * @throws SemverException When the pre-release tag is non-null and invalid.
      */
-    public function getNextPreReleaseVersion(): Version
+    public function getNextPreReleaseVersion(string $preRelease = null): Version
     {
+        $pre = PreRelease::createDefault();
+        if (!empty($preRelease)) {
+            $pre = $this->isPreRelease() && $this->preRelease->identity() == $preRelease
+                ? $this->preRelease->increment()
+                : PreRelease::parse($preRelease);
+        } elseif ($this->isPreRelease()) {
+            $pre = $this->preRelease->increment();
+        }
+
         return new Version(
             $this->major,
             $this->minor,
             $this->isPreRelease() ? $this->patch : $this->patch + 1,
-            $this->isPreRelease() ? $this->preRelease->increment() : PreRelease::createDefault()
+            $pre
         );
+    }
+
+    /**
+     * Increases the version by its Inc::MAJOR, Inc::MINOR, Inc::PATCH, or Inc::PRE_RELEASE segment.
+     * Returns a new version while the original remains unchanged.
+     *
+     * @param int $by Determines by which part the Version should be incremented.
+     * @param string|null $preRelease The optional pre-release part.
+     * @return Version The incremented version.
+     * @throws SemverException When the pre-release tag is non-null and invalid.
+     */
+    public function inc(int $by, string $preRelease = null): Version
+    {
+        switch ($by) {
+            case Inc::MAJOR: return $this->getNextMajorVersion($preRelease);
+            case Inc::MINOR: return $this->getNextMinorVersion($preRelease);
+            case Inc::PATCH: return $this->getNextPatchVersion($preRelease);
+            case Inc::PRE_RELEASE: return $this->getNextPreReleaseVersion($preRelease);
+            default: throw new InvalidArgumentException("Invalid `by` argument in inc() method");
+        }
     }
 
     /**
      * Compares the version with the given one, returns true when the current is less than the other.
      *
-     * @param string|Version $v The version to compare.
+     * @param Version $v The version to compare.
      * @return bool True when instance < $v. Otherwise, false.
-     * @throws VersionFormatException When the given version is invalid.
      */
-    public function isLessThan($v): bool
+    public function isLessThan(Version $v): bool
     {
-        return self::lessThan($this, $v);
+        return self::compare($this, $v) < 0;
     }
 
     /**
      * Compares the version with the given one, returns true when the current is less than the other or equal.
      *
-     * @param string|Version $v The version to compare.
+     * @param Version $v The version to compare.
      * @return bool True when instance <= $v. Otherwise, false.
-     * @throws VersionFormatException When the given version is invalid.
      */
-    public function isLessThanOrEqual($v): bool
+    public function isLessThanOrEqual(Version $v): bool
     {
-        return self::lessThanOrEqual($this, $v);
+        return self::compare($this, $v) <= 0;
     }
 
     /**
      * Compares the version with the given one, returns true when the current is greater than the other.
      *
-     * @param string|Version $v The version to compare.
+     * @param Version $v The version to compare.
      * @return bool True when instance > $v. Otherwise, false.
-     * @throws VersionFormatException When the given version is invalid.
      */
-    public function isGreaterThan($v): bool
+    public function isGreaterThan(Version $v): bool
     {
-        return self::greaterThan($this, $v);
+        return self::compare($this, $v) > 0;
     }
 
     /**
      * Compares the version with the given one, returns true when the current is greater than the other or equal.
      *
-     * @param string|Version $v The version to compare.
+     * @param Version $v The version to compare.
      * @return bool True when instance >= $v. Otherwise, false.
-     * @throws VersionFormatException When the given version is invalid.
      */
-    public function isGreaterThanOrEqual($v): bool
+    public function isGreaterThanOrEqual(Version $v): bool
     {
-        return self::greaterThanOrEqual($this, $v);
+        return self::compare($this, $v) >= 0;
     }
 
     /**
      * Compares the version with the given one, returns true when they are equal.
      *
-     * @param string|Version $v The version to compare.
+     * @param Version $v The version to compare.
      * @return bool True when instance == $v. Otherwise, false.
-     * @throws VersionFormatException When the given version is invalid.
      */
-    public function isEqual($v): bool
+    public function isEqual(Version $v): bool
     {
-        return self::equal($this, $v);
+        return self::compare($this, $v) == 0;
     }
 
     /**
@@ -225,7 +279,7 @@ class Version
      * @param string|null $preRelease The pre-release part.
      * @param string|null $buildMeta The build metadata.
      * @return Version The new version.
-     * @throws VersionFormatException When the version parts are invalid.
+     * @throws SemverException When the version parts are invalid.
      */
     public function copy(int $major = null, int $minor = null, int $patch = null, string $preRelease = null, string $buildMeta = null): Version
     {
@@ -239,32 +293,42 @@ class Version
     }
 
     /**
+     * Produces a copy of the Version without the PRE-RELEASE and BUILD METADATA identities.
+     *
+     * @return Version The new version.
+     */
+    public function withoutSuffixes(): Version
+    {
+        return new Version($this->major, $this->minor, $this->patch);
+    }
+
+    /**
      * Parses a new version from the given version string.
      *
      * @param string $versionString The version string.
      * @return Version The parsed version.
-     * @throws VersionFormatException When the given version string is invalid.
+     * @throws SemverException When the given version string is invalid.
      */
     public static function parse(string $versionString): Version
     {
         $versionString = trim($versionString);
         if (empty($versionString)) {
-            throw new VersionFormatException("versionString cannot be empty.");
+            throw new SemverException("versionString cannot be empty.");
         }
 
-        if (!preg_match(self::VERSION_REGEX, $versionString, $matches)) {
-            throw new VersionFormatException(sprintf("Invalid version: %s.", $versionString));
+        if (!preg_match(Patterns::VERSION_REGEX, $versionString, $matches)) {
+            throw new SemverException(sprintf("Invalid version: %s.", $versionString));
         }
 
         return new Version(
-            intval($matches['major']),
-            intval($matches['minor']),
-            intval($matches['patch']),
-            isset($matches['prerelease']) && $matches['prerelease'] != ""
-                ? PreRelease::parse($matches['prerelease'])
+            intval($matches[1]),
+            intval($matches[2]),
+            intval($matches[3]),
+            isset($matches[4]) && $matches[4] != ""
+                ? PreRelease::parse($matches[4])
                 : null,
-            isset($matches['buildmetadata']) && $matches['buildmetadata'] != ""
-                ? $matches['buildmetadata']
+            isset($matches[5]) && $matches[5] != ""
+                ? $matches[5]
                 : null
         );
     }
@@ -275,10 +339,10 @@ class Version
      * @param int $major The major version number.
      * @param int $minor The minor version number.
      * @param int $patch The patch version number.
-     * @param null|string $preRelease The pre-release part.
-     * @param null|string $buildMeta The build metadata.
+     * @param string|null $preRelease The pre-release part.
+     * @param string|null $buildMeta The build metadata.
      * @return Version The new version.
-     * @throws VersionFormatException When the version parts are invalid.
+     * @throws SemverException When the version parts are invalid.
      */
     public static function create(int $major, int $minor, int $patch, string $preRelease = null, string $buildMeta = null): Version
     {
@@ -296,86 +360,92 @@ class Version
     }
 
     /**
-     * Compares two versions and returns true when the first is less than the second.
+     * Compares two version strings and returns true when the first is less than the second.
      *
-     * @param string|Version $v1 The left side of the comparison.
-     * @param string|Version $v2 The right side of the comparison.
-     * @return bool True when $v1 < $v2. Otherwise, false.
-     * @throws VersionFormatException When the given versions are invalid.
+     * @param string $v1 The left side of the comparison.
+     * @param string $v2 The right side of the comparison.
+     * @return bool True when $v1 &lt; $v2. Otherwise, false.
+     * @throws SemverException When the version strings are invalid.
      */
-    public static function lessThan($v1, $v2): bool
+    public static function lessThan(string $v1, string $v2): bool
     {
-        return self::compare($v1, $v2) < 0;
+        $version1 = Version::parse($v1);
+        $version2 = Version::parse($v2);
+
+        return $version1->isLessThan($version2);
     }
 
     /**
-     * Compares two versions and returns true when the first is less than the second or equal.
+     * Compares two version strings and returns true when the first is less than the second or equal.
      *
-     * @param string|Version $v1 The left side of the comparison.
-     * @param string|Version $v2 The right side of the comparison.
-     * @return bool True when $v1 <= $v2. Otherwise, false.
-     * @throws VersionFormatException When the given versions are invalid.
+     * @param string $v1 The left side of the comparison.
+     * @param string $v2 The right side of the comparison.
+     * @return bool True when $v1 &lt;= $v2. Otherwise, false.
+     * @throws SemverException When the version strings are invalid.
      */
-    public static function lessThanOrEqual($v1, $v2): bool
+    public static function lessThanOrEqual(string $v1, string $v2): bool
     {
-        return self::compare($v1, $v2) <= 0;
+        $version1 = Version::parse($v1);
+        $version2 = Version::parse($v2);
+
+        return $version1->isLessThanOrEqual($version2);
     }
 
     /**
-     * Compares two versions and returns true when the first is greater than the second.
+     * Compares two version strings and returns true when the first is greater than the second.
      *
-     * @param string|Version $v1 The left side of the comparison.
-     * @param string|Version $v2 The right side of the comparison.
-     * @return bool True when $v1 > $v2. Otherwise, false.
-     * @throws VersionFormatException When the given versions are invalid.
+     * @param string $v1 The left side of the comparison.
+     * @param string $v2 The right side of the comparison.
+     * @return bool True when $v1 &gt; $v2. Otherwise, false.
+     * @throws SemverException When the version strings are invalid.
      */
-    public static function greaterThan($v1, $v2): bool
+    public static function greaterThan(string $v1, string $v2): bool
     {
-        return self::compare($v1, $v2) > 0;
+        $version1 = Version::parse($v1);
+        $version2 = Version::parse($v2);
+
+        return $version1->isGreaterThan($version2);
     }
 
     /**
-     * Compares two versions and returns true when the first is greater than the second or equal.
+     * Compares two version strings and returns true when the first is greater than the second or equal.
      *
-     * @param string|Version $v1 The left side of the comparison.
-     * @param string|Version $v2 The right side of the comparison.
-     * @return bool True when $v1 >= $v2. Otherwise, false.
-     * @throws VersionFormatException When the given versions are invalid.
+     * @param string $v1 The left side of the comparison.
+     * @param string $v2 The right side of the comparison.
+     * @return bool True when $v1 &gt;= $v2. Otherwise, false.
+     * @throws SemverException When the version strings are invalid.
      */
-    public static function greaterThanOrEqual($v1, $v2): bool
+    public static function greaterThanOrEqual(string $v1, string $v2): bool
     {
-        return self::compare($v1, $v2) >= 0;
+        $version1 = Version::parse($v1);
+        $version2 = Version::parse($v2);
+
+        return $version1->isGreaterThanOrEqual($version2);
     }
 
     /**
-     * Compares two versions and returns true when the first and second are equal.
+     * Compares two version strings and returns true when the first and second are equal.
      *
-     * @param string|Version $v1 The left side of the comparison.
-     * @param string|Version $v2 The right side of the comparison.
+     * @param string $v1 The left side of the comparison.
+     * @param string $v2 The right side of the comparison.
      * @return bool True when $v1 == $v2. Otherwise, false.
-     * @throws VersionFormatException When the given versions are invalid.
+     * @throws SemverException When the version strings are invalid.
      */
-    public static function equal($v1, $v2): bool
+    public static function equal(string $v1, string $v2): bool
     {
-        return self::compare($v1, $v2) == 0;
+        $version1 = Version::parse($v1);
+        $version2 = Version::parse($v2);
+
+        return $version1->isEqual($version2);
     }
 
     /**
-     * @param string|Version $v1 The left side of the comparison.
-     * @param string|Version $v2 The right side of the comparison.
+     * @param Version $v1 The left side of the comparison.
+     * @param Version $v2 The right side of the comparison.
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
-     * @throws VersionFormatException When the given versions are invalid.
      */
-    private static function compare($v1, $v2): int
+    private static function compare(Version $v1, Version $v2): int
     {
-        if (!$v1 instanceof Version) {
-            $v1 = self::parse($v1);
-        }
-
-        if (!$v2 instanceof Version) {
-            $v2 = self::parse($v2);
-        }
-
         $major = Utils::comparePrimitive($v1->getMajor(), $v2->getMajor());
         if ($major != 0) {
             return $major;
@@ -395,12 +465,11 @@ class Version
     }
 
     /**
-     * @param string|Version $v1 The left side of the comparison.
-     * @param string|Version $v2 The right side of the comparison.
+     * @param Version $v1 The left side of the comparison.
+     * @param Version $v2 The right side of the comparison.
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
-     * @throws VersionFormatException When the given pre-release values are invalid.
      */
-    private static function compareByPreRelease($v1, $v2): int
+    private static function compareByPreRelease(Version $v1, Version $v2): int
     {
         if ($v1->isPreRelease() && !$v2->isPreRelease()) {
             return -1;
@@ -410,8 +479,8 @@ class Version
             return 1;
         }
 
-        if ($v1->isPreRelease() && $v2->isPreRelease()) {
-            return PreRelease::compare($v1->getPreRelease(), $v2->getPreRelease());
+        if (!is_null($v1->preRelease) && !is_null($v2->preRelease)) {
+            return PreRelease::compare($v1->preRelease, $v2->preRelease);
         }
 
         return 0;
@@ -420,12 +489,12 @@ class Version
     /**
      * @param bool $condition The condition must be met.
      * @param string $message The exception message.
-     * @throws VersionFormatException When the condition failed.
+     * @throws SemverException When the condition failed.
      */
     private static function ensureValidState(bool $condition, string $message)
     {
         if (!$condition) {
-            throw new VersionFormatException($message);
+            throw new SemverException($message);
         }
     }
 }

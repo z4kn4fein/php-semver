@@ -4,25 +4,25 @@ namespace z4kn4fein\SemVer\Tests;
 
 use PHPUnit\Framework\TestCase;
 use z4kn4fein\SemVer\Version;
-use z4kn4fein\SemVer\VersionFormatException;
+use z4kn4fein\SemVer\SemverException;
 
 class ParseTest extends TestCase
 {
     public function testEmpty()
     {
-        $this->expectException(VersionFormatException::class);
+        $this->expectException(SemverException::class);
         Version::parse('');
     }
 
     public function testInvalid()
     {
-        $this->expectException(VersionFormatException::class);
+        $this->expectException(SemverException::class);
         Version::parse('1.0');
     }
 
     public function testNegative()
     {
-        $this->expectException(VersionFormatException::class);
+        $this->expectException(SemverException::class);
         Version::parse('-1.0.0');
     }
 
