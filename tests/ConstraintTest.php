@@ -32,7 +32,7 @@ class ConstraintTest extends TestCase
         $this->assertEquals($parsed, (string)Constraint::parse($constraint));
     }
 
-    private function dataSatisfies(): array
+    public function dataSatisfies(): array
     {
         return [
             ["<\t1.0.0", "0.1.2"],
@@ -206,7 +206,7 @@ class ConstraintTest extends TestCase
         ];
     }
 
-    private function dataNotSatisfies(): array
+    public function dataNotSatisfies(): array
     {
         return [
             ["~1.2.3-alpha.2", "1.3.4-alpha.2"],
@@ -386,7 +386,7 @@ class ConstraintTest extends TestCase
         ];
     }
     
-    private function dataParse(): array
+    public function dataParse(): array
     {
         return [
             ["1.2.3 - 2.3.4", ">=1.2.3 <=2.3.4"],
