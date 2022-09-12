@@ -81,7 +81,7 @@ class Range implements VersionComparator
 
     private function toStringByOp(string $op): string
     {
-        switch ($this->operator) {
+        switch ($op) {
             case Op::EQUAL:
                 return sprintf("%s %s", (string)$this->start, (string)$this->end);
             case Op::NOT_EQUAL:

@@ -3,11 +3,24 @@
 namespace z4kn4fein\SemVer\Tests;
 
 use PHPUnit\Framework\TestCase;
+use z4kn4fein\SemVer\Constraints\Condition;
 use z4kn4fein\SemVer\Constraints\Constraint;
+use z4kn4fein\SemVer\Constraints\Op;
+use z4kn4fein\SemVer\Constraints\Range;
+use z4kn4fein\SemVer\SemverException;
 use z4kn4fein\SemVer\Version;
 
 class ConstraintTest extends TestCase
 {
+    /**
+     * @dataProvider dataInvalid
+     */
+    public function testInvalidConstraints(string $constraint)
+    {
+        $this->expectException(SemverException::class);
+        Constraint::parse($constraint);
+    }
+
     /**
      * @dataProvider dataSatisfies
      */
@@ -30,6 +43,42 @@ class ConstraintTest extends TestCase
     public function testParse(string $constraint, string $parsed)
     {
         $this->assertEquals($parsed, (string)Constraint::parse($constraint));
+    }
+
+    public function testConditions()
+    {
+        $version = Version::parse("1.0.0");
+        $this->assertEquals("!=1.0.0", (new Condition(Op::EQUAL, $version))->opposite());
+        $this->assertEquals("=1.0.0", (new Condition(Op::NOT_EQUAL, $version))->opposite());
+        $this->assertEquals(">=1.0.0", (new Condition(Op::LESS_THAN, $version))->opposite());
+        $this->assertEquals(">1.0.0", (new Condition(Op::LESS_THAN_OR_EQUAL, $version))->opposite());
+        $this->assertEquals("<=1.0.0", (new Condition(Op::GREATER_THAN, $version))->opposite());
+        $this->assertEquals("<1.0.0", (new Condition(Op::GREATER_THAN_OR_EQUAL, $version))->opposite());
+    }
+
+    public function testRanges()
+    {
+        $start = new Condition(Op::GREATER_THAN, Version::parse("1.0.0"));
+        $end = new Condition(Op::LESS_THAN, Version::parse("1.1.0"));
+        $this->assertEquals("<=1.0.0 || >=1.1.0", (new Range($start, $end, Op::EQUAL))->opposite());
+        $this->assertEquals(">1.0.0 <1.1.0", (new Range($start, $end, Op::NOT_EQUAL))->opposite());
+        $this->assertEquals(">1.0.0", (new Range($start, $end, Op::LESS_THAN))->opposite());
+        $this->assertEquals(">=1.1.0", (new Range($start, $end, Op::LESS_THAN_OR_EQUAL))->opposite());
+        $this->assertEquals("<1.1.0", (new Range($start, $end, Op::GREATER_THAN))->opposite());
+        $this->assertEquals("<=1.0.0", (new Range($start, $end, Op::GREATER_THAN_OR_EQUAL))->opposite());
+    }
+
+    public function dataInvalid(): array
+    {
+        return [
+            ["a"],
+            ["||"],
+            [">1.a"],
+            ["1.1-3"],
+            [">0-alpha"],
+            [">=0.0-0"],
+            [">=1.2a"],
+        ];
     }
 
     public function dataSatisfies(): array

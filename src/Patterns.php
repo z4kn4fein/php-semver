@@ -58,7 +58,13 @@ class Patterns
     const LOOSE_VERSION_REGEX = "/^v?" . self::LOOSE_CORE_VERSION . self::PRE_RELEASE . "?" . self::BUILD . "?\$/";
 
     // Operator condition: >=1.2.*
-    const OPERATOR_CONDITION_REGEX = "/(" . self::ALLOWED_OPERATORS . ")\\s*v?(?:" . self::X_RANGE_VERSION . ")/";
+    const OPERATOR_CONDITION = "(" . self::ALLOWED_OPERATORS . ")\\s*v?(?:" . self::X_RANGE_VERSION . ")";
+
+    // Operator condition: >=1.2.*
+    const OPERATOR_CONDITION_REGEX = "/" . self::OPERATOR_CONDITION . "/";
+
+    // Operator condition: >=1.2.*
+    const VALID_OPERATOR_CONDITION_REGEX = "/^(\\s*" . self::OPERATOR_CONDITION . "\\s*?)+\$/";
 
     // Hyphen range condition: 1.2.* - 2.0.0
     // phpcs:ignore

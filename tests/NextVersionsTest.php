@@ -4,6 +4,7 @@ namespace z4kn4fein\SemVer\Tests;
 
 use PHPUnit\Framework\TestCase;
 use z4kn4fein\SemVer\Inc;
+use z4kn4fein\SemVer\SemverException;
 use z4kn4fein\SemVer\Version;
 
 class NextVersionsTest extends TestCase
@@ -16,6 +17,13 @@ class NextVersionsTest extends TestCase
         $this->assertEquals("1.3.0", (string)$version->getNextMinorVersion());
         $this->assertEquals("1.2.3", (string)$version->getNextPatchVersion());
         $this->assertEquals("1.2.3-alpha.5", (string)$version->getNextPreReleaseVersion());
+    }
+
+    public function testException()
+    {
+        $this->expectException(SemverException::class);
+        $version = Version::parse("1.2.3-alpha.4+build.3");
+        $version->inc(42);
     }
 
     public function testNextVersionsWithoutPreRelease()

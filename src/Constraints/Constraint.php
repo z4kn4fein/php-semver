@@ -96,9 +96,11 @@ class Constraint
             );
 
             $escaped = trim($escaped);
-            if (empty($escaped)) {
-                return $result;
+            if (!empty($escaped) && !preg_match(Patterns::VALID_OPERATOR_CONDITION_REGEX, $escaped)) {
+                throw new SemverException(sprintf("Invalid constraint: %s", $constraintString));
             }
+
+            if(empty($escaped)) return $result;
 
             self::ensure(
                 (bool)preg_match_all(
