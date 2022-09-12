@@ -100,7 +100,9 @@ class Constraint
                 throw new SemverException(sprintf("Invalid constraint: %s", $constraintString));
             }
 
-            if(empty($escaped)) return $result;
+            if (empty($escaped)) {
+                return $result;
+            }
 
             self::ensure(
                 (bool)preg_match_all(
