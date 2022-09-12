@@ -42,8 +42,8 @@ class Patterns
     const X_RANGE_NUMERIC = self::NUMERIC . "|x|X|\\*";
 
     // X-RANGE version: 1.x | 1.2.* | 1.1.X
-    const X_RANGE_VERSION =
-        "(" . self::X_RANGE_NUMERIC . ")(?:\\.(" . self::X_RANGE_NUMERIC . ")(?:\\.(" . self::X_RANGE_NUMERIC . ")(?:" . self::PRE_RELEASE . ")?" . self::BUILD . "?)?)?";
+    // phpcs:ignore
+    const X_RANGE_VERSION = "(" . self::X_RANGE_NUMERIC . ")(?:\\.(" . self::X_RANGE_NUMERIC . ")(?:\\.(" . self::X_RANGE_NUMERIC . ")(?:" . self::PRE_RELEASE . ")?" . self::BUILD . "?)?)?";
 
     // Pattern that only matches numbers.
     const ONLY_NUMBER_REGEX = "/^[0-9]+$/";
@@ -61,6 +61,7 @@ class Patterns
     const OPERATOR_CONDITION_REGEX = "/(" . self::ALLOWED_OPERATORS . ")\\s*v?(?:" . self::X_RANGE_VERSION . ")/";
 
     // Hyphen range condition: 1.2.* - 2.0.0
+    // phpcs:ignore
     const HYPHEN_CONDITION_REGEX = "/\\s*v?(?:" . self::X_RANGE_VERSION . ")\\s+-\\s+v?(?:" . self::X_RANGE_VERSION . ")\\s*/";
 
     // Wildcard characters.
