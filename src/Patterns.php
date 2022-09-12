@@ -2,6 +2,8 @@
 
 namespace z4kn4fein\SemVer;
 
+use phpDocumentor\Reflection\Types\Self_;
+
 class Patterns
 {
     // Numeric identifier pattern. (used for parsing major, minor, and patch)
@@ -58,9 +60,6 @@ class Patterns
     // Operator condition: >=1.2.*
     const OPERATOR_CONDITION_REGEX = "/(" . self::ALLOWED_OPERATORS . ")\\s*v?(?:" . self::X_RANGE_VERSION . ")/";
 
-    // Operator condition: >=1.2.*
-    const VALID_OPERATOR_CONDITION_REGEX = "/^(\\s*" . self::OPERATOR_CONDITION_REGEX . "\\s*?)+\$/";
-
     // Hyphen range condition: 1.2.* - 2.0.0
     const HYPHEN_CONDITION_REGEX = "/\\s*v?(?:" . self::X_RANGE_VERSION . ")\\s+-\\s+v?(?:" . self::X_RANGE_VERSION . ")\\s*/";
 
@@ -71,4 +70,15 @@ class Patterns
     const COMPARISON_OPERATORS = array("=", "!=", ">", ">=", "=>", "<", "<=", "=<");
     const TILDE_OPERATORS = array("~>", "~");
     const CARET_OPERATOR = "^";
+
+    /**
+     * Determines whether a string is a wildcard or not.
+     *
+     * @param string $text The string to check.
+     * @return bool True when the string is wildcard, otherwise false.
+     */
+    public static function isWildcard(string $text): bool
+    {
+        return in_array($text, self::WILDCARDS, true);
+    }
 }

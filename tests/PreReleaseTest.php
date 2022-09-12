@@ -21,8 +21,7 @@ class PreReleaseTest extends TestCase
 
     public function testWhitespace()
     {
-        $this->expectException(SemverException::class);
-        PreRelease::parse(" ");
+        $this->assertEquals("0", (string)PreRelease::parse(" "));
     }
 
     public function testWhitespacePart()

@@ -2,8 +2,16 @@
 
 namespace z4kn4fein\SemVer;
 
+use z4kn4fein\SemVer\Traits\PrimitiveComparable;
+use z4kn4fein\SemVer\Traits\Singles;
+use z4kn4fein\SemVer\Traits\Validator;
+
 class PreRelease
 {
+    use PrimitiveComparable;
+    use Validator;
+    use Singles;
+
     /** @var array */
     private $preReleaseParts;
 
@@ -52,7 +60,7 @@ class PreRelease
      */
     public function __toString()
     {
-        return implode('.', $this->preReleaseParts);
+        return implode(".", $this->preReleaseParts);
     }
 
     /**
@@ -64,35 +72,35 @@ class PreRelease
     }
 
     /**
-     * @throws SemverException When the $preReleaseString is invalid.
+     * @throws SemverException When the any part of the tag is invalid.
      */
     private function validate(): void
     {
         foreach ($this->preReleaseParts as $part) {
-            if (preg_match(Patterns::ONLY_NUMBER_REGEX, $part) && strlen($part) > 1 && $part[0] == "0") {
+            if (preg_match(Patterns::ONLY_NUMBER_REGEX, $part) && strlen($part) > 1 && $part[0] === "0") {
                 throw new SemverException(sprintf(
                     "The pre-release part '%s' is numeric but contains a leading zero.",
                     $part
                 ));
             }
 
-            if (!preg_match(Patterns::ONLY_ALPHANUMERIC_OR_HYPHEN_REGEX, $part)) {
-                throw new SemverException(sprintf(
-                    "The pre-release part '%s' contains invalid character.",
-                    $part
-                ));
-            }
+            self::ensure((bool)preg_match(Patterns::ONLY_ALPHANUMERIC_OR_HYPHEN_REGEX, $part), sprintf(
+                "The pre-release part '%s' contains invalid character.",
+                $part
+            ));
         }
     }
 
     /**
-     * Creates a new pre-release tag with initial default value (-0).
+     * The default pre-release tag (-0).
      *
      * @return PreRelease The default pre-release tag.
      */
-    public static function createDefault(): PreRelease
+    public static function default(): PreRelease
     {
-        return new PreRelease([0]);
+        return self::single("default-pre-release", function () {
+            return new PreRelease([0]);
+        });
     }
 
     /**
@@ -102,16 +110,12 @@ class PreRelease
      */
     public static function parse(string $preReleaseString): PreRelease
     {
-        if (empty($preReleaseString)) {
-            return self::createDefault();
-        }
-
         $preReleaseString = trim($preReleaseString);
-        if ($preReleaseString == null || $preReleaseString == "") {
-            throw new SemverException("preReleaseString cannot be empty.");
+        if ($preReleaseString === "") {
+            return self::default();
         }
 
-        $preRelease = new PreRelease(explode('.', $preReleaseString));
+        $preRelease = new PreRelease(explode(".", $preReleaseString));
         $preRelease->validate();
 
         return $preRelease;
@@ -136,12 +140,12 @@ class PreRelease
             }
         }
 
-        return Utils::comparePrimitive($v1Size, $v2Size);
+        return self::comparePrimitive($v1Size, $v2Size);
     }
 
     /**
-     * @param mixed $a The left side of the comparison.
-     * @param mixed $b The right side of the comparison.
+     * @param int|string $a The left side of the comparison.
+     * @param int|string $b The right side of the comparison.
      * @return int -1 when $a < $b, 0 when $a == $b, 1 when $v1 > $b.
      */
     private static function comparePart($a, $b): int
@@ -155,7 +159,7 @@ class PreRelease
         }
 
         return is_numeric($a) && is_numeric($b)
-            ? Utils::comparePrimitive(intval($a), intval($b))
-            : Utils::comparePrimitive($a, $b);
+            ? self::comparePrimitive(intval($a), intval($b))
+            : self::comparePrimitive($a, $b);
     }
 }
