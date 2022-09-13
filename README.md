@@ -6,7 +6,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/z4kn4fein/php-semver/v/unstable)](https://packagist.org/packages/z4kn4fein/php-semver)
 
 Semantic Versioning library for PHP. It implements the full [semantic version 2.0.0](https://semver.org/spec/v2.0.0.html) specification and
-provides ability to **parse**, **compare**, and **increment** semantic versions.
+provides ability to **parse**, **compare**, and **increment** semantic versions along with validation against **constraints**.
 
 ## Requirements
 [PHP](https://www.php.net/) >= 7.1
