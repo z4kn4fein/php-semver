@@ -188,7 +188,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Traits\\Sortable\u003A\u003Arsort\u0028\u0029",
             "name": "rsort",
-            "summary": "Sorts\u0020an\u0020array\u0020of\u0020version\u0020strings\u0020in\u0020reverse\u0020order.",
+            "summary": "Sorts\u0020an\u0020array\u0020of\u0020versions\u0020in\u0020reverse\u0020order.",
             "url": "classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsort"
         },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Traits\\Sortable\u003A\u003AsortString\u0028\u0029",
@@ -198,7 +198,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Traits\\Sortable\u003A\u003ArsortString\u0028\u0029",
             "name": "rsortString",
-            "summary": "Sorts\u0020an\u0020array\u0020of\u0020versions\u0020in\u0020reverse\u0020order.",
+            "summary": "Sorts\u0020an\u0020array\u0020of\u0020version\u0020strings\u0020in\u0020reverse\u0020order.",
             "url": "classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsortString"
         },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Version",
