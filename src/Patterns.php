@@ -2,8 +2,9 @@
 
 namespace z4kn4fein\SemVer;
 
-use phpDocumentor\Reflection\Types\Self_;
-
+/**
+ * @internal
+ */
 class Patterns
 {
     // Numeric identifier pattern. (used for parsing major, minor, and patch)

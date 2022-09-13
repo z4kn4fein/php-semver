@@ -12,6 +12,8 @@ use z4kn4fein\SemVer\Version;
 /**
  * This class describes a semantic version constraint. It provides ability to verify whether a version
  * satisfies one or more conditions within a constraint.
+ *
+ * @package z4kn4fein\SemVer\Constraints
  */
 class Constraint
 {
@@ -31,7 +33,7 @@ class Constraint
     }
 
     /**
-     * Determines whether this constraint is satisfied by a version or not.
+     * Determines whether this constraint is satisfied by a Version or not.
      *
      * @param Version $version The version to check.
      * @return bool True when the version satisfies the constraint, otherwise false.

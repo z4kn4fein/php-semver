@@ -6,4 +6,6 @@ composer.lock
 
 composer.phar
 
+docs/
+
 .DS_Store

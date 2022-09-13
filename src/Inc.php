@@ -4,6 +4,8 @@ namespace z4kn4fein\SemVer;
 
 /**
  * Determines by which identifier the given Version should be incremented.
+ *
+ * @package z4kn4fein\SemVer
  */
 class Inc
 {

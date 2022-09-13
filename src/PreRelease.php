@@ -6,6 +6,9 @@ use z4kn4fein\SemVer\Traits\PrimitiveComparable;
 use z4kn4fein\SemVer\Traits\Singles;
 use z4kn4fein\SemVer\Traits\Validator;
 
+/**
+ * @internal
+ */
 class PreRelease
 {
     use PrimitiveComparable;

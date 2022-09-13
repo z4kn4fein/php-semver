@@ -4,6 +4,9 @@ namespace z4kn4fein\SemVer\Traits;
 
 use z4kn4fein\SemVer\SemverException;
 
+/**
+ * @internal
+ */
 trait Validator
 {
     /**

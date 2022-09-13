@@ -5,6 +5,11 @@ namespace z4kn4fein\SemVer\Traits;
 use z4kn4fein\SemVer\SemverException;
 use z4kn4fein\SemVer\Version;
 
+/**
+ * This trait adds the copy method to Version.
+ *
+ * @package z4kn4fein\SemVer\Traits
+ */
 trait Copyable
 {
     /**

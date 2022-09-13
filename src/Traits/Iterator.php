@@ -2,6 +2,9 @@
 
 namespace z4kn4fein\SemVer\Traits;
 
+/**
+ * @internal
+ */
 trait Iterator
 {
     /**

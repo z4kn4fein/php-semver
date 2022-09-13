@@ -7,6 +7,9 @@ use z4kn4fein\SemVer\SemverException;
 use z4kn4fein\SemVer\Traits\Validator;
 use z4kn4fein\SemVer\Version;
 
+/**
+ * @internal
+ */
 class VersionDescriptor
 {
     use Validator;

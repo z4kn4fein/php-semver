@@ -6,6 +6,11 @@ use z4kn4fein\SemVer\PreRelease;
 use z4kn4fein\SemVer\SemverException;
 use z4kn4fein\SemVer\Version;
 
+/**
+ * This trait adds compare functions to Version.
+ *
+ * @package z4kn4fein\SemVer\Traits
+ */
 trait Comparable
 {
     use PrimitiveComparable;
@@ -173,6 +178,8 @@ trait Comparable
     }
 
     /**
+     * Compares two version strings.
+     *
      * @param string $v1 The left side of the comparison.
      * @param string $v2 The right side of the comparison.
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
@@ -187,6 +194,8 @@ trait Comparable
     }
 
     /**
+     * Compares two versions.
+     *
      * @param Version $v1 The left side of the comparison.
      * @param Version $v2 The right side of the comparison.
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.

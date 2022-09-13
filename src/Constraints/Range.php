@@ -5,6 +5,9 @@ namespace z4kn4fein\SemVer\Constraints;
 use z4kn4fein\SemVer\SemverException;
 use z4kn4fein\SemVer\Version;
 
+/**
+ * @internal
+ */
 class Range implements VersionComparator
 {
     /** @var VersionComparator */

@@ -7,6 +7,11 @@ use z4kn4fein\SemVer\PreRelease;
 use z4kn4fein\SemVer\SemverException;
 use z4kn4fein\SemVer\Version;
 
+/**
+ * This trait used to produce incremented Version.
+ *
+ * @package z4kn4fein\SemVer\Traits
+ */
 trait NextProducer
 {
     /**

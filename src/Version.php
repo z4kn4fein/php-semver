@@ -10,7 +10,9 @@ use z4kn4fein\SemVer\Traits\Singles;
 use z4kn4fein\SemVer\Traits\Validator;
 
 /**
- * This class describes a semantic version and related operations.
+ * This class describes a semantic version and related operations following the semver 2.0.0 specification.
+ * Instances of this class are immutable.
+ *
  * @package z4kn4fein\SemVer
  */
 class Version
@@ -148,7 +150,7 @@ class Version
     }
 
     /**
-     * Determines whether the version satisfies the given constraint or not.
+     * Determines whether the version satisfies the given Constraint or not.
      *
      * @param Constraint $constraint The constraint to satisfy.
      * @return bool True when the constraint is satisfied, otherwise false.
@@ -267,7 +269,7 @@ class Version
     }
 
     /**
-     * Determines whether a version satisfies a constraint or not.
+     * Determines whether a Version satisfies a Constraint or not.
      *
      * @param string $versionString The version to check.
      * @param string $constraintString The constraint to satisfy.

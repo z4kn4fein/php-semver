@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor
+        configVersion="3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://www.phpdoc.org">
+
+    <title>PHP Semver</title>
+    <paths>
+        <output>docs</output>
+    </paths>
+    <version number="latest">
+        <api>
+            <source dsn=".">
+                <path>src</path>
+            </source>
+            <extensions>
+                <extension>php</extension>
+            </extensions>
+            <visibility>public</visibility>
+            <default-package-name>z4kn4fein</default-package-name>
+        </api>
+    </version>
+</phpdocumentor>

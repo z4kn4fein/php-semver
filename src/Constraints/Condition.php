@@ -6,6 +6,9 @@ use z4kn4fein\SemVer\SemverException;
 use z4kn4fein\SemVer\Traits\Singles;
 use z4kn4fein\SemVer\Version;
 
+/**
+ * @internal
+ */
 class Condition implements VersionComparator
 {
     use Singles;

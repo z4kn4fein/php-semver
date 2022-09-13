@@ -71,7 +71,7 @@ jobs:
 
 
   coverage:
-    needs: test
+    needs: [test, analysis]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

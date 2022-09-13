@@ -2,6 +2,9 @@
 
 namespace z4kn4fein\SemVer\Constraints;
 
+/**
+ * @internal
+ */
 class Op
 {
     const EQUAL = "=";
