@@ -24,9 +24,9 @@ trait Sortable
     }
 
     /**
-     * Sorts an array of version strings in reverse order.
+     * Sorts an array of versions in reverse order.
      *
-     * @param Version[] $versions The version strings to sort.
+     * @param Version[] $versions The versions to sort.
      * @return Version[] The sorted array of versions.
      */
     public static function rsort(array $versions): array
@@ -63,7 +63,7 @@ trait Sortable
     }
 
     /**
-     * Sorts an array of versions in reverse order.
+     * Sorts an array of version strings in reverse order.
      *
      * @param string[] $versions The version strings to sort.
      * @return string[] The sorted array of version strings.
