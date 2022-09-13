@@ -176,6 +176,31 @@ Search.appendIndex(
             "summary": "Increases\u0020the\u0020version\u0020by\u0020its\u0020Inc\u003A\u003AMAJOR,\u0020Inc\u003A\u003AMINOR,\u0020Inc\u003A\u003APATCH,\u0020or\u0020Inc\u003A\u003APRE_RELEASE\u0020segment.",
             "url": "classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_inc"
         },                {
+            "fqsen": "\\z4kn4fein\\SemVer\\Traits\\Sortable",
+            "name": "Sortable",
+            "summary": "This\u0020trait\u0020used\u0020to\u0020sort\u0020Version\u0020arrays.",
+            "url": "classes/z4kn4fein-SemVer-Traits-Sortable.html"
+        },                {
+            "fqsen": "\\z4kn4fein\\SemVer\\Traits\\Sortable\u003A\u003Asort\u0028\u0029",
+            "name": "sort",
+            "summary": "Sorts\u0020an\u0020array\u0020of\u0020versions.",
+            "url": "classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sort"
+        },                {
+            "fqsen": "\\z4kn4fein\\SemVer\\Traits\\Sortable\u003A\u003Arsort\u0028\u0029",
+            "name": "rsort",
+            "summary": "Sorts\u0020an\u0020array\u0020of\u0020version\u0020strings\u0020in\u0020reverse\u0020order.",
+            "url": "classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsort"
+        },                {
+            "fqsen": "\\z4kn4fein\\SemVer\\Traits\\Sortable\u003A\u003AsortString\u0028\u0029",
+            "name": "sortString",
+            "summary": "Sorts\u0020an\u0020array\u0020of\u0020version\u0020strings.",
+            "url": "classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sortString"
+        },                {
+            "fqsen": "\\z4kn4fein\\SemVer\\Traits\\Sortable\u003A\u003ArsortString\u0028\u0029",
+            "name": "rsortString",
+            "summary": "Sorts\u0020an\u0020array\u0020of\u0020versions\u0020in\u0020reverse\u0020order.",
+            "url": "classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsortString"
+        },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Version",
             "name": "Version",
             "summary": "This\u0020class\u0020describes\u0020a\u0020semantic\u0020version\u0020and\u0020related\u0020operations\u0020following\u0020the\u0020semver\u00202.0.0\u0020specification.",

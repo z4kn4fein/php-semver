@@ -94,52 +94,134 @@
 </aside>
 
             <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    
-    <h2 class="phpdocumentor-content__title">Files</h2>
-                                                                    <h3>C</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></li>
-                    <li><a href="files/src-constraints-condition.html"><abbr title="src/Constraints/Condition.php">Condition.php</abbr></a></li>
-                    <li><a href="files/src-constraints-constraint.html"><abbr title="src/Constraints/Constraint.php">Constraint.php</abbr></a></li>
-                    <li><a href="files/src-traits-copyable.html"><abbr title="src/Traits/Copyable.php">Copyable.php</abbr></a></li>
-                </ul>
-                                                                                                                                        <h3>I</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/src-inc.html"><abbr title="src/Inc.php">Inc.php</abbr></a></li>
-                    <li><a href="files/src-traits-iterator.html"><abbr title="src/Traits/Iterator.php">Iterator.php</abbr></a></li>
-                </ul>
-                                                                                                                    <h3>N</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/src-traits-nextproducer.html"><abbr title="src/Traits/NextProducer.php">NextProducer.php</abbr></a></li>
-                </ul>
-                                    <h3>O</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/src-constraints-op.html"><abbr title="src/Constraints/Op.php">Op.php</abbr></a></li>
-                </ul>
-                                    <h3>P</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/src-patterns.html"><abbr title="src/Patterns.php">Patterns.php</abbr></a></li>
-                    <li><a href="files/src-prerelease.html"><abbr title="src/PreRelease.php">PreRelease.php</abbr></a></li>
-                    <li><a href="files/src-traits-primitivecomparable.html"><abbr title="src/Traits/PrimitiveComparable.php">PrimitiveComparable.php</abbr></a></li>
-                </ul>
-                                                        <h3>R</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/src-constraints-range.html"><abbr title="src/Constraints/Range.php">Range.php</abbr></a></li>
-                </ul>
-                                    <h3>S</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/src-semverexception.html"><abbr title="src/SemverException.php">SemverException.php</abbr></a></li>
-                    <li><a href="files/src-traits-singles.html"><abbr title="src/Traits/Singles.php">Singles.php</abbr></a></li>
-                    <li><a href="files/src-traits-sortable.html"><abbr title="src/Traits/Sortable.php">Sortable.php</abbr></a></li>
-                </ul>
-                                                                            <h3>V</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/src-traits-validator.html"><abbr title="src/Traits/Validator.php">Validator.php</abbr></a></li>
-                    <li><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></li>
-                    <li><a href="files/src-constraints-versioncomparator.html"><abbr title="src/Constraints/VersionComparator.php">VersionComparator.php</abbr></a></li>
-                    <li><a href="files/src-constraints-versiondescriptor.html"><abbr title="src/Constraints/VersionDescriptor.php">VersionDescriptor.php</abbr></a></li>
-                </ul>
-                                                                                                            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                    <ul class="phpdocumentor-breadcrumbs">
+    </ul>
+
+    <article class="phpdocumentor-element -file">
+        <h2 class="phpdocumentor-content__title">Sortable.php</h2>
+
+        
+    <section class="phpdocumentor-description"></section>
+
+
+
+
+
+
+<h3 id="interfaces_class_traits">
+    Interfaces, Classes, Traits and Enums
+    <a href="#interfaces_class_traits" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+    
+    
+            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/z4kn4fein-SemVer-Traits-Sortable.html"><abbr title="\z4kn4fein\SemVer\Traits\Sortable">Sortable</abbr></a></dt>
+        <dd>This trait used to sort Version arrays.</dd>
+    
+    </dl>
+
+
+
+
+
+        
+
+        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Traits/Sortable.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
+
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
+
+                    var xhr = new XMLHttpRequest();
+
+                    xhr.open('GET', src, true);
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+                            Prism.highlightElement(code);
+                            return;
+                        }
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
+                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
+                    }
+                    modal.classList.add("phpdocumentor-modal__open");
+
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
+                    });
+                });
+            });
+        })();
+    </script>
+
+    </article>
+                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -152,7 +234,7 @@
 </section>
             </div>
         </div>
-        <a href="indices/files.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="files/src-traits-sortable.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
