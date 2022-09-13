@@ -7,6 +7,7 @@ use z4kn4fein\SemVer\Traits\Comparable;
 use z4kn4fein\SemVer\Traits\Copyable;
 use z4kn4fein\SemVer\Traits\NextProducer;
 use z4kn4fein\SemVer\Traits\Singles;
+use z4kn4fein\SemVer\Traits\Sortable;
 use z4kn4fein\SemVer\Traits\Validator;
 
 /**
@@ -22,6 +23,7 @@ class Version
     use Copyable;
     use Singles;
     use Validator;
+    use Sortable;
 
     /** @var int */
     private $major;

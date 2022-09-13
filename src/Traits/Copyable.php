@@ -30,7 +30,7 @@ trait Copyable
         string $preRelease = null,
         string $buildMeta = null
     ): Version {
-        return Version::create(
+        return self::create(
             $major == null ? $this->major : $major,
             $minor == null ? $this->minor : $minor,
             $patch == null ? $this->patch : $patch,

@@ -99,7 +99,67 @@ echo $version->isNotEqual(Version::parse("2.2.4"));                  // true
 
 ### Sort
 
-`Version::compare()` and `Version::compareString()` methods can be used to sort an array of versions. (as callback for `usort()`)
+`Version::sort()` and `Version::sortString()` are available to sort an array of versions.
+```php
+<?php
+
+use z4kn4fein\SemVer\Version;
+
+$versions = array_map(function(string $version) {
+    return Version::parse($version);
+}, [
+    "1.0.1",
+    "1.0.1-alpha",
+    "1.0.1-alpha.beta",
+    "1.0.1-alpha.3",
+    "1.0.1-alpha.2",
+    "1.1.0",
+    "1.1.0+build",
+]);
+
+$sorted = Version::sort($versions);
+
+// The result:
+//   "1.0.1-alpha"
+//   "1.0.1-alpha.2"
+//   "1.0.1-alpha.3"
+//   "1.0.1-alpha.beta"
+//   "1.0.1"
+//   "1.1.0"
+//   "1.1.0+build"
+```
+
+You might want to sort in reverse order, then you can use `Version::rsort()` or `Version::rsortString()`.
+```php
+<?php
+
+use z4kn4fein\SemVer\Version;
+
+$versions = array_map(function(string $version) {
+    return Version::parse($version);
+}, [
+    "1.0.1",
+    "1.0.1-alpha",
+    "1.0.1-alpha.beta",
+    "1.0.1-alpha.3",
+    "1.0.1-alpha.2",
+    "1.1.0",
+    "1.1.0+build",
+]);
+
+$sorted = Version::rsort($versions);
+
+// The result:
+//   "1.1.0"
+//   "1.1.0+build"
+//   "1.0.1"
+//   "1.0.1-alpha.beta"
+//   "1.0.1-alpha.3"
+//   "1.0.1-alpha.2"
+//   "1.0.1-alpha"
+```
+
+`Version::compare()` and `Version::compareString()` methods also can be used as callback for `usort()` to sort an array of versions.
 ```php
 <?php
 
@@ -129,7 +189,6 @@ usort($versions, ["z4kn4fein\SemVer\Version", "compare"]);
 //   "1.1.0+build"
 ```
 
-
 ## Constraints
 With constraints, it's possible to validate whether a version satisfies a set of rules or not.
 A constraint can be described as one or more conditions combined with logical `OR` and `AND` operators.
@@ -147,7 +206,7 @@ Supported comparison operators:
 - `>=` Greater than or equal
 
 Conditions can be joined together with whitespace, representing the `AND` logical operator between them.
-The `OR` operator can be expressed with `||` between condition sets.
+The `OR` operator can be expressed with `||` or `|` between condition sets.
 
 For example, the constraint `>=1.2.0 <3.0.0 || >4.0.0` translates to: *Only those versions are allowed that are either greater than or
 equal to `1.2.0` {**AND**} less than `3.0.0` {**OR**} greater than `4.0.0`*.

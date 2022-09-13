@@ -99,7 +99,8 @@ class Constraint
             return self::default();
         }
 
-        $orParts = explode('||', $constraintString);
+        $orParts = explode('|', $constraintString);
+        $orParts = array_filter($orParts);
 
         $comps = array_map(function ($comparator) use ($constraintString) {
             $result = [];
