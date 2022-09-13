@@ -128,4 +128,29 @@ class CompareTest extends TestCase
         $this->assertEquals(1, Version::compareString('5.2.3-alpha.6+build.34','5.2.3-alpha.5'));
         $this->assertEquals(0, Version::compareString('5.2.3','5.2.3'));
     }
+
+    public function testSort()
+    {
+        $versions = array_map(function(string $version) {
+            return Version::parse($version);
+        }, [
+            "1.0.1",
+            "1.0.1-alpha",
+            "1.0.1-alpha.beta",
+            "1.0.1-alpha.3",
+            "1.0.1-alpha.2",
+            "1.1.0",
+            "1.1.0+build",
+        ]);
+
+        usort($versions, ["z4kn4fein\SemVer\Version", "compare"]);
+
+        $this->assertEquals("1.0.1-alpha", (string)$versions[0]);
+        $this->assertEquals("1.0.1-alpha.2", (string)$versions[1]);
+        $this->assertEquals("1.0.1-alpha.3", (string)$versions[2]);
+        $this->assertEquals("1.0.1-alpha.beta", (string)$versions[3]);
+        $this->assertEquals("1.0.1", (string)$versions[4]);
+        $this->assertEquals("1.1.0", (string)$versions[5]);
+        $this->assertEquals("1.1.0+build", (string)$versions[6]);
+    }
 }

@@ -97,6 +97,39 @@ echo $version->isEqual(Version::parse("2.5.6-alpha.12+build.56"));   // true
 echo $version->isNotEqual(Version::parse("2.2.4"));                  // true
 ```
 
+### Sort
+
+`Version::compare()` and `Version::compareString()` methods can be used to sort an array of versions. (as callback for `usort()`)
+```php
+<?php
+
+use z4kn4fein\SemVer\Version;
+
+$versions = array_map(function(string $version) {
+    return Version::parse($version);
+}, [
+    "1.0.1",
+    "1.0.1-alpha",
+    "1.0.1-alpha.beta",
+    "1.0.1-alpha.3",
+    "1.0.1-alpha.2",
+    "1.1.0",
+    "1.1.0+build",
+]);
+
+usort($versions, ["z4kn4fein\SemVer\Version", "compare"]);
+
+// The result:
+//   "1.0.1-alpha"
+//   "1.0.1-alpha.2"
+//   "1.0.1-alpha.3"
+//   "1.0.1-alpha.beta"
+//   "1.0.1"
+//   "1.1.0"
+//   "1.1.0+build"
+```
+
+
 ## Constraints
 With constraints, it's possible to validate whether a version satisfies a set of rules or not.
 A constraint can be described as one or more conditions combined with logical `OR` and `AND` operators.
