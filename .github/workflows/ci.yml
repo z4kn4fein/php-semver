@@ -12,7 +12,7 @@ jobs:
   analysis:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
 
@@ -42,7 +42,7 @@ jobs:
       matrix:
         php-versions: [ '7.1', '7.2', '7.3', '7.4', '8.0', '8.1' ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -74,7 +74,7 @@ jobs:
     needs: [test, analysis]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
