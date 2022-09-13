@@ -22,6 +22,14 @@ class ConstraintTest extends TestCase
     }
 
     /**
+     * @dataProvider dataInvalid
+     */
+    public function testInvalidConstraintsNull(string $constraint)
+    {
+        $this->assertNull(Constraint::parseOrNull($constraint));
+    }
+
+    /**
      * @dataProvider dataSatisfies
      */
     public function testSatisfies(string $constraint, string $version)

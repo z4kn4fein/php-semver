@@ -44,31 +44,9 @@ class CreateTest extends TestCase
         $this->assertEquals("2.3.4-alpha+build", (string)$version->copy(2, 3, 4));
     }
 
-    public function testIsStable()
-    {
-        $this->assertFalse(Version::parse("0.1.2")->isStable());
-        $this->assertFalse(Version::parse("1.1.0-prerelease")->isStable());
-        $this->assertTrue(Version::parse("1.1.0")->isStable());
-    }
-
     public function testSuffixes()
     {
         $version = Version::parse("0.1.2-alpha+build");
         $this->assertEquals("0.1.2", (string)$version->withoutSuffixes());
-    }
-
-    public function testNonStrict()
-    {
-        $this->assertEquals("1.2.3", (string)Version::parse("v1.2.3", false));
-        $this->assertEquals("1.0.0", (string)Version::parse("v1", false));
-        $this->assertEquals("1.0.0", (string)Version::parse("1", false));
-        $this->assertEquals("1.2.0", (string)Version::parse("1.2", false));
-        $this->assertEquals("1.2.0", (string)Version::parse("v1.2", false));
-
-        $this->assertEquals("1.2.3-alpha+build", (string)Version::parse("v1.2.3-alpha+build", false));
-        $this->assertEquals("1.0.0-alpha+build", (string)Version::parse("v1-alpha+build", false));
-        $this->assertEquals("1.0.0-alpha+build", (string)Version::parse("1-alpha+build", false));
-        $this->assertEquals("1.2.0-alpha+build", (string)Version::parse("1.2-alpha+build", false));
-        $this->assertEquals("1.2.0-alpha+build", (string)Version::parse("v1.2-alpha+build", false));
     }
 }

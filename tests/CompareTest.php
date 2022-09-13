@@ -24,7 +24,7 @@ class CompareTest extends TestCase
         $this->assertTrue($version->isLessThanOrEqual(Version::parse('5.2.3-alpha.2')));
     }
 
-    public function testPrecedenceFromSpex()
+    public function testPrecedenceFromSpec()
     {
         $this->assertTrue(Version::parse('1.0.0')->isLessThan(Version::parse('2.0.0')));
         $this->assertTrue(Version::parse('2.0.0')->isLessThan(Version::parse('2.1.0')));
@@ -94,6 +94,9 @@ class CompareTest extends TestCase
     {
         $this->assertTrue(Version::equal('5.2.3-alpha.2+build.34','5.2.3-alpha.2'));
         $this->assertFalse(Version::equal('5.2.3-alpha.2+build.34','5.2.3-alpha.5'));
+
+        $this->assertFalse(Version::notEqual('5.2.3-alpha.2+build.34','5.2.3-alpha.2'));
+        $this->assertTrue(Version::notEqual('5.2.3-alpha.2+build.34','5.2.3-alpha.5'));
     }
 
     public function testCompareStrings()
@@ -104,5 +107,25 @@ class CompareTest extends TestCase
         $this->assertTrue(Version::greaterThan('5.2.4','5.2.3'));
         $this->assertTrue(Version::greaterThan('5.2.3-alpha.6+build.34','5.2.3-alpha.5'));
         $this->assertTrue(Version::greaterThanOrEqual('5.2.3','5.2.3'));
+    }
+
+    public function testCompareWithCompare()
+    {
+        $this->assertEquals(-1, Version::compare(Version::parse('5.2.2'), Version::parse('5.2.3')));
+        $this->assertEquals(-1, Version::compare(Version::parse('5.2.3-alpha.2+build.34'),Version::parse('5.2.3-alpha.5')));
+        $this->assertEquals(0, Version::compare(Version::parse('5.2.3'),Version::parse('5.2.3')));
+        $this->assertEquals(1, Version::compare(Version::parse('5.2.4'),Version::parse('5.2.3')));
+        $this->assertEquals(1, Version::compare(Version::parse('5.2.3-alpha.6+build.34'),Version::parse('5.2.3-alpha.5')));
+        $this->assertEquals(0, Version::compare(Version::parse('5.2.3'),Version::parse('5.2.3')));
+    }
+
+    public function testCompareStringsWithCompare()
+    {
+        $this->assertEquals(-1, Version::compareString('5.2.2','5.2.3'));
+        $this->assertEquals(-1, Version::compareString('5.2.3-alpha.2+build.34','5.2.3-alpha.5'));
+        $this->assertEquals(0, Version::compareString('5.2.3','5.2.3'));
+        $this->assertEquals(1, Version::compareString('5.2.4','5.2.3'));
+        $this->assertEquals(1, Version::compareString('5.2.3-alpha.6+build.34','5.2.3-alpha.5'));
+        $this->assertEquals(0, Version::compareString('5.2.3','5.2.3'));
     }
 }

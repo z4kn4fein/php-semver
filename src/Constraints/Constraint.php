@@ -36,7 +36,7 @@ class Constraint
      * @param Version $version The version to check.
      * @return bool True when the version satisfies the constraint, otherwise false.
      */
-    public function satisfiedBy(Version $version): bool
+    public function isSatisfiedBy(Version $version): bool
     {
         return self::any($this->comparators, function (array $comparator) use ($version) {
             return self::all($comparator, function (VersionComparator $condition) use ($version) {
@@ -66,6 +66,21 @@ class Constraint
         return self::single('default-constraint', function () {
             return new Constraint([[Condition::greaterThanMin()]]);
         });
+    }
+
+    /**
+     * Parses a new constraint from the given string.
+     *
+     * @param string $constraintString The string to parse.
+     * @return Constraint|null The parsed constraint, or null if the parse fails.
+     */
+    public static function parseOrNull(string $constraintString): ?Constraint
+    {
+        try {
+            return self::parse($constraintString);
+        } catch (\Exception $exception) {
+            return null;
+        }
     }
 
     /**

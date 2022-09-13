@@ -14,7 +14,7 @@ trait Comparable
      * Compares the version with the given one, returns true when the current is less than the other.
      *
      * @param Version $v The version to compare.
-     * @return bool True when instance < $v. Otherwise, false.
+     * @return bool True when instance < $v, otherwise false.
      */
     public function isLessThan(Version $v): bool
     {
@@ -25,7 +25,7 @@ trait Comparable
      * Compares the version with the given one, returns true when the current is less than the other or equal.
      *
      * @param Version $v The version to compare.
-     * @return bool True when instance <= $v. Otherwise, false.
+     * @return bool True when instance <= $v, otherwise false.
      */
     public function isLessThanOrEqual(Version $v): bool
     {
@@ -36,7 +36,7 @@ trait Comparable
      * Compares the version with the given one, returns true when the current is greater than the other.
      *
      * @param Version $v The version to compare.
-     * @return bool True when instance > $v. Otherwise, false.
+     * @return bool True when instance > $v, otherwise false.
      */
     public function isGreaterThan(Version $v): bool
     {
@@ -47,7 +47,7 @@ trait Comparable
      * Compares the version with the given one, returns true when the current is greater than the other or equal.
      *
      * @param Version $v The version to compare.
-     * @return bool True when instance >= $v. Otherwise, false.
+     * @return bool True when instance >= $v, otherwise false.
      */
     public function isGreaterThanOrEqual(Version $v): bool
     {
@@ -58,11 +58,22 @@ trait Comparable
      * Compares the version with the given one, returns true when they are equal.
      *
      * @param Version $v The version to compare.
-     * @return bool True when instance == $v. Otherwise, false.
+     * @return bool True when instance == $v, otherwise false.
      */
     public function isEqual(Version $v): bool
     {
-        return self::compare($this, $v) == 0;
+        return self::compare($this, $v) === 0;
+    }
+
+    /**
+     * Compares the version with the given one, returns true when they are not equal.
+     *
+     * @param Version $v The version to compare.
+     * @return bool True when instance != $v, otherwise false.
+     */
+    public function isNotEqual(Version $v): bool
+    {
+        return self::compare($this, $v) !== 0;
     }
 
     /**
@@ -70,13 +81,13 @@ trait Comparable
      *
      * @param string $v1 The left side of the comparison.
      * @param string $v2 The right side of the comparison.
-     * @return bool True when $v1 &lt; $v2. Otherwise, false.
+     * @return bool True when $v1 &lt; $v2, otherwise false.
      * @throws SemverException When the version strings are invalid.
      */
     public static function lessThan(string $v1, string $v2): bool
     {
-        $version1 = Version::parse($v1);
-        $version2 = Version::parse($v2);
+        $version1 = self::parse($v1);
+        $version2 = self::parse($v2);
 
         return $version1->isLessThan($version2);
     }
@@ -86,13 +97,13 @@ trait Comparable
      *
      * @param string $v1 The left side of the comparison.
      * @param string $v2 The right side of the comparison.
-     * @return bool True when $v1 &lt;= $v2. Otherwise, false.
+     * @return bool True when $v1 &lt;= $v2, otherwise false.
      * @throws SemverException When the version strings are invalid.
      */
     public static function lessThanOrEqual(string $v1, string $v2): bool
     {
-        $version1 = Version::parse($v1);
-        $version2 = Version::parse($v2);
+        $version1 = self::parse($v1);
+        $version2 = self::parse($v2);
 
         return $version1->isLessThanOrEqual($version2);
     }
@@ -102,13 +113,13 @@ trait Comparable
      *
      * @param string $v1 The left side of the comparison.
      * @param string $v2 The right side of the comparison.
-     * @return bool True when $v1 &gt; $v2. Otherwise, false.
+     * @return bool True when $v1 &gt; $v2, otherwise false.
      * @throws SemverException When the version strings are invalid.
      */
     public static function greaterThan(string $v1, string $v2): bool
     {
-        $version1 = Version::parse($v1);
-        $version2 = Version::parse($v2);
+        $version1 = self::parse($v1);
+        $version2 = self::parse($v2);
 
         return $version1->isGreaterThan($version2);
     }
@@ -118,13 +129,13 @@ trait Comparable
      *
      * @param string $v1 The left side of the comparison.
      * @param string $v2 The right side of the comparison.
-     * @return bool True when $v1 &gt;= $v2. Otherwise, false.
+     * @return bool True when $v1 &gt;= $v2, otherwise false.
      * @throws SemverException When the version strings are invalid.
      */
     public static function greaterThanOrEqual(string $v1, string $v2): bool
     {
-        $version1 = Version::parse($v1);
-        $version2 = Version::parse($v2);
+        $version1 = self::parse($v1);
+        $version2 = self::parse($v2);
 
         return $version1->isGreaterThanOrEqual($version2);
     }
@@ -134,15 +145,45 @@ trait Comparable
      *
      * @param string $v1 The left side of the comparison.
      * @param string $v2 The right side of the comparison.
-     * @return bool True when $v1 == $v2. Otherwise, false.
+     * @return bool True when $v1 == $v2, otherwise false.
      * @throws SemverException When the version strings are invalid.
      */
     public static function equal(string $v1, string $v2): bool
     {
-        $version1 = Version::parse($v1);
-        $version2 = Version::parse($v2);
+        $version1 = self::parse($v1);
+        $version2 = self::parse($v2);
 
         return $version1->isEqual($version2);
+    }
+
+    /**
+     * Compares two version strings and returns true when the first and second are not equal.
+     *
+     * @param string $v1 The left side of the comparison.
+     * @param string $v2 The right side of the comparison.
+     * @return bool True when $v1 != $v2, otherwise false.
+     * @throws SemverException When the version strings are invalid.
+     */
+    public static function notEqual(string $v1, string $v2): bool
+    {
+        $version1 = self::parse($v1);
+        $version2 = self::parse($v2);
+
+        return $version1->isNotEqual($version2);
+    }
+
+    /**
+     * @param string $v1 The left side of the comparison.
+     * @param string $v2 The right side of the comparison.
+     * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
+     * @throws SemverException When the version strings are invalid.
+     */
+    public static function compareString(string $v1, string $v2): int
+    {
+        $version1 = self::parse($v1);
+        $version2 = self::parse($v2);
+
+        return self::compare($version1, $version2);
     }
 
     /**
@@ -150,7 +191,7 @@ trait Comparable
      * @param Version $v2 The right side of the comparison.
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2.
      */
-    private static function compare(Version $v1, Version $v2): int
+    public static function compare(Version $v1, Version $v2): int
     {
         $major = self::comparePrimitive($v1->getMajor(), $v2->getMajor());
         if ($major != 0) {

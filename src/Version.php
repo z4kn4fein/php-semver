@@ -155,7 +155,7 @@ class Version
      */
     public function isSatisfying(Constraint $constraint): bool
     {
-        return $constraint->satisfiedBy($this);
+        return $constraint->isSatisfiedBy($this);
     }
 
     /**
@@ -166,6 +166,21 @@ class Version
         return self::single("min", function () {
             return new Version(0, 0, 0);
         });
+    }
+
+    /**
+     * Parses a new version from the given version string.
+     *
+     * @param string $versionString The version string.
+     * @return Version|null The parsed version, or null if the parse fails.
+     */
+    public static function parseOrNull(string $versionString, bool $strict = true): ?Version
+    {
+        try {
+            return self::parse($versionString, $strict);
+        } catch (\Exception $exception) {
+            return null;
+        }
     }
 
     /**
