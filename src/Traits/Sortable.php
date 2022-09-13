@@ -35,9 +35,12 @@ trait Sortable
         usort($sorted, function (Version $v1, Version $v2) {
             $result = self::compare($v1, $v2);
             switch ($result) {
-                case -1: return 1;
-                case 1: return -1;
-                default: return 0;
+                case -1:
+                    return 1;
+                case 1:
+                    return -1;
+                default:
+                    return 0;
             }
         });
         return $sorted;
@@ -72,9 +75,12 @@ trait Sortable
         usort($sorted, function (string $v1, string $v2) {
             $result = self::compareString($v1, $v2);
             switch ($result) {
-                case -1: return 1;
-                case 1: return -1;
-                default: return 0;
+                case -1:
+                    return 1;
+                case 1:
+                    return -1;
+                default:
+                    return 0;
             }
         });
         return $sorted;
