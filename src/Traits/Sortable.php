@@ -7,6 +7,8 @@ use z4kn4fein\SemVer\Version;
 
 /**
  * This trait used to sort Version arrays.
+ *
+ * @package z4kn4fein\SemVer\Traits
  */
 trait Sortable
 {
