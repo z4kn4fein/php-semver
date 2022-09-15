@@ -27,7 +27,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer self-update
           composer install --prefer-dist --no-progress --no-suggest
 
       - name: Execute Code Style Check
@@ -63,7 +62,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer self-update
           composer install --prefer-dist --no-progress --no-suggest
 
       - name: Execute tests
@@ -96,7 +94,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer self-update
           composer install --prefer-dist --no-progress --no-suggest
 
       - name: Execute coverage
