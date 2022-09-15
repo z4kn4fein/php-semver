@@ -173,9 +173,14 @@ class Version
     }
 
     /**
-     * Parses a new version from the given version string.
+     * Parses the given string as a Version and returns the result or null
+     * if the string is not a valid representation of a semantic version.
+     *
+     * Strict mode is on by default, which means partial versions (e.g. '1.0' or '1') and versions with 'v' prefix
+     * are considered invalid. This behaviour can be turned off by setting the strict parameter to false.
      *
      * @param string $versionString The version string.
+     * @param bool $strict Enables or disables strict parsing.
      * @return Version|null The parsed version, or null if the parse fails.
      */
     public static function parseOrNull(string $versionString, bool $strict = true): ?Version
@@ -188,9 +193,14 @@ class Version
     }
 
     /**
-     * Parses a new version from the given version string.
+     * Parses the given string as a Version and returns the result or throws a SemverException
+     * if the string is not a valid representation of a semantic version.
+     *
+     * Strict mode is on by default, which means partial versions (e.g. '1.0' or '1') and versions with 'v' prefix
+     * are considered invalid. This behaviour can be turned off by setting the strict parameter to false.
      *
      * @param string $versionString The version string.
+     * @param bool $strict Enables or disables strict parsing.
      * @return Version The parsed version.
      * @throws SemverException When the given version string is invalid.
      */
@@ -240,7 +250,8 @@ class Version
     }
 
     /**
-     * Creates a new version.
+     * Constructs a semantic version from the given arguments following the pattern:
+     * <[major]>.<[minor]>.<[patch]>-<[preRelease]>+<[buildMetadata]>
      *
      * @param int $major The major version number.
      * @param int $minor The minor version number.
