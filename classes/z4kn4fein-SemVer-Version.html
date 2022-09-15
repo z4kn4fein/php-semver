@@ -182,7 +182,8 @@
     <span>
                                 &nbsp;: <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>    </span>
 </dt>
-<dd>Creates a new version.</dd>
+<dd>Constructs a semantic version from the given arguments following the pattern:
+&lt;[major]&gt;.&lt;[minor]&gt;.&lt;[patch]&gt;-&lt;[preRelease]&gt;+&lt;[buildMetadata]&gt;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_equal">equal()</a>
@@ -371,14 +372,16 @@
     <span>
                                 &nbsp;: <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>    </span>
 </dt>
-<dd>Parses a new version from the given version string.</dd>
+<dd>Parses the given string as a Version and returns the result or throws a SemverException
+if the string is not a valid representation of a semantic version.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/z4kn4fein-SemVer-Version.html#method_parseOrNull">parseOrNull()</a>
     <span>
                                 &nbsp;: <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>|null    </span>
 </dt>
-<dd>Parses a new version from the given version string.</dd>
+<dd>Parses the given string as a Version and returns the result or null
+if the string is not a valid representation of a semantic version.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsort">rsort()</a>
@@ -721,11 +724,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">253</span>
+    <span class="phpdocumentor-element-found-in__line">264</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Creates a new version.</p>
+        <p class="phpdocumentor-summary">Constructs a semantic version from the given arguments following the pattern:
+&lt;[major]&gt;.&lt;[minor]&gt;.&lt;[patch]&gt;-&lt;[preRelease]&gt;+&lt;[buildMetadata]&gt;</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -2278,17 +2282,21 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">197</span>
+    <span class="phpdocumentor-element-found-in__line">207</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Parses a new version from the given version string.</p>
+        <p class="phpdocumentor-summary">Parses the given string as a Version and returns the result or throws a SemverException
+if the string is not a valid representation of a semantic version.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">parse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionString</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$strict</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
-    
+        <section class="phpdocumentor-description"><p>Strict mode is on by default, which means partial versions (e.g. '1.0' or '1') and versions with 'v' prefix
+are considered invalid. This behaviour can be turned off by setting the strict parameter to false.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2305,7 +2313,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Enables or disables strict parsing.</p>
+</section>
 
             </dd>
             </dl>
@@ -2349,17 +2358,21 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">181</span>
+    <span class="phpdocumentor-element-found-in__line">186</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Parses a new version from the given version string.</p>
+        <p class="phpdocumentor-summary">Parses the given string as a Version and returns the result or null
+if the string is not a valid representation of a semantic version.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">parseOrNull</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionString</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$strict</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>|null</span></code>
 
-    
+        <section class="phpdocumentor-description"><p>Strict mode is on by default, which means partial versions (e.g. '1.0' or '1') and versions with 'v' prefix
+are considered invalid. This behaviour can be turned off by setting the strict parameter to false.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2376,7 +2389,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Enables or disables strict parsing.</p>
+</section>
 
             </dd>
             </dl>
@@ -2526,7 +2540,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">281</span>
+    <span class="phpdocumentor-element-found-in__line">292</span>
 
     </aside>
 

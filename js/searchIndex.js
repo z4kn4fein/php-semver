@@ -263,17 +263,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Version\u003A\u003AparseOrNull\u0028\u0029",
             "name": "parseOrNull",
-            "summary": "Parses\u0020a\u0020new\u0020version\u0020from\u0020the\u0020given\u0020version\u0020string.",
+            "summary": "Parses\u0020the\u0020given\u0020string\u0020as\u0020a\u0020Version\u0020and\u0020returns\u0020the\u0020result\u0020or\u0020null\nif\u0020the\u0020string\u0020is\u0020not\u0020a\u0020valid\u0020representation\u0020of\u0020a\u0020semantic\u0020version.",
             "url": "classes/z4kn4fein-SemVer-Version.html#method_parseOrNull"
         },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Version\u003A\u003Aparse\u0028\u0029",
             "name": "parse",
-            "summary": "Parses\u0020a\u0020new\u0020version\u0020from\u0020the\u0020given\u0020version\u0020string.",
+            "summary": "Parses\u0020the\u0020given\u0020string\u0020as\u0020a\u0020Version\u0020and\u0020returns\u0020the\u0020result\u0020or\u0020throws\u0020a\u0020SemverException\nif\u0020the\u0020string\u0020is\u0020not\u0020a\u0020valid\u0020representation\u0020of\u0020a\u0020semantic\u0020version.",
             "url": "classes/z4kn4fein-SemVer-Version.html#method_parse"
         },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Version\u003A\u003Acreate\u0028\u0029",
             "name": "create",
-            "summary": "Creates\u0020a\u0020new\u0020version.",
+            "summary": "Constructs\u0020a\u0020semantic\u0020version\u0020from\u0020the\u0020given\u0020arguments\u0020following\u0020the\u0020pattern\u003A\n\u003C\u005Bmajor\u005D\u003E.\u003C\u005Bminor\u005D\u003E.\u003C\u005Bpatch\u005D\u003E\u002D\u003C\u005BpreRelease\u005D\u003E\u002B\u003C\u005BbuildMetadata\u005D\u003E",
             "url": "classes/z4kn4fein-SemVer-Version.html#method_create"
         },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Version\u003A\u003Asatisfies\u0028\u0029",
