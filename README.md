@@ -45,6 +45,7 @@ echo $version->getPreRelease();    // alpha.12
 echo $version->getBuildMeta();     // build.34
 echo $version->isPreRelease();     // true
 echo $version->isStable();         // false
+echo $version->withoutSuffixes();  // 2.5.6
 echo $version;                     // 2.5.6-alpha.12+build.34
 ```
 
