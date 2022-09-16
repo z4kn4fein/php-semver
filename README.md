@@ -352,3 +352,8 @@ echo $version->copy(3, 4, 5);                                 // 3.4.5-alpha.2+b
 ## Invalid version handling
 When the version or constraint parsing fails due to an invalid format, the library throws a specific `SemverException`.
 > The `Version::parseOrNull()` and `Constraint::parseOrNull()` methods can be used for exception-less conversions as they return `null` when the parsing fails.
+
+## Contact & Support
+- Create an [issue](https://github.com/z4kn4fein/php-semver/issues) for bug reports and feature requests.
+- Start a [discussion](https://github.com/z4kn4fein/php-semver/discussions) for your questions and ideas.
+- Add a ⭐️ to support the project!
