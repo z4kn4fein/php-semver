@@ -80,11 +80,11 @@ echo Version::notEqual("3.2.3","2.2.4");                             // true
 // compare() or compareString()
 echo Version::compare(Version::parse("2.3.4"), Version::parse("2.4.1"));  // -1
 echo Version::compare(Version::parse("2.3.4"), Version::parse("2.3.4"));  // 0
-echo Version::compare(Version::parse("2.3.4"), Version::parse("3.1.0"));  // 1
+echo Version::compare(Version::parse("2.3.4"), Version::parse("2.2.0"));  // 1
 
 echo Version::compareString("2.3.4", "2.4.1");                            // -1
 echo Version::compareString("2.3.4", "2.3.4");                            // 0
-echo Version::compareString("2.3.4", "3.1.0");                            // 1
+echo Version::compareString("2.3.4", "2.2.0");                            // 1
 
 
 // with instance methods
