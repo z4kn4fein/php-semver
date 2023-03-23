@@ -34,7 +34,7 @@ trait Copyable
             $major == null ? $this->major : $major,
             $minor == null ? $this->minor : $minor,
             $patch == null ? $this->patch : $patch,
-            $preRelease === null ? (string)$this->preRelease : $preRelease,
+            $preRelease === null ? $this->preRelease : $preRelease,
             $buildMeta === null ? $this->buildMeta : $buildMeta
         );
     }
