@@ -44,6 +44,19 @@ class CreateTest extends TestCase
         $this->assertEquals("2.3.4-alpha+build", (string)$version->copy(2, 3, 4));
     }
 
+    public function testCopyStable()
+    {
+        $version = Version::create(0, 0,0);
+        $this->assertEquals($version, $version->copy());
+
+        $this->assertEquals("2.0.0", (string)$version->copy(2));
+        $this->assertEquals("0.2.0", (string)$version->copy(null, 2));
+        $this->assertEquals("0.0.2", (string)$version->copy(null, null, 2));
+        $this->assertEquals("0.0.0-beta", (string)$version->copy(null, null, null, "beta"));
+        $this->assertEquals("0.0.0+build2", (string)$version->copy(null, null, null, null, "build2"));
+        $this->assertEquals("2.3.4", (string)$version->copy(2, 3, 4));
+    }
+
     public function testSuffixes()
     {
         $version = Version::parse("0.1.2-alpha+build");
