@@ -346,12 +346,12 @@ echo $version->copy(null, null, null, "alpha.4");             // 1.0.0-alpha.4+b
 echo $version->copy(null, null, null, null, "build.3");       // 1.0.0-alpha.2+build.3
 echo $version->copy(3, 4, 5);                                 // 3.4.5-alpha.2+build.1
 ```
-> **Note**:
+> [!NOTE]\
 > Without setting any optional parameter, the `copy()` method will produce an exact copy of the original version.
 
 ## Invalid version handling
 When the version or constraint parsing fails due to an invalid format, the library throws a specific `SemverException`.
-> **Note**:
+> [!NOTE]\
 > The `Version::parseOrNull()` and `Constraint::parseOrNull()` methods can be used for exception-less conversions as they return `null` when the parsing fails.
 
 ## Contact & Support
