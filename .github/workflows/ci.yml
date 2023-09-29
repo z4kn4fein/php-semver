@@ -2,39 +2,13 @@ name: PHP Semver CI
 
 on:
   push:
-    branches: [ master, v2 ]
+    branches: [ '*' ]
     paths-ignore:
       - '**.md'
   pull_request:
     branches: [ master ]
 
 jobs:
-  analysis:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Validate composer.json and composer.lock
-        run: composer validate --strict
-
-      - name: Cache Composer packages
-        id: composer-cache
-        uses: actions/cache@v3
-        with:
-          path: vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-
-
-      - name: Install dependencies
-        run: |
-          composer install --prefer-dist --no-progress --no-suggest
-
-      - name: Execute Code Style Check
-        run: vendor/bin/phpcs
-
-      - name: Execute Static Analysis
-        run: vendor/bin/psalm
-
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -69,7 +43,7 @@ jobs:
 
 
   coverage:
-    needs: [test, analysis]
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -101,3 +75,63 @@ jobs:
 
       - name: Upload coverage report
         run: bash <(curl -s https://codecov.io/bash)
+
+  php-cs-fixer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          ini-values: 'memory_limit=-1'
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        run: |
+          composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Execute Code Style Check
+        run: vendor/bin/php-cs-fixer fix --ansi --diff --dry-run
+
+  phpstan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          ini-values: 'memory_limit=-1'
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        run: |
+          composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Execute Static Analysis
+        run: vendor/bin/phpstan analyse --ansi

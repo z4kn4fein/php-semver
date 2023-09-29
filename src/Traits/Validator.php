@@ -10,9 +10,10 @@ use z4kn4fein\SemVer\SemverException;
 trait Validator
 {
     /**
-     * @param bool $condition The condition to evaluate.
-     * @param string $message The exception message when the condition evaluates to false.
-     * @throws SemverException When the condition evaluates to false.
+     * @param bool   $condition the condition to evaluate
+     * @param string $message   the exception message when the condition evaluates to false
+     *
+     * @throws SemverException when the condition evaluates to false
      */
     private static function ensure(bool $condition, string $message): void
     {

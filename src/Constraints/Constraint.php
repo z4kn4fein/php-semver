@@ -2,6 +2,7 @@
 
 namespace z4kn4fein\SemVer\Constraints;
 
+use Exception;
 use z4kn4fein\SemVer\Patterns;
 use z4kn4fein\SemVer\SemverException;
 use z4kn4fein\SemVer\Traits\Iterator;
@@ -12,8 +13,6 @@ use z4kn4fein\SemVer\Version;
 /**
  * This class describes a semantic version constraint. It provides ability to verify whether a version
  * satisfies one or more conditions within a constraint.
- *
- * @package z4kn4fein\SemVer\Constraints
  */
 class Constraint
 {
@@ -33,10 +32,23 @@ class Constraint
     }
 
     /**
+     * @return string the string representation of the constraint
+     */
+    public function __toString(): string
+    {
+        $result = array_map(function ($comparator) {
+            return implode(' ', $comparator);
+        }, $this->comparators);
+
+        return implode(' || ', $result);
+    }
+
+    /**
      * Determines whether this constraint is satisfied by a Version or not.
      *
-     * @param Version $version The version to check.
-     * @return bool True when the version satisfies the constraint, otherwise false.
+     * @param Version $version the version to check
+     *
+     * @return bool true when the version satisfies the constraint, otherwise false
      */
     public function isSatisfiedBy(Version $version): bool
     {
@@ -48,20 +60,9 @@ class Constraint
     }
 
     /**
-     * @return string The string representation of the constraint.
-     */
-    public function __toString(): string
-    {
-        $result = array_map(function ($comparator) {
-            return implode(' ', $comparator);
-        }, $this->comparators);
-        return implode(' || ', $result);
-    }
-
-    /**
      * The default constraint (>=0.0.0).
      *
-     * @return Constraint The default constraint.
+     * @return Constraint the default constraint
      */
     public static function default(): Constraint
     {
@@ -73,14 +74,15 @@ class Constraint
     /**
      * Parses a new constraint from the given string.
      *
-     * @param string $constraintString The string to parse.
-     * @return Constraint|null The parsed constraint, or null if the parse fails.
+     * @param string $constraintString the string to parse
+     *
+     * @return null|Constraint the parsed constraint, or null if the parse fails
      */
     public static function parseOrNull(string $constraintString): ?Constraint
     {
         try {
             return self::parse($constraintString);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             return null;
         }
     }
@@ -88,9 +90,11 @@ class Constraint
     /**
      * Parses a new constraint from the given string.
      *
-     * @param string $constraintString The string to parse.
-     * @return Constraint The parsed constraint.
-     * @throws SemverException When the constraint string is invalid.
+     * @param string $constraintString the string to parse
+     *
+     * @throws SemverException when the constraint string is invalid
+     *
+     * @return Constraint the parsed constraint
      */
     public static function parse(string $constraintString): Constraint
     {
@@ -108,28 +112,29 @@ class Constraint
                 Patterns::HYPHEN_CONDITION_REGEX,
                 function ($matches) use (&$result) {
                     $result[] = self::hyphenToComparator($matches);
-                    return "";
+
+                    return '';
                 },
                 $comparator
             );
-
-            $escaped = trim($escaped);
-            if (!empty($escaped) && !preg_match(Patterns::VALID_OPERATOR_CONDITION_REGEX, $escaped)) {
-                throw new SemverException(sprintf("Invalid constraint: %s", $constraintString));
-            }
 
             if (empty($escaped)) {
                 return $result;
             }
 
+            $escaped = trim($escaped);
+            if (!empty($escaped) && !preg_match(Patterns::VALID_OPERATOR_CONDITION_REGEX, $escaped)) {
+                throw new SemverException(sprintf('Invalid constraint: %s', $constraintString));
+            }
+
             self::ensure(
-                (bool)preg_match_all(
+                (bool) preg_match_all(
                     Patterns::OPERATOR_CONDITION_REGEX,
                     $escaped,
                     $matches,
                     PREG_SET_ORDER
                 ),
-                sprintf("Invalid constraint: %s", $constraintString)
+                sprintf('Invalid constraint: %s', $constraintString)
             );
 
             foreach ($matches as $match) {
@@ -141,29 +146,31 @@ class Constraint
 
         self::ensure(self::any($comps, function (array $comparator) {
             return !empty($comparator);
-        }), sprintf("Invalid constraint: %s", $constraintString));
+        }), sprintf('Invalid constraint: %s', $constraintString));
 
         return new Constraint($comps);
     }
 
     /**
+     * @param mixed[] $matches
+     *
      * @throws SemverException
      */
     private static function hyphenToComparator(array $matches): VersionComparator
     {
         $startDescriptor = new VersionDescriptor(
             $matches[1],
-            isset($matches[2]) && $matches[2] !== "" ? $matches[2] : null,
-            isset($matches[3]) && $matches[3] !== "" ? $matches[3] : null,
-            isset($matches[4]) && $matches[4] !== "" ? $matches[4] : null,
-            isset($matches[5]) && $matches[5] !== "" ? $matches[5] : null
+            isset($matches[2]) && '' !== $matches[2] ? $matches[2] : null,
+            isset($matches[3]) && '' !== $matches[3] ? $matches[3] : null,
+            isset($matches[4]) && '' !== $matches[4] ? $matches[4] : null,
+            isset($matches[5]) && '' !== $matches[5] ? $matches[5] : null
         );
         $endDescriptor = new VersionDescriptor(
             $matches[6],
-            isset($matches[7]) && $matches[7] !== "" ? $matches[7] : null,
-            isset($matches[8]) && $matches[8] !== "" ? $matches[8] : null,
-            isset($matches[9]) && $matches[9] !== "" ? $matches[9] : null,
-            isset($matches[10]) && $matches[10] !== "" ? $matches[10] : null
+            isset($matches[7]) && '' !== $matches[7] ? $matches[7] : null,
+            isset($matches[8]) && '' !== $matches[8] ? $matches[8] : null,
+            isset($matches[9]) && '' !== $matches[9] ? $matches[9] : null,
+            isset($matches[10]) && '' !== $matches[10] ? $matches[10] : null
         );
 
         return new Range(
@@ -174,18 +181,21 @@ class Constraint
     }
 
     /**
+     * @param mixed[] $matches
+     *
      * @throws SemverException
      */
     private static function operatorToComparator(array $matches): VersionComparator
     {
-        $operator = isset($matches[1]) && $matches[1] !== "" ? $matches[1] : Op::EQUAL;
+        $operator = isset($matches[1]) && '' !== $matches[1] ? $matches[1] : Op::EQUAL;
         $descriptor = new VersionDescriptor(
             $matches[2],
-            isset($matches[3]) && $matches[3] !== "" ? $matches[3] : null,
-            isset($matches[4]) && $matches[4] !== "" ? $matches[4] : null,
-            isset($matches[5]) && $matches[5] !== "" ? $matches[5] : null,
-            isset($matches[6]) && $matches[6] !== "" ? $matches[6] : null
+            isset($matches[3]) && '' !== $matches[3] ? $matches[3] : null,
+            isset($matches[4]) && '' !== $matches[4] ? $matches[4] : null,
+            isset($matches[5]) && '' !== $matches[5] ? $matches[5] : null,
+            isset($matches[6]) && '' !== $matches[6] ? $matches[6] : null
         );
+
         return $descriptor->fromOperator($operator);
     }
 }

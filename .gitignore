@@ -3,9 +3,6 @@ composer.lock
 .idea/
 .phpdoc
 *.cache
-
 composer.phar
-
 docs/
-
 .DS_Store

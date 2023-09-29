@@ -7,21 +7,21 @@ use z4kn4fein\SemVer\Version;
 
 /**
  * This trait adds the copy method to Version.
- *
- * @package z4kn4fein\SemVer\Traits
  */
 trait Copyable
 {
     /**
      * Constructs a copy of the version. The copied object's properties can be altered with the optional parameters.
      *
-     * @param int|null $major The major version number.
-     * @param int|null $minor The minor version number.
-     * @param int|null $patch The patch version number.
-     * @param string|null $preRelease The pre-release part.
-     * @param string|null $buildMeta The build metadata.
-     * @return Version The new version.
-     * @throws SemverException When the version parts are invalid.
+     * @param null|int    $major      the major version number
+     * @param null|int    $minor      the minor version number
+     * @param null|int    $patch      the patch version number
+     * @param null|string $preRelease the pre-release part
+     * @param null|string $buildMeta  the build metadata
+     *
+     * @throws SemverException when the version parts are invalid
+     *
+     * @return Version the new version
      */
     public function copy(
         int $major = null,
@@ -31,15 +31,15 @@ trait Copyable
         string $buildMeta = null
     ): Version {
         return self::create(
-            $major == null ? $this->major : $major,
-            $minor == null ? $this->minor : $minor,
-            $patch == null ? $this->patch : $patch,
-            $preRelease === null
-                ? $this->preRelease === null
+            null == $major ? $this->major : $major,
+            null == $minor ? $this->minor : $minor,
+            null == $patch ? $this->patch : $patch,
+            null === $preRelease
+                ? null === $this->preRelease
                     ? null
-                    : (string)$this->preRelease
+                    : (string) $this->preRelease
                 : $preRelease,
-            $buildMeta === null ? $this->buildMeta : $buildMeta
+            null === $buildMeta ? $this->buildMeta : $buildMeta
         );
     }
 }

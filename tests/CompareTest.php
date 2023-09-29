@@ -92,136 +92,136 @@ class CompareTest extends TestCase
 
     public function testEqualIgnoreBuild()
     {
-        $this->assertTrue(Version::equal('5.2.3-alpha.2+build.34','5.2.3-alpha.2'));
-        $this->assertFalse(Version::equal('5.2.3-alpha.2+build.34','5.2.3-alpha.5'));
+        $this->assertTrue(Version::equal('5.2.3-alpha.2+build.34', '5.2.3-alpha.2'));
+        $this->assertFalse(Version::equal('5.2.3-alpha.2+build.34', '5.2.3-alpha.5'));
 
-        $this->assertFalse(Version::notEqual('5.2.3-alpha.2+build.34','5.2.3-alpha.2'));
-        $this->assertTrue(Version::notEqual('5.2.3-alpha.2+build.34','5.2.3-alpha.5'));
+        $this->assertFalse(Version::notEqual('5.2.3-alpha.2+build.34', '5.2.3-alpha.2'));
+        $this->assertTrue(Version::notEqual('5.2.3-alpha.2+build.34', '5.2.3-alpha.5'));
     }
 
     public function testCompareStrings()
     {
-        $this->assertTrue(Version::lessThan('5.2.2','5.2.3'));
-        $this->assertTrue(Version::lessThan('5.2.3-alpha.2+build.34','5.2.3-alpha.5'));
-        $this->assertTrue(Version::lessThanOrEqual('5.2.3','5.2.3'));
-        $this->assertTrue(Version::greaterThan('5.2.4','5.2.3'));
-        $this->assertTrue(Version::greaterThan('5.2.3-alpha.6+build.34','5.2.3-alpha.5'));
-        $this->assertTrue(Version::greaterThanOrEqual('5.2.3','5.2.3'));
+        $this->assertTrue(Version::lessThan('5.2.2', '5.2.3'));
+        $this->assertTrue(Version::lessThan('5.2.3-alpha.2+build.34', '5.2.3-alpha.5'));
+        $this->assertTrue(Version::lessThanOrEqual('5.2.3', '5.2.3'));
+        $this->assertTrue(Version::greaterThan('5.2.4', '5.2.3'));
+        $this->assertTrue(Version::greaterThan('5.2.3-alpha.6+build.34', '5.2.3-alpha.5'));
+        $this->assertTrue(Version::greaterThanOrEqual('5.2.3', '5.2.3'));
     }
 
     public function testCompareWithCompare()
     {
         $this->assertEquals(-1, Version::compare(Version::parse('5.2.2'), Version::parse('5.2.3')));
-        $this->assertEquals(-1, Version::compare(Version::parse('5.2.3-alpha.2+build.34'),Version::parse('5.2.3-alpha.5')));
-        $this->assertEquals(0, Version::compare(Version::parse('5.2.3'),Version::parse('5.2.3')));
-        $this->assertEquals(1, Version::compare(Version::parse('5.2.4'),Version::parse('5.2.3')));
-        $this->assertEquals(1, Version::compare(Version::parse('5.2.3-alpha.6+build.34'),Version::parse('5.2.3-alpha.5')));
-        $this->assertEquals(0, Version::compare(Version::parse('5.2.3'),Version::parse('5.2.3')));
+        $this->assertEquals(-1, Version::compare(Version::parse('5.2.3-alpha.2+build.34'), Version::parse('5.2.3-alpha.5')));
+        $this->assertEquals(0, Version::compare(Version::parse('5.2.3'), Version::parse('5.2.3')));
+        $this->assertEquals(1, Version::compare(Version::parse('5.2.4'), Version::parse('5.2.3')));
+        $this->assertEquals(1, Version::compare(Version::parse('5.2.3-alpha.6+build.34'), Version::parse('5.2.3-alpha.5')));
+        $this->assertEquals(0, Version::compare(Version::parse('5.2.3'), Version::parse('5.2.3')));
     }
 
     public function testCompareStringsWithCompare()
     {
-        $this->assertEquals(-1, Version::compareString('5.2.2','5.2.3'));
-        $this->assertEquals(-1, Version::compareString('5.2.3-alpha.2+build.34','5.2.3-alpha.5'));
-        $this->assertEquals(0, Version::compareString('5.2.3','5.2.3'));
-        $this->assertEquals(1, Version::compareString('5.2.4','5.2.3'));
-        $this->assertEquals(1, Version::compareString('5.2.3-alpha.6+build.34','5.2.3-alpha.5'));
-        $this->assertEquals(0, Version::compareString('5.2.3','5.2.3'));
+        $this->assertEquals(-1, Version::compareString('5.2.2', '5.2.3'));
+        $this->assertEquals(-1, Version::compareString('5.2.3-alpha.2+build.34', '5.2.3-alpha.5'));
+        $this->assertEquals(0, Version::compareString('5.2.3', '5.2.3'));
+        $this->assertEquals(1, Version::compareString('5.2.4', '5.2.3'));
+        $this->assertEquals(1, Version::compareString('5.2.3-alpha.6+build.34', '5.2.3-alpha.5'));
+        $this->assertEquals(0, Version::compareString('5.2.3', '5.2.3'));
     }
 
     public function testUsort()
     {
-        $versions = array_map(function(string $version) {
+        $versions = array_map(function (string $version) {
             return Version::parse($version);
         }, [
-            "1.0.1",
-            "1.0.1-alpha",
-            "1.0.1-alpha.beta",
-            "1.0.1-alpha.3",
-            "1.0.1-alpha.2",
-            "1.1.0",
-            "1.1.0+build",
+            '1.0.1',
+            '1.0.1-alpha',
+            '1.0.1-alpha.beta',
+            '1.0.1-alpha.3',
+            '1.0.1-alpha.2',
+            '1.1.0',
+            '1.1.0+build',
         ]);
 
-        usort($versions, ["z4kn4fein\SemVer\Version", "compare"]);
+        usort($versions, ['z4kn4fein\\SemVer\\Version', 'compare']);
 
-        $this->assertEquals("1.0.1-alpha", (string)$versions[0]);
-        $this->assertEquals("1.0.1-alpha.2", (string)$versions[1]);
-        $this->assertEquals("1.0.1-alpha.3", (string)$versions[2]);
-        $this->assertEquals("1.0.1-alpha.beta", (string)$versions[3]);
-        $this->assertEquals("1.0.1", (string)$versions[4]);
-        $this->assertEquals("1.1.0", (string)$versions[5]);
-        $this->assertEquals("1.1.0+build", (string)$versions[6]);
+        $this->assertEquals('1.0.1-alpha', (string) $versions[0]);
+        $this->assertEquals('1.0.1-alpha.2', (string) $versions[1]);
+        $this->assertEquals('1.0.1-alpha.3', (string) $versions[2]);
+        $this->assertEquals('1.0.1-alpha.beta', (string) $versions[3]);
+        $this->assertEquals('1.0.1', (string) $versions[4]);
+        $this->assertEquals('1.1.0', (string) $versions[5]);
+        $this->assertEquals('1.1.0+build', (string) $versions[6]);
     }
 
     public function testSort()
     {
         $arr = [
-            "1.0.1",
-            "1.0.1-alpha",
-            "1.0.1-alpha.beta",
-            "1.0.1-alpha.3",
-            "1.0.1-alpha.2",
-            "1.1.0",
-            "1.1.0+build",
+            '1.0.1',
+            '1.0.1-alpha',
+            '1.0.1-alpha.beta',
+            '1.0.1-alpha.3',
+            '1.0.1-alpha.2',
+            '1.1.0',
+            '1.1.0+build',
         ];
 
-        $versions = array_map(function(string $version) {
+        $versions = array_map(function (string $version) {
             return Version::parse($version);
         }, $arr);
 
         $sorted = Version::sort($versions);
 
-        $this->assertEquals("1.0.1-alpha", (string)$sorted[0]);
-        $this->assertEquals("1.0.1-alpha.2", (string)$sorted[1]);
-        $this->assertEquals("1.0.1-alpha.3", (string)$sorted[2]);
-        $this->assertEquals("1.0.1-alpha.beta", (string)$sorted[3]);
-        $this->assertEquals("1.0.1", (string)$sorted[4]);
-        $this->assertEquals("1.1.0", (string)$sorted[5]);
-        $this->assertEquals("1.1.0+build", (string)$sorted[6]);
-        
+        $this->assertEquals('1.0.1-alpha', (string) $sorted[0]);
+        $this->assertEquals('1.0.1-alpha.2', (string) $sorted[1]);
+        $this->assertEquals('1.0.1-alpha.3', (string) $sorted[2]);
+        $this->assertEquals('1.0.1-alpha.beta', (string) $sorted[3]);
+        $this->assertEquals('1.0.1', (string) $sorted[4]);
+        $this->assertEquals('1.1.0', (string) $sorted[5]);
+        $this->assertEquals('1.1.0+build', (string) $sorted[6]);
+
         $sortedString = Version::sortString($arr);
 
-        $this->assertEquals("1.0.1-alpha", $sortedString[0]);
-        $this->assertEquals("1.0.1-alpha.2", $sortedString[1]);
-        $this->assertEquals("1.0.1-alpha.3", $sortedString[2]);
-        $this->assertEquals("1.0.1-alpha.beta", $sortedString[3]);
-        $this->assertEquals("1.0.1", $sortedString[4]);
-        $this->assertEquals("1.1.0", $sortedString[5]);
-        $this->assertEquals("1.1.0+build", $sortedString[6]);
+        $this->assertEquals('1.0.1-alpha', $sortedString[0]);
+        $this->assertEquals('1.0.1-alpha.2', $sortedString[1]);
+        $this->assertEquals('1.0.1-alpha.3', $sortedString[2]);
+        $this->assertEquals('1.0.1-alpha.beta', $sortedString[3]);
+        $this->assertEquals('1.0.1', $sortedString[4]);
+        $this->assertEquals('1.1.0', $sortedString[5]);
+        $this->assertEquals('1.1.0+build', $sortedString[6]);
     }
 
     public function testRsort()
     {
         $arr = [
-            "1.0.1",
-            "1.0.1-alpha",
-            "1.0.1-alpha.beta",
-            "1.0.1-alpha.3",
-            "1.0.1-alpha.2",
-            "1.1.0",
+            '1.0.1',
+            '1.0.1-alpha',
+            '1.0.1-alpha.beta',
+            '1.0.1-alpha.3',
+            '1.0.1-alpha.2',
+            '1.1.0',
         ];
 
-        $versions = array_map(function(string $version) {
+        $versions = array_map(function (string $version) {
             return Version::parse($version);
         }, $arr);
 
         $sorted = Version::rsort($versions);
 
-        $this->assertEquals("1.0.1-alpha", (string)$sorted[5]);
-        $this->assertEquals("1.0.1-alpha.2", (string)$sorted[4]);
-        $this->assertEquals("1.0.1-alpha.3", (string)$sorted[3]);
-        $this->assertEquals("1.0.1-alpha.beta", (string)$sorted[2]);
-        $this->assertEquals("1.0.1", (string)$sorted[1]);
-        $this->assertEquals("1.1.0", (string)$sorted[0]);
+        $this->assertEquals('1.0.1-alpha', (string) $sorted[5]);
+        $this->assertEquals('1.0.1-alpha.2', (string) $sorted[4]);
+        $this->assertEquals('1.0.1-alpha.3', (string) $sorted[3]);
+        $this->assertEquals('1.0.1-alpha.beta', (string) $sorted[2]);
+        $this->assertEquals('1.0.1', (string) $sorted[1]);
+        $this->assertEquals('1.1.0', (string) $sorted[0]);
 
         $sortedString = Version::rsortString($arr);
 
-        $this->assertEquals("1.0.1-alpha", $sortedString[5]);
-        $this->assertEquals("1.0.1-alpha.2", $sortedString[4]);
-        $this->assertEquals("1.0.1-alpha.3", $sortedString[3]);
-        $this->assertEquals("1.0.1-alpha.beta", $sortedString[2]);
-        $this->assertEquals("1.0.1", $sortedString[1]);
-        $this->assertEquals("1.1.0", $sortedString[0]);
+        $this->assertEquals('1.0.1-alpha', $sortedString[5]);
+        $this->assertEquals('1.0.1-alpha.2', $sortedString[4]);
+        $this->assertEquals('1.0.1-alpha.3', $sortedString[3]);
+        $this->assertEquals('1.0.1-alpha.beta', $sortedString[2]);
+        $this->assertEquals('1.0.1', $sortedString[1]);
+        $this->assertEquals('1.1.0', $sortedString[0]);
     }
 }
