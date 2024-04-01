@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer;
 
 use Exception;
@@ -24,27 +26,18 @@ class Version
     use Validator;
     use Sortable;
 
-    /** @var int */
-    private $major;
-
-    /** @var int */
-    private $minor;
-
-    /** @var int */
-    private $patch;
-
-    /** @var null|PreRelease */
-    private $preRelease;
-
-    /** @var null|string */
-    private $buildMeta;
+    private int $major;
+    private int $minor;
+    private int $patch;
+    private ?PreRelease $preRelease;
+    private ?string $buildMeta;
 
     /**
      * Constructs a semantic version.
      *
-     * @param $major int The major version number
-     * @param $minor int The minor version number
-     * @param $patch int The patch version number
+     * @param                 $major      int The major version number
+     * @param                 $minor      int The minor version number
+     * @param                 $patch      int The patch version number
      * @param null|PreRelease $preRelease the pre-release part
      * @param null|string     $buildMeta  the build metadata
      */
@@ -52,8 +45,8 @@ class Version
         int $major,
         int $minor,
         int $patch,
-        PreRelease $preRelease = null,
-        string $buildMeta = null
+        ?PreRelease $preRelease = null,
+        ?string $buildMeta = null
     ) {
         $this->major = $major;
         $this->minor = $minor;
@@ -193,7 +186,7 @@ class Version
     {
         try {
             return self::parse($versionString, $strict);
-        } catch (Exception $exception) {
+        } catch (Exception) {
             return null;
         }
     }
@@ -208,9 +201,9 @@ class Version
      * @param string $versionString the version string
      * @param bool   $strict        enables or disables strict parsing
      *
-     * @throws SemverException when the given version string is invalid
-     *
      * @return Version the parsed version
+     *
+     * @throws SemverException when the given version string is invalid
      */
     public static function parse(string $versionString, bool $strict = true): Version
     {
@@ -268,16 +261,16 @@ class Version
      * @param null|string $preRelease the pre-release part
      * @param null|string $buildMeta  the build metadata
      *
-     * @throws SemverException when the version parts are invalid
-     *
      * @return Version the new version
+     *
+     * @throws SemverException when the version parts are invalid
      */
     public static function create(
         int $major,
         int $minor,
         int $patch,
-        string $preRelease = null,
-        string $buildMeta = null
+        ?string $preRelease = null,
+        ?string $buildMeta = null
     ): Version {
         self::ensure($major >= 0, 'The major number must be >= 0.');
         self::ensure($minor >= 0, 'The minor number must be >= 0.');
@@ -298,9 +291,9 @@ class Version
      * @param string $versionString    the version to check
      * @param string $constraintString the constraint to satisfy
      *
-     * @throws SemverException when the version string or the constraint string is invalid
-     *
      * @return bool true when the given version satisfies the given constraint, otherwise false
+     *
+     * @throws SemverException when the version string or the constraint string is invalid
      */
     public static function satisfies(string $versionString, string $constraintString): bool
     {

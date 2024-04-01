@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer\Traits;
 
 use z4kn4fein\SemVer\SemverException;
@@ -58,9 +60,9 @@ trait Sortable
      *
      * @param string[] $versions the version strings to sort
      *
-     * @throws SemverException when the given array contains an invalid version string
-     *
      * @return string[] the sorted array of version strings
+     *
+     * @throws SemverException when the given array contains an invalid version string
      */
     public static function sortString(array $versions): array
     {
@@ -77,9 +79,9 @@ trait Sortable
      *
      * @param string[] $versions the version strings to sort
      *
-     * @throws SemverException when the given array contains an invalid version string
-     *
      * @return string[] the sorted array of version strings
+     *
+     * @throws SemverException when the given array contains an invalid version string
      */
     public static function rsortString(array $versions): array
     {

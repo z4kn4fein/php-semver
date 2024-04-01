@@ -110,7 +110,7 @@ class ParseTest extends TestCase
         $this->assertTrue(Version::parse('1.1.0')->isStable());
     }
 
-    public function invalidData(): array
+    public static function invalidData(): array
     {
         return [
             ['-1.0.0'],
@@ -128,7 +128,7 @@ class ParseTest extends TestCase
         ];
     }
 
-    public function validData(): array
+    public static function validData(): array
     {
         return [
             ['0.0.0', true],
@@ -140,7 +140,7 @@ class ParseTest extends TestCase
         ];
     }
 
-    public function toStringData(): array
+    public static function toStringData(): array
     {
         return [
             ['1.2.3', '1.2.3', true],

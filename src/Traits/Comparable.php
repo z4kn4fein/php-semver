@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer\Traits;
 
 use z4kn4fein\SemVer\PreRelease;
@@ -91,9 +93,9 @@ trait Comparable
      * @param string $v1 the left side of the comparison
      * @param string $v2 the right side of the comparison
      *
-     * @throws SemverException when the version strings are invalid
-     *
      * @return bool true when $v1 &lt; $v2, otherwise false
+     *
+     * @throws SemverException when the version strings are invalid
      */
     public static function lessThan(string $v1, string $v2): bool
     {
@@ -109,9 +111,9 @@ trait Comparable
      * @param string $v1 the left side of the comparison
      * @param string $v2 the right side of the comparison
      *
-     * @throws SemverException when the version strings are invalid
-     *
      * @return bool true when $v1 &lt;= $v2, otherwise false
+     *
+     * @throws SemverException when the version strings are invalid
      */
     public static function lessThanOrEqual(string $v1, string $v2): bool
     {
@@ -127,9 +129,9 @@ trait Comparable
      * @param string $v1 the left side of the comparison
      * @param string $v2 the right side of the comparison
      *
-     * @throws SemverException when the version strings are invalid
-     *
      * @return bool true when $v1 &gt; $v2, otherwise false
+     *
+     * @throws SemverException when the version strings are invalid
      */
     public static function greaterThan(string $v1, string $v2): bool
     {
@@ -145,9 +147,9 @@ trait Comparable
      * @param string $v1 the left side of the comparison
      * @param string $v2 the right side of the comparison
      *
-     * @throws SemverException when the version strings are invalid
-     *
      * @return bool true when $v1 &gt;= $v2, otherwise false
+     *
+     * @throws SemverException when the version strings are invalid
      */
     public static function greaterThanOrEqual(string $v1, string $v2): bool
     {
@@ -163,9 +165,9 @@ trait Comparable
      * @param string $v1 the left side of the comparison
      * @param string $v2 the right side of the comparison
      *
-     * @throws SemverException when the version strings are invalid
-     *
      * @return bool true when $v1 == $v2, otherwise false
+     *
+     * @throws SemverException when the version strings are invalid
      */
     public static function equal(string $v1, string $v2): bool
     {
@@ -181,9 +183,9 @@ trait Comparable
      * @param string $v1 the left side of the comparison
      * @param string $v2 the right side of the comparison
      *
-     * @throws SemverException when the version strings are invalid
-     *
      * @return bool true when $v1 != $v2, otherwise false
+     *
+     * @throws SemverException when the version strings are invalid
      */
     public static function notEqual(string $v1, string $v2): bool
     {
@@ -199,9 +201,9 @@ trait Comparable
      * @param string $v1 the left side of the comparison
      * @param string $v2 the right side of the comparison
      *
-     * @throws SemverException when the version strings are invalid
-     *
      * @return int -1 when $v1 < $v2, 0 when $v1 == $v2, 1 when $v1 > $v2
+     *
+     * @throws SemverException when the version strings are invalid
      */
     public static function compareString(string $v1, string $v2): int
     {

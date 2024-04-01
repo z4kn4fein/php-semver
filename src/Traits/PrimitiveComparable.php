@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer\Traits;
 
 /**
@@ -13,7 +15,7 @@ trait PrimitiveComparable
      *
      * @return int -1 when $a < $b, 0 when $a == $b, 1 when $a > $b
      */
-    private static function comparePrimitive($a, $b): int
+    private static function comparePrimitive(int|string $a, int|string $b): int
     {
         if ($a != $b) {
             return $a < $b ? -1 : 1;

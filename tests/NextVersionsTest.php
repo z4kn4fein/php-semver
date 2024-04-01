@@ -44,7 +44,7 @@ class NextVersionsTest extends TestCase
         $this->assertEquals($expected, (string) Version::parse($source)->inc($incBy, $preRelease));
     }
 
-    public function data(): array
+    public static function data(): array
     {
         return [
             ['1.2.3', Inc::MAJOR, '2.0.0', null],

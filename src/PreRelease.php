@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer;
 
 use z4kn4fein\SemVer\Traits\PrimitiveComparable;
@@ -15,13 +17,13 @@ class PreRelease
     use Validator;
     use Singles;
 
-    /** @var mixed[] */
-    private $preReleaseParts;
+    /** @var string[] */
+    private array $preReleaseParts;
 
     /**
      * PreRelease constructor.
      *
-     * @param mixed[] $preReleaseParts the pre-release parts
+     * @param string[] $preReleaseParts the pre-release parts
      */
     private function __construct(array $preReleaseParts)
     {
@@ -58,9 +60,10 @@ class PreRelease
         }
 
         if (-1 != $lastNumericIndex) {
-            $result->preReleaseParts[$lastNumericIndex] = intval($result->preReleaseParts[$lastNumericIndex]) + 1;
+            $result->preReleaseParts[$lastNumericIndex] =
+                (string) (intval($result->preReleaseParts[$lastNumericIndex]) + 1);
         } else {
-            $result->preReleaseParts[] = 0;
+            $result->preReleaseParts[] = '0';
         }
 
         return $result;
@@ -74,16 +77,16 @@ class PreRelease
     public static function default(): PreRelease
     {
         return self::single('default-pre-release', function () {
-            return new PreRelease([0]);
+            return new PreRelease(['0']);
         });
     }
 
     /**
      * @param string $preReleaseString the pre-release string
      *
-     * @throws SemverException when the given pre-release string is invalid
-     *
      * @return PreRelease the parsed pre-release part
+     *
+     * @throws SemverException when the given pre-release string is invalid
      */
     public static function parse(string $preReleaseString): PreRelease
     {

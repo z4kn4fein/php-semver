@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer\Traits;
 
 use z4kn4fein\SemVer\SemverException;
@@ -19,16 +21,16 @@ trait Copyable
      * @param null|string $preRelease the pre-release part
      * @param null|string $buildMeta  the build metadata
      *
-     * @throws SemverException when the version parts are invalid
-     *
      * @return Version the new version
+     *
+     * @throws SemverException when the version parts are invalid
      */
     public function copy(
-        int $major = null,
-        int $minor = null,
-        int $patch = null,
-        string $preRelease = null,
-        string $buildMeta = null
+        ?int $major = null,
+        ?int $minor = null,
+        ?int $patch = null,
+        ?string $preRelease = null,
+        ?string $buildMeta = null
     ): Version {
         return self::create(
             null == $major ? $this->major : $major,

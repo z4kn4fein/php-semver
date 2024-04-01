@@ -1,15 +1,20 @@
 # php-semver
 [![Build Status](https://github.com/z4kn4fein/php-semver/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/z4kn4fein/php-semver/actions/workflows/ci.yml)
-[![Coverage Status](https://img.shields.io/codecov/c/github/z4kn4fein/php-semver.svg)](https://codecov.io/gh/z4kn4fein/php-semver)
 [![Latest Stable Version](https://poser.pugx.org/z4kn4fein/php-semver/version)](https://packagist.org/packages/z4kn4fein/php-semver)
 [![Total Downloads](https://poser.pugx.org/z4kn4fein/php-semver/downloads)](https://packagist.org/packages/z4kn4fein/php-semver)
-[![Latest Unstable Version](https://poser.pugx.org/z4kn4fein/php-semver/v/unstable)](https://packagist.org/packages/z4kn4fein/php-semver)
+[![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/z4kn4fein_php-semver?logo=sonarcloud&server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/project/overview?id=z4kn4fein_php-semver)
+[![Sonar Coverage](https://img.shields.io/sonar/coverage/z4kn4fein_php-semver?logo=SonarCloud&server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/project/overview?id=z4kn4fein_php-semver)
 
 Semantic Versioning library for PHP. It implements the full [semantic version 2.0.0](https://semver.org/spec/v2.0.0.html) specification and
 provides ability to **parse**, **compare**, and **increment** semantic versions along with validation against **constraints**.
 
 ## Requirements
-[PHP](https://www.php.net/) >= 7.1
+| Version       | PHP Version |
+|---------------|-------------|
+| `>=1.0, <1.2` | >=5.5       |
+| `>=1.2, <3.0` | >=7.1       |
+| `>=3.0`       | >=8.1       |
+
 
 ## Install with [Composer](https://getcomposer.org/)
 ```shell

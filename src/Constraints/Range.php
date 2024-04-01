@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer\Constraints;
 
 use z4kn4fein\SemVer\SemverException;
@@ -10,14 +12,9 @@ use z4kn4fein\SemVer\Version;
  */
 class Range implements VersionComparator
 {
-    /** @var VersionComparator */
-    private $start;
-
-    /** @var VersionComparator */
-    private $end;
-
-    /** @var string */
-    private $operator;
+    private VersionComparator $start;
+    private VersionComparator $end;
+    private string $operator;
 
     public function __construct(VersionComparator $start, VersionComparator $end, string $operator)
     {
@@ -39,30 +36,15 @@ class Range implements VersionComparator
      */
     public function isSatisfiedBy(Version $version): bool
     {
-        switch ($this->operator) {
-            case Op::EQUAL:
-                return $this->start->isSatisfiedBy($version) && $this->end->isSatisfiedBy($version);
-
-            case Op::NOT_EQUAL:
-                return !$this->start->isSatisfiedBy($version) || !$this->end->isSatisfiedBy($version);
-
-            case Op::LESS_THAN:
-                return !$this->start->isSatisfiedBy($version) && $this->end->isSatisfiedBy($version);
-
-            case Op::LESS_THAN_OR_EQUAL:
-            case Op::LESS_THAN_OR_EQUAL2:
-                return $this->end->isSatisfiedBy($version);
-
-            case Op::GREATER_THAN:
-                return $this->start->isSatisfiedBy($version) && !$this->end->isSatisfiedBy($version);
-
-            case Op::GREATER_THAN_OR_EQUAL:
-            case Op::GREATER_THAN_OR_EQUAL2:
-                return $this->start->isSatisfiedBy($version);
-
-            default:
-                throw new SemverException(sprintf('Invalid operator in range %s', (string) $this));
-        }
+        return match ($this->operator) {
+            Op::EQUAL => $this->start->isSatisfiedBy($version) && $this->end->isSatisfiedBy($version),
+            Op::NOT_EQUAL => !$this->start->isSatisfiedBy($version) || !$this->end->isSatisfiedBy($version),
+            Op::LESS_THAN => !$this->start->isSatisfiedBy($version) && $this->end->isSatisfiedBy($version),
+            Op::LESS_THAN_OR_EQUAL, Op::LESS_THAN_OR_EQUAL2 => $this->end->isSatisfiedBy($version),
+            Op::GREATER_THAN => $this->start->isSatisfiedBy($version) && !$this->end->isSatisfiedBy($version),
+            Op::GREATER_THAN_OR_EQUAL, Op::GREATER_THAN_OR_EQUAL2 => $this->start->isSatisfiedBy($version),
+            default => throw new SemverException(sprintf('Invalid operator in range %s', $this)),
+        };
     }
 
     /**
@@ -70,57 +52,27 @@ class Range implements VersionComparator
      */
     public function opposite(): string
     {
-        switch ($this->operator) {
-            case Op::EQUAL:
-                return $this->toStringByOp(Op::NOT_EQUAL);
-
-            case Op::NOT_EQUAL:
-                return $this->toStringByOp(Op::EQUAL);
-
-            case Op::LESS_THAN:
-                return $this->toStringByOp(Op::GREATER_THAN_OR_EQUAL);
-
-            case Op::LESS_THAN_OR_EQUAL:
-            case Op::LESS_THAN_OR_EQUAL2:
-                return $this->toStringByOp(Op::GREATER_THAN);
-
-            case Op::GREATER_THAN:
-                return $this->toStringByOp(Op::LESS_THAN_OR_EQUAL);
-
-            case Op::GREATER_THAN_OR_EQUAL:
-            case Op::GREATER_THAN_OR_EQUAL2:
-                return $this->toStringByOp(Op::LESS_THAN);
-
-            default:
-                throw new SemverException(sprintf('Invalid operator in range %s', (string) $this));
-        }
+        return match ($this->operator) {
+            Op::EQUAL => $this->toStringByOp(Op::NOT_EQUAL),
+            Op::NOT_EQUAL => $this->toStringByOp(Op::EQUAL),
+            Op::LESS_THAN => $this->toStringByOp(Op::GREATER_THAN_OR_EQUAL),
+            Op::LESS_THAN_OR_EQUAL, Op::LESS_THAN_OR_EQUAL2 => $this->toStringByOp(Op::GREATER_THAN),
+            Op::GREATER_THAN => $this->toStringByOp(Op::LESS_THAN_OR_EQUAL),
+            Op::GREATER_THAN_OR_EQUAL, Op::GREATER_THAN_OR_EQUAL2 => $this->toStringByOp(Op::LESS_THAN),
+            default => throw new SemverException(sprintf('Invalid operator in range %s', $this)),
+        };
     }
 
     private function toStringByOp(string $op): string
     {
-        switch ($op) {
-            case Op::EQUAL:
-                return sprintf('%s %s', (string) $this->start, (string) $this->end);
-
-            case Op::NOT_EQUAL:
-                return sprintf('%s || %s', $this->start->opposite(), $this->end->opposite());
-
-            case Op::LESS_THAN:
-                return $this->start->opposite();
-
-            case Op::LESS_THAN_OR_EQUAL:
-            case Op::LESS_THAN_OR_EQUAL2:
-                return (string) $this->end;
-
-            case Op::GREATER_THAN:
-                return $this->end->opposite();
-
-            case Op::GREATER_THAN_OR_EQUAL:
-            case Op::GREATER_THAN_OR_EQUAL2:
-                return (string) $this->start;
-
-            default:
-                return '';
-        }
+        return match ($op) {
+            Op::EQUAL => sprintf('%s %s', (string) $this->start, (string) $this->end),
+            Op::NOT_EQUAL => sprintf('%s || %s', $this->start->opposite(), $this->end->opposite()),
+            Op::LESS_THAN => $this->start->opposite(),
+            Op::LESS_THAN_OR_EQUAL, Op::LESS_THAN_OR_EQUAL2 => (string) $this->end,
+            Op::GREATER_THAN => $this->end->opposite(),
+            Op::GREATER_THAN_OR_EQUAL, Op::GREATER_THAN_OR_EQUAL2 => (string) $this->start,
+            default => '',
+        };
     }
 }

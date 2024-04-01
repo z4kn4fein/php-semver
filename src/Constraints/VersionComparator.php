@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer\Constraints;
 
 use z4kn4fein\SemVer\Version;

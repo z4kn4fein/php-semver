@@ -76,7 +76,7 @@ class ConstraintTest extends TestCase
         $this->assertEquals('<=1.0.0', (new Range($start, $end, Op::GREATER_THAN_OR_EQUAL))->opposite());
     }
 
-    public function dataInvalid(): array
+    public static function dataInvalid(): array
     {
         return [
             ['a'],
@@ -89,7 +89,7 @@ class ConstraintTest extends TestCase
         ];
     }
 
-    public function dataSatisfies(): array
+    public static function dataSatisfies(): array
     {
         return [
             ["<\t1.0.0", '0.1.2'],
@@ -263,7 +263,7 @@ class ConstraintTest extends TestCase
         ];
     }
 
-    public function dataNotSatisfies(): array
+    public static function dataNotSatisfies(): array
     {
         return [
             ['~1.2.3-alpha.2', '1.3.4-alpha.2'],
@@ -443,7 +443,7 @@ class ConstraintTest extends TestCase
         ];
     }
 
-    public function dataParse(): array
+    public static function dataParse(): array
     {
         return [
             ['1.2.3 - 2.3.4', '>=1.2.3 <=2.3.4'],

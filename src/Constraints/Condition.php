@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer\Constraints;
 
 use z4kn4fein\SemVer\SemverException;
@@ -13,11 +15,8 @@ class Condition implements VersionComparator
 {
     use Singles;
 
-    /** @var string */
-    private $operator;
-
-    /** @var Version */
-    private $version;
+    private string $operator;
+    private Version $version;
 
     public function __construct(string $operator, Version $version)
     {
@@ -38,30 +37,15 @@ class Condition implements VersionComparator
      */
     public function isSatisfiedBy(Version $version): bool
     {
-        switch ($this->operator) {
-            case Op::EQUAL:
-                return $version->isEqual($this->version);
-
-            case Op::NOT_EQUAL:
-                return !$version->isEqual($this->version);
-
-            case Op::LESS_THAN:
-                return $version->isLessThan($this->version);
-
-            case Op::LESS_THAN_OR_EQUAL:
-            case Op::LESS_THAN_OR_EQUAL2:
-                return $version->isLessThanOrEqual($this->version);
-
-            case Op::GREATER_THAN:
-                return $version->isGreaterThan($this->version);
-
-            case Op::GREATER_THAN_OR_EQUAL:
-            case Op::GREATER_THAN_OR_EQUAL2:
-                return $version->isGreaterThanOrEqual($this->version);
-
-            default:
-                throw new SemverException(sprintf('Invalid operator in condition %s', (string) $this));
-        }
+        return match ($this->operator) {
+            Op::EQUAL => $version->isEqual($this->version),
+            Op::NOT_EQUAL => !$version->isEqual($this->version),
+            Op::LESS_THAN => $version->isLessThan($this->version),
+            Op::LESS_THAN_OR_EQUAL, Op::LESS_THAN_OR_EQUAL2 => $version->isLessThanOrEqual($this->version),
+            Op::GREATER_THAN => $version->isGreaterThan($this->version),
+            Op::GREATER_THAN_OR_EQUAL, Op::GREATER_THAN_OR_EQUAL2 => $version->isGreaterThanOrEqual($this->version),
+            default => throw new SemverException(sprintf('Invalid operator in condition %s', $this)),
+        };
     }
 
     /**
@@ -69,30 +53,15 @@ class Condition implements VersionComparator
      */
     public function opposite(): string
     {
-        switch ($this->operator) {
-            case Op::EQUAL:
-                return Op::NOT_EQUAL.$this->version;
-
-            case Op::NOT_EQUAL:
-                return Op::EQUAL.$this->version;
-
-            case Op::LESS_THAN:
-                return Op::GREATER_THAN_OR_EQUAL.$this->version;
-
-            case Op::LESS_THAN_OR_EQUAL:
-            case Op::LESS_THAN_OR_EQUAL2:
-                return Op::GREATER_THAN.$this->version;
-
-            case Op::GREATER_THAN:
-                return Op::LESS_THAN_OR_EQUAL.$this->version;
-
-            case Op::GREATER_THAN_OR_EQUAL:
-            case Op::GREATER_THAN_OR_EQUAL2:
-                return Op::LESS_THAN.$this->version;
-
-            default:
-                throw new SemverException(sprintf('Invalid operator in condition %s', (string) $this));
-        }
+        return match ($this->operator) {
+            Op::EQUAL => Op::NOT_EQUAL.$this->version,
+            Op::NOT_EQUAL => Op::EQUAL.$this->version,
+            Op::LESS_THAN => Op::GREATER_THAN_OR_EQUAL.$this->version,
+            Op::LESS_THAN_OR_EQUAL, Op::LESS_THAN_OR_EQUAL2 => Op::GREATER_THAN.$this->version,
+            Op::GREATER_THAN => Op::LESS_THAN_OR_EQUAL.$this->version,
+            Op::GREATER_THAN_OR_EQUAL, Op::GREATER_THAN_OR_EQUAL2 => Op::LESS_THAN.$this->version,
+            default => throw new SemverException(sprintf('Invalid operator in condition %s', $this)),
+        };
     }
 
     public static function greaterThanMin(): Condition

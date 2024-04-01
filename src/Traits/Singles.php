@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer\Traits;
 
 /**
@@ -7,8 +9,8 @@ namespace z4kn4fein\SemVer\Traits;
  */
 trait Singles
 {
-    /** @var mixed[] */
-    private static $singles = [];
+    /** @var array<mixed> */
+    private static array $singles = [];
 
     /**
      * This method gets a single instance for a particular key.
@@ -18,7 +20,7 @@ trait Singles
      *
      * @return mixed the instance
      */
-    private static function single(string $key, callable $factory)
+    private static function single(string $key, callable $factory): mixed
     {
         if (!isset(self::$singles[$key])) {
             self::$singles[$key] = $factory();

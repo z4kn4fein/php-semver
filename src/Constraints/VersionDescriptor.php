@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer\Constraints;
 
 use z4kn4fein\SemVer\Patterns;
@@ -14,32 +16,15 @@ class VersionDescriptor
 {
     use Validator;
 
-    /** @var string */
-    private $major;
-
-    /** @var null|string */
-    private $minor;
-
-    /** @var null|string */
-    private $patch;
-
-    /** @var null|string */
-    private $preRelease;
-
-    /** @var null|string */
-    private $buildMeta;
-
-    /** @var bool */
-    private $isMajorWildcard;
-
-    /** @var bool */
-    private $isMinorWildCard;
-
-    /** @var bool */
-    private $isPatchWildCard;
-
-    /** @var bool */
-    private $isWildCard;
+    private string $major;
+    private ?string $minor;
+    private ?string $patch;
+    private ?string $preRelease;
+    private ?string $buildMeta;
+    private bool $isMajorWildcard;
+    private bool $isMinorWildCard;
+    private bool $isPatchWildCard;
+    private bool $isWildCard;
 
     public function __construct(string $major, ?string $minor, ?string $patch, ?string $preRelease, ?string $buildMeta)
     {

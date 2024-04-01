@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer\Traits;
 
 use z4kn4fein\SemVer\Inc;
@@ -17,11 +19,11 @@ trait NextProducer
      *
      * @param null|string $preRelease the pre-release part
      *
-     * @throws SemverException when the pre-release tag is non-null and invalid
-     *
      * @return Version the next major version
+     *
+     * @throws SemverException when the pre-release tag is non-null and invalid
      */
-    public function getNextMajorVersion(string $preRelease = null): Version
+    public function getNextMajorVersion(?string $preRelease = null): Version
     {
         return new Version(
             $this->major + 1,
@@ -36,11 +38,11 @@ trait NextProducer
      *
      * @param null|string $preRelease the pre-release part
      *
-     * @throws SemverException when the pre-release tag is non-null and invalid
-     *
      * @return Version the next minor version
+     *
+     * @throws SemverException when the pre-release tag is non-null and invalid
      */
-    public function getNextMinorVersion(string $preRelease = null): Version
+    public function getNextMinorVersion(?string $preRelease = null): Version
     {
         return new Version(
             $this->major,
@@ -55,11 +57,11 @@ trait NextProducer
      *
      * @param null|string $preRelease the pre-release part
      *
-     * @throws SemverException when the pre-release tag is non-null and invalid
-     *
      * @return Version the next patch version
+     *
+     * @throws SemverException when the pre-release tag is non-null and invalid
      */
-    public function getNextPatchVersion(string $preRelease = null): Version
+    public function getNextPatchVersion(?string $preRelease = null): Version
     {
         return new Version(
             $this->major,
@@ -74,11 +76,11 @@ trait NextProducer
      *
      * @param null|string $preRelease the pre-release part
      *
-     * @throws SemverException when the pre-release tag is non-null and invalid
-     *
      * @return Version the next pre-release version
+     *
+     * @throws SemverException when the pre-release tag is non-null and invalid
      */
-    public function getNextPreReleaseVersion(string $preRelease = null): Version
+    public function getNextPreReleaseVersion(?string $preRelease = null): Version
     {
         $pre = PreRelease::default();
         if (!empty($preRelease)) {
@@ -104,27 +106,18 @@ trait NextProducer
      * @param int         $by         determines by which part the Version should be incremented
      * @param null|string $preRelease the optional pre-release part
      *
-     * @throws SemverException when the pre-release tag is non-null and invalid
-     *
      * @return Version the incremented version
+     *
+     * @throws SemverException when the pre-release tag is non-null and invalid
      */
-    public function inc(int $by, string $preRelease = null): Version
+    public function inc(int $by, ?string $preRelease = null): Version
     {
-        switch ($by) {
-            case Inc::MAJOR:
-                return $this->getNextMajorVersion($preRelease);
-
-            case Inc::MINOR:
-                return $this->getNextMinorVersion($preRelease);
-
-            case Inc::PATCH:
-                return $this->getNextPatchVersion($preRelease);
-
-            case Inc::PRE_RELEASE:
-                return $this->getNextPreReleaseVersion($preRelease);
-
-            default:
-                throw new SemverException('Invalid `by` argument in inc() method');
-        }
+        return match ($by) {
+            Inc::MAJOR => $this->getNextMajorVersion($preRelease),
+            Inc::MINOR => $this->getNextMinorVersion($preRelease),
+            Inc::PATCH => $this->getNextPatchVersion($preRelease),
+            Inc::PRE_RELEASE => $this->getNextPreReleaseVersion($preRelease),
+            default => throw new SemverException('Invalid `by` argument in inc() method'),
+        };
     }
 }

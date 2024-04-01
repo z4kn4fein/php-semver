@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace z4kn4fein\SemVer\Constraints;
 
 use Exception;
@@ -21,7 +23,7 @@ class Constraint
     use Validator;
 
     /** @var VersionComparator[][] */
-    private $comparators;
+    private array $comparators;
 
     /**
      * @param VersionComparator[][] $comparators
@@ -82,7 +84,7 @@ class Constraint
     {
         try {
             return self::parse($constraintString);
-        } catch (Exception $exception) {
+        } catch (Exception) {
             return null;
         }
     }
@@ -92,9 +94,9 @@ class Constraint
      *
      * @param string $constraintString the string to parse
      *
-     * @throws SemverException when the constraint string is invalid
-     *
      * @return Constraint the parsed constraint
+     *
+     * @throws SemverException when the constraint string is invalid
      */
     public static function parse(string $constraintString): Constraint
     {
@@ -152,7 +154,7 @@ class Constraint
     }
 
     /**
-     * @param mixed[] $matches
+     * @param string[] $matches
      *
      * @throws SemverException
      */
@@ -181,7 +183,7 @@ class Constraint
     }
 
     /**
-     * @param mixed[] $matches
+     * @param string[] $matches
      *
      * @throws SemverException
      */
