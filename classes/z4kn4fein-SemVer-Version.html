@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,8 +53,8 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/z4kn4fein.html" class="">z4kn4fein</a>
@@ -66,35 +67,30 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/z4kn4fein.html" class="">z4kn4fein</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="packages/z4kn4fein-SemVer.html" class="">SemVer</a>
-                
-            </li>
-            </ul>
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/z4kn4fein.html">z4kn4fein</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/z4kn4fein-semver.html">SemVer</a></li>
     </ul>
@@ -108,20 +104,24 @@
             in package
             <ul class="phpdocumentor-breadcrumbs">
                                     <li class="phpdocumentor-breadcrumb"><a href="packages/z4kn4fein.html">z4kn4fein</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/z4kn4fein-SemVer.html">SemVer</a></li>
                             </ul>
         </div>
     
     
             <span class="phpdocumentor-element__extends">
-            Uses
+            uses
                             <a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html"><abbr title="\z4kn4fein\SemVer\Traits\NextProducer">NextProducer</abbr></a>,                             <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html"><abbr title="\z4kn4fein\SemVer\Traits\Comparable">Comparable</abbr></a>,                             <a href="classes/z4kn4fein-SemVer-Traits-Copyable.html"><abbr title="\z4kn4fein\SemVer\Traits\Copyable">Copyable</abbr></a>,                             <abbr title="\z4kn4fein\SemVer\Traits\Singles">Singles</abbr>,                             <abbr title="\z4kn4fein\SemVer\Traits\Validator">Validator</abbr>,                             <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html"><abbr title="\z4kn4fein\SemVer\Traits\Sortable">Sortable</abbr></a>                    </span>
     </h2>
+
+<div class="phpdocumentor-label-line">
+
+
+</div>
 
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -131,30 +131,35 @@
 </section>
 
 
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
-
-
-
 
 
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/z4kn4fein-SemVer-Version.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/z4kn4fein-SemVer-Version.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
-                        <dt class="phpdocumentor-table-of-contents__entry -method -public">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/z4kn4fein-SemVer-Version.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compare">compare()</a>
@@ -183,7 +188,7 @@
                                 &nbsp;: <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>    </span>
 </dt>
 <dd>Constructs a semantic version from the given arguments following the pattern:
-&lt;[major]&gt;.&lt;[minor]&gt;.&lt;[patch]&gt;-&lt;[preRelease]&gt;+&lt;[buildMetadata]&gt;</dd>
+&lt;[major]&gt;.&lt;[minor]&gt;.&lt;[patch]&gt;-&lt;[preRelease]&gt;+&lt;[buildMetadata]&gt;.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_equal">equal()</a>
@@ -358,7 +363,6 @@
     <span>
                                 &nbsp;: <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>    </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_notEqual">notEqual()</a>
@@ -378,7 +382,7 @@ if the string is not a valid representation of a semantic version.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/z4kn4fein-SemVer-Version.html#method_parseOrNull">parseOrNull()</a>
     <span>
-                                &nbsp;: <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>|null    </span>
+                                &nbsp;: null|<a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>    </span>
 </dt>
 <dd>Parses the given string as a Version and returns the result or null
 if the string is not a valid representation of a semantic version.</dd>
@@ -425,9 +429,12 @@ if the string is not a valid representation of a semantic version.</dd>
 </dt>
 <dd>Produces a copy of the Version without the PRE-RELEASE and BUILD METADATA identities.</dd>
 
-        </dl>
+    </dl>
 
 
+
+
+        
 
         
 
@@ -437,6 +444,7 @@ if the string is not a valid representation of a semantic version.</dd>
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/z4kn4fein-SemVer-Version.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -447,11 +455,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method___toString">
         __toString()
         <a href="classes/z4kn4fein-SemVer-Version.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -460,23 +469,21 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The string representation of the version.</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the string representation of the version</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -487,11 +494,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_compare">
         compare()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compare" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">203</span>
+    <span class="phpdocumentor-element-found-in__line">224</span>
 
     </aside>
 
@@ -501,6 +509,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">compare</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -509,7 +519,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -518,27 +528,23 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>-1 when $v1 &lt; $v2, 0 when $v1 == $v2, 1 when $v1 &gt; $v2.</p>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>-1 when $v1 &lt; $v2, 0 when $v1 == $v2, 1 when $v1 &gt; $v2</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -549,11 +555,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_compareString">
         compareString()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compareString" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">188</span>
+    <span class="phpdocumentor-element-found-in__line">208</span>
 
     </aside>
 
@@ -563,6 +570,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">compareString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -571,7 +580,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -580,7 +589,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -589,7 +598,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compareString#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -598,19 +608,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>-1 when $v1 &lt; $v2, 0 when $v1 == $v2, 1 when $v1 &gt; $v2.</p>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>-1 when $v1 &lt; $v2, 0 when $v1 == $v2, 1 when $v1 &gt; $v2</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -621,11 +633,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_copy">
         copy()
         <a href="classes/z4kn4fein-SemVer-Traits-Copyable.html#method_copy" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Copyable.php"><a href="files/src-traits-copyable.html"><abbr title="src/Traits/Copyable.php">Copyable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -633,53 +646,55 @@ if the string is not a valid representation of a semantic version.</dd>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">copy</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$major</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$minor</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$patch</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$buildMeta</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">copy</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$major</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$minor</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$patch</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$buildMeta</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$major</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The major version number.</p>
+                    <section class="phpdocumentor-description"><p>the major version number</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$minor</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The minor version number.</p>
+                    <section class="phpdocumentor-description"><p>the minor version number</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$patch</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The patch version number.</p>
+                    <section class="phpdocumentor-description"><p>the patch version number</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$preRelease</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The pre-release part.</p>
+                    <section class="phpdocumentor-description"><p>the pre-release part</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$buildMeta</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The build metadata.</p>
+                    <section class="phpdocumentor-description"><p>the build metadata</p>
 </section>
 
             </dd>
@@ -688,7 +703,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Copyable.html#method_copy#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -697,19 +713,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version parts are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version parts are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The new version.</p>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the new version</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -720,21 +738,24 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_create">
         create()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_create" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">264</span>
+    <span class="phpdocumentor-element-found-in__line">268</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Constructs a semantic version from the given arguments following the pattern:
-&lt;[major]&gt;.&lt;[minor]&gt;.&lt;[patch]&gt;-&lt;[preRelease]&gt;+&lt;[buildMetadata]&gt;</p>
+&lt;[major]&gt;.&lt;[minor]&gt;.&lt;[patch]&gt;-&lt;[preRelease]&gt;+&lt;[buildMetadata]&gt;.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$major</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$minor</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$patch</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$buildMeta</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$major</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$minor</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$patch</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$buildMeta</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -743,7 +764,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The major version number.</p>
+                    <section class="phpdocumentor-description"><p>the major version number</p>
 </section>
 
             </dd>
@@ -752,7 +773,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The minor version number.</p>
+                    <section class="phpdocumentor-description"><p>the minor version number</p>
 </section>
 
             </dd>
@@ -761,25 +782,25 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The patch version number.</p>
+                    <section class="phpdocumentor-description"><p>the patch version number</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$preRelease</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The pre-release part.</p>
+                    <section class="phpdocumentor-description"><p>the pre-release part</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$buildMeta</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The build metadata.</p>
+                    <section class="phpdocumentor-description"><p>the build metadata</p>
 </section>
 
             </dd>
@@ -788,7 +809,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Version.html#method_create#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -797,19 +819,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version parts are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version parts are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The new version.</p>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the new version</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -820,11 +844,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_equal">
         equal()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_equal" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">156</span>
+    <span class="phpdocumentor-element-found-in__line">172</span>
 
     </aside>
 
@@ -834,6 +859,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">equal</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -842,7 +869,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -851,7 +878,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -860,7 +887,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_equal#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -869,19 +897,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 == $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 == $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -892,11 +922,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_getBuildMeta">
         getBuildMeta()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_getBuildMeta" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">115</span>
 
     </aside>
 
@@ -906,23 +937,21 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getBuildMeta</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null|string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">null|string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The build metadata part.</p>
+        <span class="phpdocumentor-signature__response_type">null|string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the build metadata part</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -933,11 +962,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_getMajor">
         getMajor()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_getMajor" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
@@ -947,23 +977,21 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMajor</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The major version number.</p>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the major version number</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -974,11 +1002,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_getMinor">
         getMinor()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_getMinor" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -988,23 +1017,21 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMinor</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The minor version number.</p>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the minor version number</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1015,11 +1042,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_getNextMajorVersion">
         getNextMajorVersion()
         <a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextMajorVersion" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/NextProducer.php"><a href="files/src-traits-nextproducer.html"><abbr title="src/Traits/NextProducer.php">NextProducer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -1027,17 +1055,19 @@ if the string is not a valid representation of a semantic version.</dd>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getNextMajorVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">getNextMajorVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">null|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$preRelease</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The pre-release part.</p>
+                    <section class="phpdocumentor-description"><p>the pre-release part</p>
 </section>
 
             </dd>
@@ -1046,7 +1076,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextMajorVersion#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1055,19 +1086,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the pre-release tag is non-null and invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the pre-release tag is non-null and invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The next major version.</p>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the next major version</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1078,11 +1111,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_getNextMinorVersion">
         getNextMinorVersion()
         <a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextMinorVersion" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/NextProducer.php"><a href="files/src-traits-nextproducer.html"><abbr title="src/Traits/NextProducer.php">NextProducer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -1090,17 +1124,19 @@ if the string is not a valid representation of a semantic version.</dd>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getNextMinorVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">getNextMinorVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">null|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$preRelease</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The pre-release part.</p>
+                    <section class="phpdocumentor-description"><p>the pre-release part</p>
 </section>
 
             </dd>
@@ -1109,7 +1145,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextMinorVersion#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1118,19 +1155,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the pre-release tag is non-null and invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the pre-release tag is non-null and invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The next minor version.</p>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the next minor version</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1141,11 +1180,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_getNextPatchVersion">
         getNextPatchVersion()
         <a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextPatchVersion" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/NextProducer.php"><a href="files/src-traits-nextproducer.html"><abbr title="src/Traits/NextProducer.php">NextProducer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -1153,17 +1193,19 @@ if the string is not a valid representation of a semantic version.</dd>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getNextPatchVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">getNextPatchVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">null|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$preRelease</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The pre-release part.</p>
+                    <section class="phpdocumentor-description"><p>the pre-release part</p>
 </section>
 
             </dd>
@@ -1172,7 +1214,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextPatchVersion#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1181,19 +1224,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the pre-release tag is non-null and invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the pre-release tag is non-null and invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The next patch version.</p>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the next patch version</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1204,11 +1249,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_getNextPreReleaseVersion">
         getNextPreReleaseVersion()
         <a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextPreReleaseVersion" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/NextProducer.php"><a href="files/src-traits-nextproducer.html"><abbr title="src/Traits/NextProducer.php">NextProducer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
@@ -1216,17 +1262,19 @@ if the string is not a valid representation of a semantic version.</dd>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getNextPreReleaseVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">getNextPreReleaseVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">null|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$preRelease</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The pre-release part.</p>
+                    <section class="phpdocumentor-description"><p>the pre-release part</p>
 </section>
 
             </dd>
@@ -1235,7 +1283,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextPreReleaseVersion#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1244,19 +1293,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the pre-release tag is non-null and invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the pre-release tag is non-null and invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The next pre-release version.</p>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the next pre-release version</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1267,11 +1318,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_getPatch">
         getPatch()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_getPatch" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">98</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 
     </aside>
 
@@ -1281,23 +1333,21 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getPatch</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The patch version number.</p>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the patch version number</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1308,11 +1358,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_getPreRelease">
         getPreRelease()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_getPreRelease" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">105</span>
 
     </aside>
 
@@ -1322,23 +1373,21 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getPreRelease</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null|string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">null|string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The pre-release part.</p>
+        <span class="phpdocumentor-signature__response_type">null|string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the pre-release part</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1349,11 +1398,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_greaterThan">
         greaterThan()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThan" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">124</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -1363,6 +1413,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">greaterThan</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1371,7 +1423,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -1380,7 +1432,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -1389,7 +1441,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThan#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1398,19 +1451,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 &gt; $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 &gt; $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1421,11 +1476,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_greaterThanOrEqual">
         greaterThanOrEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThanOrEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">140</span>
+    <span class="phpdocumentor-element-found-in__line">154</span>
 
     </aside>
 
@@ -1435,6 +1491,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">greaterThanOrEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1443,7 +1501,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -1452,7 +1510,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -1461,7 +1519,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThanOrEqual#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1470,19 +1529,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 &gt;= $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 &gt;= $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1493,11 +1554,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_inc">
         inc()
         <a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_inc" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/NextProducer.php"><a href="files/src-traits-nextproducer.html"><abbr title="src/Traits/NextProducer.php">NextProducer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -1505,8 +1567,10 @@ if the string is not a valid representation of a semantic version.</dd>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">inc</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$by</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">inc</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$by</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preRelease</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
         <section class="phpdocumentor-description"><p>Returns a new version while the original remains unchanged.</p>
 </section>
 
@@ -1517,16 +1581,16 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Determines by which part the Version should be incremented.</p>
+                    <section class="phpdocumentor-description"><p>determines by which part the Version should be incremented</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$preRelease</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The optional pre-release part.</p>
+                    <section class="phpdocumentor-description"><p>the optional pre-release part</p>
 </section>
 
             </dd>
@@ -1535,7 +1599,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_inc#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1544,19 +1609,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the pre-release tag is non-null and invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the pre-release tag is non-null and invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The incremented version.</p>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the incremented version</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1567,11 +1634,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_isEqual">
         isEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 
     </aside>
 
@@ -1581,6 +1649,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1589,27 +1659,23 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance == $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance == $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1620,11 +1686,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_isGreaterThan">
         isGreaterThan()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isGreaterThan" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -1634,6 +1701,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isGreaterThan</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1642,27 +1711,23 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance &gt; $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance &gt; $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1673,11 +1738,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_isGreaterThanOrEqual">
         isGreaterThanOrEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isGreaterThanOrEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -1687,6 +1753,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isGreaterThanOrEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1695,27 +1763,23 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance &gt;= $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance &gt;= $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1726,11 +1790,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_isLessThan">
         isLessThan()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isLessThan" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
@@ -1740,6 +1805,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isLessThan</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1748,27 +1815,23 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance &lt; $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance &lt; $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1779,11 +1842,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_isLessThanOrEqual">
         isLessThanOrEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isLessThanOrEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -1793,6 +1857,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isLessThanOrEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1801,27 +1867,23 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance &lt;= $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance &lt;= $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1832,11 +1894,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_isNotEqual">
         isNotEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isNotEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -1846,6 +1909,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isNotEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1854,27 +1919,23 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance != $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance != $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1885,11 +1946,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_isPreRelease">
         isPreRelease()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_isPreRelease" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">128</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 
     </aside>
 
@@ -1899,23 +1961,21 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isPreRelease</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when the version is a pre-release version.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when the version is a pre-release version</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1926,11 +1986,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_isSatisfying">
         isSatisfying()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_isSatisfying" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">160</span>
+    <span class="phpdocumentor-element-found-in__line">158</span>
 
     </aside>
 
@@ -1940,6 +2001,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isSatisfying</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Constraints-Constraint.html"><abbr title="\z4kn4fein\SemVer\Constraints\Constraint">Constraint</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$constraint</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1948,27 +2011,23 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Constraints-Constraint.html"><abbr title="\z4kn4fein\SemVer\Constraints\Constraint">Constraint</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The constraint to satisfy.</p>
+                    <section class="phpdocumentor-description"><p>the constraint to satisfy</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when the constraint is satisfied, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when the constraint is satisfied, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1979,11 +2038,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_isStable">
         isStable()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_isStable" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -1993,25 +2053,23 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isStable</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
         <section class="phpdocumentor-description"><p>Stable versions have a positive major number and no pre-release identifier.</p>
 </section>
 
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when the version is a stable version.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when the version is a stable version</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2022,11 +2080,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_lessThan">
         lessThan()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThan" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
@@ -2036,6 +2095,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">lessThan</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2044,7 +2105,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -2053,7 +2114,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -2062,7 +2123,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThan#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2071,19 +2133,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 &lt; $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 &lt; $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2094,11 +2158,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_lessThanOrEqual">
         lessThanOrEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThanOrEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">118</span>
 
     </aside>
 
@@ -2108,6 +2173,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">lessThanOrEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2116,7 +2183,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -2125,7 +2192,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -2134,7 +2201,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThanOrEqual#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2143,19 +2211,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 &lt;= $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 &lt;= $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2166,11 +2236,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_minVersion">
         minVersion()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_minVersion" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">168</span>
+    <span class="phpdocumentor-element-found-in__line">166</span>
 
     </aside>
 
@@ -2179,23 +2250,21 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">minVersion</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The 0.0.0 semantic version.</p>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The 0.0.0 semantic version.</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2206,11 +2275,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_notEqual">
         notEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_notEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">172</span>
+    <span class="phpdocumentor-element-found-in__line">190</span>
 
     </aside>
 
@@ -2220,6 +2290,8 @@ if the string is not a valid representation of a semantic version.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">notEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2228,7 +2300,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -2237,7 +2309,7 @@ if the string is not a valid representation of a semantic version.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -2246,7 +2318,8 @@ if the string is not a valid representation of a semantic version.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_notEqual#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2255,19 +2328,21 @@ if the string is not a valid representation of a semantic version.</dd>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 != $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 != $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2278,11 +2353,12 @@ if the string is not a valid representation of a semantic version.</dd>
     <h4 class="phpdocumentor-element__name" id="method_parse">
         parse()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_parse" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">207</span>
+    <span class="phpdocumentor-element-found-in__line">208</span>
 
     </aside>
 
@@ -2293,6 +2369,8 @@ if the string is not a valid representation of a semantic version.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">parse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionString</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$strict</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
         <section class="phpdocumentor-description"><p>Strict mode is on by default, which means partial versions (e.g. '1.0' or '1') and versions with 'v' prefix
 are considered invalid. This behaviour can be turned off by setting the strict parameter to false.</p>
 </section>
@@ -2304,7 +2382,7 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version string.</p>
+                    <section class="phpdocumentor-description"><p>the version string</p>
 </section>
 
             </dd>
@@ -2313,7 +2391,7 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Enables or disables strict parsing.</p>
+                    <section class="phpdocumentor-description"><p>enables or disables strict parsing</p>
 </section>
 
             </dd>
@@ -2322,7 +2400,8 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Version.html#method_parse#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2331,19 +2410,21 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the given version string is invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the given version string is invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The parsed version.</p>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the parsed version</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2354,11 +2435,12 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <h4 class="phpdocumentor-element__name" id="method_parseOrNull">
         parseOrNull()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_parseOrNull" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">186</span>
+    <span class="phpdocumentor-element-found-in__line">185</span>
 
     </aside>
 
@@ -2367,8 +2449,10 @@ if the string is not a valid representation of a semantic version.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">parseOrNull</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionString</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$strict</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>|null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">parseOrNull</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionString</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$strict</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null|<a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
         <section class="phpdocumentor-description"><p>Strict mode is on by default, which means partial versions (e.g. '1.0' or '1') and versions with 'v' prefix
 are considered invalid. This behaviour can be turned off by setting the strict parameter to false.</p>
 </section>
@@ -2380,7 +2464,7 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version string.</p>
+                    <section class="phpdocumentor-description"><p>the version string</p>
 </section>
 
             </dd>
@@ -2389,27 +2473,23 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Enables or disables strict parsing.</p>
+                    <section class="phpdocumentor-description"><p>enables or disables strict parsing</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>|null</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The parsed version, or null if the parse fails.</p>
+        <span class="phpdocumentor-signature__response_type">null|<a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the parsed version, or null if the parse fails</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2420,11 +2500,12 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <h4 class="phpdocumentor-element__name" id="method_rsort">
         rsort()
         <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsort" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Sortable.php"><a href="files/src-traits-sortable.html"><abbr title="src/Traits/Sortable.php">Sortable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -2434,6 +2515,8 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">rsort</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2442,27 +2525,23 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The versions to sort.</p>
+                    <section class="phpdocumentor-description"><p>the versions to sort</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The sorted array of versions.</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the sorted array of versions</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2473,11 +2552,12 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <h4 class="phpdocumentor-element__name" id="method_rsortString">
         rsortString()
         <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsortString" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Sortable.php"><a href="files/src-traits-sortable.html"><abbr title="src/Traits/Sortable.php">Sortable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -2487,6 +2567,8 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">rsortString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2495,7 +2577,7 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version strings to sort.</p>
+                    <section class="phpdocumentor-description"><p>the version strings to sort</p>
 </section>
 
             </dd>
@@ -2504,7 +2586,8 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsortString#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2513,19 +2596,21 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the given array contains an invalid version string.</p>
+                                                 <section class="phpdocumentor-description"><p>when the given array contains an invalid version string</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The sorted array of version strings.</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the sorted array of version strings</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2536,11 +2621,12 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <h4 class="phpdocumentor-element__name" id="method_satisfies">
         satisfies()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_satisfies" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">292</span>
+    <span class="phpdocumentor-element-found-in__line">298</span>
 
     </aside>
 
@@ -2550,6 +2636,8 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">satisfies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionString</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$constraintString</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2558,7 +2646,7 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to check.</p>
+                    <section class="phpdocumentor-description"><p>the version to check</p>
 </section>
 
             </dd>
@@ -2567,7 +2655,7 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The constraint to satisfy.</p>
+                    <section class="phpdocumentor-description"><p>the constraint to satisfy</p>
 </section>
 
             </dd>
@@ -2576,7 +2664,8 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Version.html#method_satisfies#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2585,19 +2674,21 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version string or the constraint string is invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version string or the constraint string is invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when the given version satisfies the given constraint, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when the given version satisfies the given constraint, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2608,11 +2699,12 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <h4 class="phpdocumentor-element__name" id="method_sort">
         sort()
         <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sort" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Sortable.php"><a href="files/src-traits-sortable.html"><abbr title="src/Traits/Sortable.php">Sortable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
@@ -2622,6 +2714,8 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">sort</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2630,27 +2724,23 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The versions to sort.</p>
+                    <section class="phpdocumentor-description"><p>the versions to sort</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The sorted array of versions.</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the sorted array of versions</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2661,11 +2751,12 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <h4 class="phpdocumentor-element__name" id="method_sortString">
         sortString()
         <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sortString" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Sortable.php"><a href="files/src-traits-sortable.html"><abbr title="src/Traits/Sortable.php">Sortable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -2675,6 +2766,8 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">sortString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2683,7 +2776,7 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version strings to sort.</p>
+                    <section class="phpdocumentor-description"><p>the version strings to sort</p>
 </section>
 
             </dd>
@@ -2692,7 +2785,8 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sortString#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2701,19 +2795,21 @@ are considered invalid. This behaviour can be turned off by setting the strict p
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the given array contains an invalid version string.</p>
+                                                 <section class="phpdocumentor-description"><p>when the given array contains an invalid version string</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The sorted array of version strings.</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the sorted array of version strings</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2724,11 +2820,12 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <h4 class="phpdocumentor-element__name" id="method_withoutSuffixes">
         withoutSuffixes()
         <a href="classes/z4kn4fein-SemVer-Version.html#method_withoutSuffixes" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Version.php"><a href="files/src-version.html"><abbr title="src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">146</span>
 
     </aside>
 
@@ -2738,23 +2835,21 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">withoutSuffixes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The new version.</p>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the new version</p>
 </section>
 
-    
+            </section>
+
 </article>
             </section>
 
@@ -2851,7 +2946,71 @@ are considered invalid. This behaviour can be turned off by setting the strict p
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                                                <li><a href="classes/z4kn4fein-SemVer-Version.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+            
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method___toString">__toString()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compare">compare()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compareString">compareString()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Copyable.html#method_copy">copy()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_create">create()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_equal">equal()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_getBuildMeta">getBuildMeta()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_getMajor">getMajor()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_getMinor">getMinor()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextMajorVersion">getNextMajorVersion()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextMinorVersion">getNextMinorVersion()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextPatchVersion">getNextPatchVersion()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_getNextPreReleaseVersion">getNextPreReleaseVersion()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_getPatch">getPatch()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_getPreRelease">getPreRelease()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThan">greaterThan()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThanOrEqual">greaterThanOrEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-NextProducer.html#method_inc">inc()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isEqual">isEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isGreaterThan">isGreaterThan()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isGreaterThanOrEqual">isGreaterThanOrEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isLessThan">isLessThan()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isLessThanOrEqual">isLessThanOrEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isNotEqual">isNotEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_isPreRelease">isPreRelease()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_isSatisfying">isSatisfying()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_isStable">isStable()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThan">lessThan()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThanOrEqual">lessThanOrEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_minVersion">minVersion()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_notEqual">notEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_parse">parse()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_parseOrNull">parseOrNull()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsort">rsort()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsortString">rsortString()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_satisfies">satisfies()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sort">sort()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sortString">sortString()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Version.html#method_withoutSuffixes">withoutSuffixes()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -2862,7 +3021,6 @@ are considered invalid. This behaviour can be turned off by setting the strict p
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/z4kn4fein-SemVer-Version.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 

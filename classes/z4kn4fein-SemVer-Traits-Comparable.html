@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,8 +53,8 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/z4kn4fein.html" class="">z4kn4fein</a>
@@ -66,35 +67,30 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/z4kn4fein.html" class="">z4kn4fein</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="packages/z4kn4fein-SemVer.html" class="">SemVer</a>
-                
-            </li>
-            </ul>
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/z4kn4fein.html">z4kn4fein</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/z4kn4fein-semver.html">SemVer</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/z4kn4fein-semver-traits.html">Traits</a></li>
@@ -116,25 +112,31 @@
 
 
 
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
-
-
-
 
 
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
-                        <dt class="phpdocumentor-table-of-contents__entry -method -public">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compare">compare()</a>
     <span>
                                 &nbsp;: int    </span>
@@ -232,9 +234,14 @@
 </dt>
 <dd>Compares two version strings and returns true when the first and second are not equal.</dd>
 
-        </dl>
+    </dl>
 
 
+
+
+        
+
+        
 
         
 
@@ -242,6 +249,7 @@
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -252,11 +260,12 @@
     <h4 class="phpdocumentor-element__name" id="method_compare">
         compare()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compare" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">203</span>
+    <span class="phpdocumentor-element-found-in__line">224</span>
 
     </aside>
 
@@ -266,6 +275,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">compare</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -274,7 +285,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -283,27 +294,23 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>-1 when $v1 &lt; $v2, 0 when $v1 == $v2, 1 when $v1 &gt; $v2.</p>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>-1 when $v1 &lt; $v2, 0 when $v1 == $v2, 1 when $v1 &gt; $v2</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -314,11 +321,12 @@
     <h4 class="phpdocumentor-element__name" id="method_compareString">
         compareString()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compareString" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">188</span>
+    <span class="phpdocumentor-element-found-in__line">208</span>
 
     </aside>
 
@@ -328,6 +336,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">compareString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -336,7 +346,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -345,7 +355,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -354,7 +364,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compareString#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -363,19 +374,21 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>-1 when $v1 &lt; $v2, 0 when $v1 == $v2, 1 when $v1 &gt; $v2.</p>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>-1 when $v1 &lt; $v2, 0 when $v1 == $v2, 1 when $v1 &gt; $v2</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -386,11 +399,12 @@
     <h4 class="phpdocumentor-element__name" id="method_equal">
         equal()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_equal" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">156</span>
+    <span class="phpdocumentor-element-found-in__line">172</span>
 
     </aside>
 
@@ -400,6 +414,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">equal</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -408,7 +424,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -417,7 +433,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -426,7 +442,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_equal#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -435,19 +452,21 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 == $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 == $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -458,11 +477,12 @@
     <h4 class="phpdocumentor-element__name" id="method_greaterThan">
         greaterThan()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThan" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">124</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -472,6 +492,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">greaterThan</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -480,7 +502,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -489,7 +511,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -498,7 +520,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThan#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -507,19 +530,21 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 &gt; $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 &gt; $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -530,11 +555,12 @@
     <h4 class="phpdocumentor-element__name" id="method_greaterThanOrEqual">
         greaterThanOrEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThanOrEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">140</span>
+    <span class="phpdocumentor-element-found-in__line">154</span>
 
     </aside>
 
@@ -544,6 +570,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">greaterThanOrEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -552,7 +580,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -561,7 +589,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -570,7 +598,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThanOrEqual#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -579,19 +608,21 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 &gt;= $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 &gt;= $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -602,11 +633,12 @@
     <h4 class="phpdocumentor-element__name" id="method_isEqual">
         isEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 
     </aside>
 
@@ -616,6 +648,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -624,27 +658,23 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance == $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance == $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -655,11 +685,12 @@
     <h4 class="phpdocumentor-element__name" id="method_isGreaterThan">
         isGreaterThan()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isGreaterThan" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -669,6 +700,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isGreaterThan</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -677,27 +710,23 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance &gt; $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance &gt; $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -708,11 +737,12 @@
     <h4 class="phpdocumentor-element__name" id="method_isGreaterThanOrEqual">
         isGreaterThanOrEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isGreaterThanOrEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -722,6 +752,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isGreaterThanOrEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -730,27 +762,23 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance &gt;= $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance &gt;= $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -761,11 +789,12 @@
     <h4 class="phpdocumentor-element__name" id="method_isLessThan">
         isLessThan()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isLessThan" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
@@ -775,6 +804,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isLessThan</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -783,27 +814,23 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance &lt; $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance &lt; $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -814,11 +841,12 @@
     <h4 class="phpdocumentor-element__name" id="method_isLessThanOrEqual">
         isLessThanOrEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isLessThanOrEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -828,6 +856,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isLessThanOrEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -836,27 +866,23 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance &lt;= $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance &lt;= $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -867,11 +893,12 @@
     <h4 class="phpdocumentor-element__name" id="method_isNotEqual">
         isNotEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isNotEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -881,6 +908,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isNotEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -889,27 +918,23 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version to compare.</p>
+                    <section class="phpdocumentor-description"><p>the version to compare</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when instance != $v, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when instance != $v, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -920,11 +945,12 @@
     <h4 class="phpdocumentor-element__name" id="method_lessThan">
         lessThan()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThan" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
@@ -934,6 +960,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">lessThan</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -942,7 +970,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -951,7 +979,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -960,7 +988,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThan#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -969,19 +998,21 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 &lt; $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 &lt; $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -992,11 +1023,12 @@
     <h4 class="phpdocumentor-element__name" id="method_lessThanOrEqual">
         lessThanOrEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThanOrEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">118</span>
 
     </aside>
 
@@ -1006,6 +1038,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">lessThanOrEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1014,7 +1048,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -1023,7 +1057,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -1032,7 +1066,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThanOrEqual#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1041,19 +1076,21 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 &lt;= $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 &lt;= $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1064,11 +1101,12 @@
     <h4 class="phpdocumentor-element__name" id="method_notEqual">
         notEqual()
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_notEqual" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Comparable.php"><a href="files/src-traits-comparable.html"><abbr title="src/Traits/Comparable.php">Comparable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">172</span>
+    <span class="phpdocumentor-element-found-in__line">190</span>
 
     </aside>
 
@@ -1078,6 +1116,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">notEqual</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v1</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v2</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1086,7 +1126,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The left side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the left side of the comparison</p>
 </section>
 
             </dd>
@@ -1095,7 +1135,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The right side of the comparison.</p>
+                    <section class="phpdocumentor-description"><p>the right side of the comparison</p>
 </section>
 
             </dd>
@@ -1104,7 +1144,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_notEqual#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1113,19 +1154,21 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the version strings are invalid.</p>
+                                                 <section class="phpdocumentor-description"><p>when the version strings are invalid</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True when $v1 != $v2, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true when $v1 != $v2, otherwise false</p>
 </section>
 
-    
+            </section>
+
 </article>
             </section>
 
@@ -1222,7 +1265,44 @@
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                                                <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                                                <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compare">compare()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_compareString">compareString()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_equal">equal()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThan">greaterThan()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_greaterThanOrEqual">greaterThanOrEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isEqual">isEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isGreaterThan">isGreaterThan()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isGreaterThanOrEqual">isGreaterThanOrEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isLessThan">isLessThan()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isLessThanOrEqual">isLessThanOrEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_isNotEqual">isNotEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThan">lessThan()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_lessThanOrEqual">lessThanOrEqual()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#method_notEqual">notEqual()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -1233,7 +1313,6 @@
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/z4kn4fein-SemVer-Traits-Comparable.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 

@@ -6,15 +6,15 @@ Search.appendIndex(
             "summary": "This\u0020class\u0020describes\u0020a\u0020semantic\u0020version\u0020constraint.\u0020It\u0020provides\u0020ability\u0020to\u0020verify\u0020whether\u0020a\u0020version\nsatisfies\u0020one\u0020or\u0020more\u0020conditions\u0020within\u0020a\u0020constraint.",
             "url": "classes/z4kn4fein-SemVer-Constraints-Constraint.html"
         },                {
-            "fqsen": "\\z4kn4fein\\SemVer\\Constraints\\Constraint\u003A\u003AisSatisfiedBy\u0028\u0029",
-            "name": "isSatisfiedBy",
-            "summary": "Determines\u0020whether\u0020this\u0020constraint\u0020is\u0020satisfied\u0020by\u0020a\u0020Version\u0020or\u0020not.",
-            "url": "classes/z4kn4fein-SemVer-Constraints-Constraint.html#method_isSatisfiedBy"
-        },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Constraints\\Constraint\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "",
             "url": "classes/z4kn4fein-SemVer-Constraints-Constraint.html#method___toString"
+        },                {
+            "fqsen": "\\z4kn4fein\\SemVer\\Constraints\\Constraint\u003A\u003AisSatisfiedBy\u0028\u0029",
+            "name": "isSatisfiedBy",
+            "summary": "Determines\u0020whether\u0020this\u0020constraint\u0020is\u0020satisfied\u0020by\u0020a\u0020Version\u0020or\u0020not.",
+            "url": "classes/z4kn4fein-SemVer-Constraints-Constraint.html#method_isSatisfiedBy"
         },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Constraints\\Constraint\u003A\u003Adefault\u0028\u0029",
             "name": "default",
@@ -273,7 +273,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Version\u003A\u003Acreate\u0028\u0029",
             "name": "create",
-            "summary": "Constructs\u0020a\u0020semantic\u0020version\u0020from\u0020the\u0020given\u0020arguments\u0020following\u0020the\u0020pattern\u003A\n\u003C\u005Bmajor\u005D\u003E.\u003C\u005Bminor\u005D\u003E.\u003C\u005Bpatch\u005D\u003E\u002D\u003C\u005BpreRelease\u005D\u003E\u002B\u003C\u005BbuildMetadata\u005D\u003E",
+            "summary": "Constructs\u0020a\u0020semantic\u0020version\u0020from\u0020the\u0020given\u0020arguments\u0020following\u0020the\u0020pattern\u003A\n\u003C\u005Bmajor\u005D\u003E.\u003C\u005Bminor\u005D\u003E.\u003C\u005Bpatch\u005D\u003E\u002D\u003C\u005BpreRelease\u005D\u003E\u002B\u003C\u005BbuildMetadata\u005D\u003E.",
             "url": "classes/z4kn4fein-SemVer-Version.html#method_create"
         },                {
             "fqsen": "\\z4kn4fein\\SemVer\\Version\u003A\u003Asatisfies\u0028\u0029",

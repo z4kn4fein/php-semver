@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,8 +53,8 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/z4kn4fein.html" class="">z4kn4fein</a>
@@ -66,35 +67,30 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/z4kn4fein.html" class="">z4kn4fein</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="packages/z4kn4fein-SemVer.html" class="">SemVer</a>
-                
-            </li>
-            </ul>
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/z4kn4fein.html">z4kn4fein</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/z4kn4fein-semver.html">SemVer</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/z4kn4fein-semver-traits.html">Traits</a></li>
@@ -116,25 +112,31 @@
 
 
 
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
-
-
-
 
 
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
-                        <dt class="phpdocumentor-table-of-contents__entry -method -public">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsort">rsort()</a>
     <span>
                                 &nbsp;: array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;    </span>
@@ -162,9 +164,14 @@
 </dt>
 <dd>Sorts an array of version strings.</dd>
 
-        </dl>
+    </dl>
 
 
+
+
+        
+
+        
 
         
 
@@ -172,6 +179,7 @@
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -182,11 +190,12 @@
     <h4 class="phpdocumentor-element__name" id="method_rsort">
         rsort()
         <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsort" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Sortable.php"><a href="files/src-traits-sortable.html"><abbr title="src/Traits/Sortable.php">Sortable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -196,6 +205,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">rsort</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -204,27 +215,23 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The versions to sort.</p>
+                    <section class="phpdocumentor-description"><p>the versions to sort</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The sorted array of versions.</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the sorted array of versions</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -235,11 +242,12 @@
     <h4 class="phpdocumentor-element__name" id="method_rsortString">
         rsortString()
         <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsortString" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Sortable.php"><a href="files/src-traits-sortable.html"><abbr title="src/Traits/Sortable.php">Sortable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -249,6 +257,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">rsortString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -257,7 +267,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version strings to sort.</p>
+                    <section class="phpdocumentor-description"><p>the version strings to sort</p>
 </section>
 
             </dd>
@@ -266,7 +276,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsortString#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -275,19 +286,21 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the given array contains an invalid version string.</p>
+                                                 <section class="phpdocumentor-description"><p>when the given array contains an invalid version string</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The sorted array of version strings.</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the sorted array of version strings</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -298,11 +311,12 @@
     <h4 class="phpdocumentor-element__name" id="method_sort">
         sort()
         <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sort" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Sortable.php"><a href="files/src-traits-sortable.html"><abbr title="src/Traits/Sortable.php">Sortable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
@@ -312,6 +326,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">sort</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -320,27 +336,23 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The versions to sort.</p>
+                    <section class="phpdocumentor-description"><p>the versions to sort</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The sorted array of versions.</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/z4kn4fein-SemVer-Version.html"><abbr title="\z4kn4fein\SemVer\Version">Version</abbr></a>&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the sorted array of versions</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -351,11 +363,12 @@
     <h4 class="phpdocumentor-element__name" id="method_sortString">
         sortString()
         <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sortString" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Traits/Sortable.php"><a href="files/src-traits-sortable.html"><abbr title="src/Traits/Sortable.php">Sortable.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -365,6 +378,8 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">sortString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -373,7 +388,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The version strings to sort.</p>
+                    <section class="phpdocumentor-description"><p>the version strings to sort</p>
 </section>
 
             </dd>
@@ -382,7 +397,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sortString#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -391,19 +407,21 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/z4kn4fein-SemVer-SemverException.html"><abbr title="\z4kn4fein\SemVer\SemverException">SemverException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>When the given array contains an invalid version string.</p>
+                                                 <section class="phpdocumentor-description"><p>when the given array contains an invalid version string</p>
 </section>
 
                                     </dd>
                                             </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The sorted array of version strings.</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the sorted array of version strings</p>
 </section>
 
-    
+            </section>
+
 </article>
             </section>
 
@@ -500,7 +518,34 @@
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                                                <li><a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                                                <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsort">rsort()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_rsortString">rsortString()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sort">sort()</a></li>
+                                            <li><a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#method_sortString">sortString()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -511,7 +556,6 @@
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/z4kn4fein-SemVer-Traits-Sortable.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
