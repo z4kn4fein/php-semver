@@ -10,7 +10,7 @@ namespace z4kn4fein\SemVer;
 class Patterns
 {
     // Numeric identifier pattern. (used for parsing major, minor, and patch)
-    const NUMERIC = '0|[1-9]\\d*';
+    const NUMERIC = '0|[1-9]\d*';
 
     // Alphanumeric or hyphen pattern.
     const ALPHANUMERIC_OR_HYPHEN = '[0-9a-zA-Z-]';
@@ -19,34 +19,34 @@ class Patterns
     const LETTER_OR_HYPHEN = '[a-zA-Z-]';
 
     // Non-numeric identifier pattern. (used for parsing pre-release)
-    const NON_NUMERIC = '\\d*'.self::LETTER_OR_HYPHEN.self::ALPHANUMERIC_OR_HYPHEN.'*';
+    const NON_NUMERIC = '\d*'.self::LETTER_OR_HYPHEN.self::ALPHANUMERIC_OR_HYPHEN.'*';
 
     // Dot-separated numeric identifier pattern. (<major>.<minor>.<patch>)
-    const CORE_VERSION = '('.self::NUMERIC.')\\.('.self::NUMERIC.')\\.('.self::NUMERIC.')';
+    const CORE_VERSION = '('.self::NUMERIC.')\.('.self::NUMERIC.')\.('.self::NUMERIC.')';
 
     // Dot-separated loose numeric identifier pattern. (<major>(.<minor>)?(.<patch>)?)
-    const LOOSE_CORE_VERSION = '('.self::NUMERIC.')(?:\\.('.self::NUMERIC.'))?(?:\\.('.self::NUMERIC.'))?';
+    const LOOSE_CORE_VERSION = '('.self::NUMERIC.')(?:\.('.self::NUMERIC.'))?(?:\.('.self::NUMERIC.'))?';
 
     // Numeric or non-numeric pre-release part pattern.
     const PRE_RELEASE_PART = '(?:'.self::NUMERIC.'|'.self::NON_NUMERIC.')';
 
     // Pre-release identifier pattern. A hyphen followed by dot-separated
     // numeric or non-numeric pre-release parts.
-    const PRE_RELEASE = '(?:-('.self::PRE_RELEASE_PART.'(?:\\.'.self::PRE_RELEASE_PART.')*))';
+    const PRE_RELEASE = '(?:-('.self::PRE_RELEASE_PART.'(?:\.'.self::PRE_RELEASE_PART.')*))';
 
     // Build-metadata identifier pattern. A + sign followed by dot-separated
     // alphanumeric build-metadata parts.
-    const BUILD = '(?:\\+('.self::ALPHANUMERIC_OR_HYPHEN.'+(?:\\.'.self::ALPHANUMERIC_OR_HYPHEN.'+)*))';
+    const BUILD = '(?:\+('.self::ALPHANUMERIC_OR_HYPHEN.'+(?:\.'.self::ALPHANUMERIC_OR_HYPHEN.'+)*))';
 
     // List of allowed operations in a condition.
-    const ALLOWED_OPERATORS = '||=|!=|<|<=|=<|>|>=|=>|\\^|~>|~';
+    const ALLOWED_OPERATORS = '||=|!=|<|<=|=<|>|>=|=>|\^|~>|~';
 
     // Numeric identifier pattern for parsing conditions.
-    const X_RANGE_NUMERIC = self::NUMERIC.'|x|X|\\*';
+    const X_RANGE_NUMERIC = self::NUMERIC.'|x|X|\*';
 
     // X-RANGE version: 1.x | 1.2.* | 1.1.X
     // phpcs:ignore
-    const X_RANGE_VERSION = '('.self::X_RANGE_NUMERIC.')(?:\\.('.self::X_RANGE_NUMERIC.')(?:\\.('.self::X_RANGE_NUMERIC.')(?:'.self::PRE_RELEASE.')?'.self::BUILD.'?)?)?';
+    const X_RANGE_VERSION = '('.self::X_RANGE_NUMERIC.')(?:\.('.self::X_RANGE_NUMERIC.')(?:\.('.self::X_RANGE_NUMERIC.')(?:'.self::PRE_RELEASE.')?'.self::BUILD.'?)?)?';
 
     // Pattern that only matches numbers.
     const ONLY_NUMBER_REGEX = '/^[0-9]+$/';
@@ -61,17 +61,17 @@ class Patterns
     const LOOSE_VERSION_REGEX = '/^v?'.self::LOOSE_CORE_VERSION.self::PRE_RELEASE.'?'.self::BUILD.'?$/';
 
     // Operator condition: >=1.2.*
-    const OPERATOR_CONDITION = '('.self::ALLOWED_OPERATORS.')\\s*v?(?:'.self::X_RANGE_VERSION.')';
+    const OPERATOR_CONDITION = '('.self::ALLOWED_OPERATORS.')\s*v?(?:'.self::X_RANGE_VERSION.')';
 
     // Operator condition: >=1.2.*
     const OPERATOR_CONDITION_REGEX = '/'.self::OPERATOR_CONDITION.'/';
 
     // Operator condition: >=1.2.*
-    const VALID_OPERATOR_CONDITION_REGEX = '/^(\\s*'.self::OPERATOR_CONDITION.'\\s*?)+$/';
+    const VALID_OPERATOR_CONDITION_REGEX = '/^(\s*'.self::OPERATOR_CONDITION.'\s*?)+$/';
 
     // Hyphen range condition: 1.2.* - 2.0.0
     // phpcs:ignore
-    const HYPHEN_CONDITION_REGEX = '/\\s*v?(?:'.self::X_RANGE_VERSION.')\\s+-\\s+v?(?:'.self::X_RANGE_VERSION.')\\s*/';
+    const HYPHEN_CONDITION_REGEX = '/\s*v?(?:'.self::X_RANGE_VERSION.')\s+-\s+v?(?:'.self::X_RANGE_VERSION.')\s*/';
 
     // Wildcard characters.
     const WILDCARDS = ['*', 'x', 'X'];

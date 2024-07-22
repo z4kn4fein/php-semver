@@ -143,7 +143,7 @@ class CompareTest extends TestCase
             '1.1.0+build',
         ]);
 
-        usort($versions, ['z4kn4fein\\SemVer\\Version', 'compare']);
+        usort($versions, ['z4kn4fein\SemVer\Version', 'compare']);
 
         $this->assertEquals('1.0.1-alpha', (string) $versions[0]);
         $this->assertEquals('1.0.1-alpha.2', (string) $versions[1]);

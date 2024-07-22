@@ -22,7 +22,7 @@ trait Sortable
     public static function sort(array $versions): array
     {
         $sorted = $versions;
-        usort($sorted, ['z4kn4fein\\SemVer\\Version', 'compare']);
+        usort($sorted, ['z4kn4fein\SemVer\Version', 'compare']);
 
         return $sorted;
     }
