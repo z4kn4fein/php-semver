@@ -231,18 +231,18 @@ class Version
 
         if ($strict && $matchedMajor && $matchedMinor && $matchedPatch) {
             return new Version(
-                intval($matches[1]),
-                intval($matches[2]),
-                intval($matches[3]),
+                intval($matches[1] ?? 0),
+                intval($matches[2] ?? 0),
+                intval($matches[3] ?? 0),
                 $preRelease,
                 $buildMeta
             );
         }
         if (!$strict && $matchedMajor) {
             return new Version(
-                intval($matches[1]),
-                $matchedMinor ? intval($matches[2]) : 0,
-                $matchedPatch ? intval($matches[3]) : 0,
+                intval($matches[1] ?? 0),
+                $matchedMinor ? intval($matches[2] ?? 0) : 0,
+                $matchedPatch ? intval($matches[3] ?? 0) : 0,
                 $preRelease,
                 $buildMeta
             );
