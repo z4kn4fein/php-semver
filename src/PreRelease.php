@@ -60,8 +60,8 @@ class PreRelease
         }
 
         if (-1 != $lastNumericIndex) {
-            $result->preReleaseParts[$lastNumericIndex] =
-                (string) (intval($result->preReleaseParts[$lastNumericIndex]) + 1);
+            $result->preReleaseParts[$lastNumericIndex]
+                = (string) (intval($result->preReleaseParts[$lastNumericIndex]) + 1);
         } else {
             $result->preReleaseParts[] = '0';
         }

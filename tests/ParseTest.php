@@ -25,6 +25,24 @@ class ParseTest extends TestCase
         $this->assertNull(Version::parseOrNull($version));
     }
 
+    public static function invalidData(): array
+    {
+        return [
+            ['-1.0.0'],
+            ['1.-1.0'],
+            ['0.0.-1'],
+            ['1'],
+            [''],
+            ['1.0'],
+            ['1.0-alpha'],
+            ['1.0-alpha.01'],
+            ['a1.0.0'],
+            ['1.a0.0'],
+            ['1.0.a0'],
+            ['v1.0.0'],
+        ];
+    }
+
     /**
      * @dataProvider validData
      */
@@ -33,12 +51,44 @@ class ParseTest extends TestCase
         $this->assertNotNull(Version::parseOrNull($version, $strict));
     }
 
+    public static function validData(): array
+    {
+        return [
+            ['0.0.0', true],
+            ['1.2.3-alpha.1+build', true],
+            ['v1.0.0', false],
+            ['1.0', false],
+            ['v1', false],
+            ['1', false],
+        ];
+    }
+
     /**
      * @dataProvider toStringData
      */
     public function testToString(string $expected, string $version, bool $strict)
     {
         $this->assertEquals($expected, (string) Version::parseOrNull($version, $strict));
+    }
+
+    public static function toStringData(): array
+    {
+        return [
+            ['1.2.3', '1.2.3', true],
+            ['1.2.3-alpha.b.3', '1.2.3-alpha.b.3', true],
+            ['1.2.3-alpha+build', '1.2.3-alpha+build', true],
+            ['1.2.3+build', '1.2.3+build', true],
+            ['1.2.3', 'v1.2.3', false],
+            ['1.0.0', 'v1', false],
+            ['1.0.0', '1', false],
+            ['1.2.0', '1.2', false],
+            ['1.2.0', 'v1.2', false],
+            ['1.2.3-alpha+build', 'v1.2.3-alpha+build', false],
+            ['1.0.0-alpha+build', 'v1-alpha+build', false],
+            ['1.0.0-alpha+build', '1-alpha+build', false],
+            ['1.2.0-alpha+build', '1.2-alpha+build', false],
+            ['1.2.0-alpha+build', 'v1.2-alpha+build', false],
+        ];
     }
 
     public function testValidStable()
@@ -108,55 +158,5 @@ class ParseTest extends TestCase
         $this->assertFalse(Version::parse('0.1.2')->isStable());
         $this->assertFalse(Version::parse('1.1.0-prerelease')->isStable());
         $this->assertTrue(Version::parse('1.1.0')->isStable());
-    }
-
-    public static function invalidData(): array
-    {
-        return [
-            ['-1.0.0'],
-            ['1.-1.0'],
-            ['0.0.-1'],
-            ['1'],
-            [''],
-            ['1.0'],
-            ['1.0-alpha'],
-            ['1.0-alpha.01'],
-            ['a1.0.0'],
-            ['1.a0.0'],
-            ['1.0.a0'],
-            ['v1.0.0'],
-        ];
-    }
-
-    public static function validData(): array
-    {
-        return [
-            ['0.0.0', true],
-            ['1.2.3-alpha.1+build', true],
-            ['v1.0.0', false],
-            ['1.0', false],
-            ['v1', false],
-            ['1', false],
-        ];
-    }
-
-    public static function toStringData(): array
-    {
-        return [
-            ['1.2.3', '1.2.3', true],
-            ['1.2.3-alpha.b.3', '1.2.3-alpha.b.3', true],
-            ['1.2.3-alpha+build', '1.2.3-alpha+build', true],
-            ['1.2.3+build', '1.2.3+build', true],
-            ['1.2.3', 'v1.2.3', false],
-            ['1.0.0', 'v1', false],
-            ['1.0.0', '1', false],
-            ['1.2.0', '1.2', false],
-            ['1.2.0', 'v1.2', false],
-            ['1.2.3-alpha+build', 'v1.2.3-alpha+build', false],
-            ['1.0.0-alpha+build', 'v1-alpha+build', false],
-            ['1.0.0-alpha+build', '1-alpha+build', false],
-            ['1.2.0-alpha+build', '1.2-alpha+build', false],
-            ['1.2.0-alpha+build', 'v1.2-alpha+build', false],
-        ];
     }
 }

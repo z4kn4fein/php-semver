@@ -29,53 +29,6 @@ class ConstraintTest extends TestCase
         $this->assertNull(Constraint::parseOrNull($constraint));
     }
 
-    /**
-     * @dataProvider dataSatisfies
-     */
-    public function testSatisfies(string $constraint, string $version)
-    {
-        $this->assertTrue(Version::satisfies($version, $constraint));
-    }
-
-    /**
-     * @dataProvider dataNotSatisfies
-     */
-    public function testNotSatisfies(string $constraint, string $version)
-    {
-        $this->assertFalse(Version::satisfies($version, $constraint));
-    }
-
-    /**
-     * @dataProvider dataParse
-     */
-    public function testParse(string $constraint, string $parsed)
-    {
-        $this->assertEquals($parsed, (string) Constraint::parse($constraint));
-    }
-
-    public function testConditions()
-    {
-        $version = Version::parse('1.0.0');
-        $this->assertEquals('!=1.0.0', (new Condition(Op::EQUAL, $version))->opposite());
-        $this->assertEquals('=1.0.0', (new Condition(Op::NOT_EQUAL, $version))->opposite());
-        $this->assertEquals('>=1.0.0', (new Condition(Op::LESS_THAN, $version))->opposite());
-        $this->assertEquals('>1.0.0', (new Condition(Op::LESS_THAN_OR_EQUAL, $version))->opposite());
-        $this->assertEquals('<=1.0.0', (new Condition(Op::GREATER_THAN, $version))->opposite());
-        $this->assertEquals('<1.0.0', (new Condition(Op::GREATER_THAN_OR_EQUAL, $version))->opposite());
-    }
-
-    public function testRanges()
-    {
-        $start = new Condition(Op::GREATER_THAN, Version::parse('1.0.0'));
-        $end = new Condition(Op::LESS_THAN, Version::parse('1.1.0'));
-        $this->assertEquals('<=1.0.0 || >=1.1.0', (new Range($start, $end, Op::EQUAL))->opposite());
-        $this->assertEquals('>1.0.0 <1.1.0', (new Range($start, $end, Op::NOT_EQUAL))->opposite());
-        $this->assertEquals('>1.0.0', (new Range($start, $end, Op::LESS_THAN))->opposite());
-        $this->assertEquals('>=1.1.0', (new Range($start, $end, Op::LESS_THAN_OR_EQUAL))->opposite());
-        $this->assertEquals('<1.1.0', (new Range($start, $end, Op::GREATER_THAN))->opposite());
-        $this->assertEquals('<=1.0.0', (new Range($start, $end, Op::GREATER_THAN_OR_EQUAL))->opposite());
-    }
-
     public static function dataInvalid(): array
     {
         return [
@@ -87,6 +40,14 @@ class ConstraintTest extends TestCase
             ['>=0.0-0'],
             ['>=1.2a'],
         ];
+    }
+
+    /**
+     * @dataProvider dataSatisfies
+     */
+    public function testSatisfies(string $constraint, string $version)
+    {
+        $this->assertTrue(Version::satisfies($version, $constraint));
     }
 
     public static function dataSatisfies(): array
@@ -261,6 +222,14 @@ class ConstraintTest extends TestCase
             ['<2.x', '1.1.1'],
             ['<1.2.x', '1.1.1'],
         ];
+    }
+
+    /**
+     * @dataProvider dataNotSatisfies
+     */
+    public function testNotSatisfies(string $constraint, string $version)
+    {
+        $this->assertFalse(Version::satisfies($version, $constraint));
     }
 
     public static function dataNotSatisfies(): array
@@ -441,6 +410,14 @@ class ConstraintTest extends TestCase
             ['~>1', '2.2.3'],
             ['~1.0', '1.1.0'],
         ];
+    }
+
+    /**
+     * @dataProvider dataParse
+     */
+    public function testParse(string $constraint, string $parsed)
+    {
+        $this->assertEquals($parsed, (string) Constraint::parse($constraint));
     }
 
     public static function dataParse(): array
@@ -682,5 +659,28 @@ class ConstraintTest extends TestCase
             ['=v*', '>=0.0.0'],
             ['^7|^8', '>=7.0.0 <8.0.0-0 || >=8.0.0 <9.0.0-0'],
         ];
+    }
+
+    public function testConditions()
+    {
+        $version = Version::parse('1.0.0');
+        $this->assertEquals('!=1.0.0', (new Condition(Op::EQUAL, $version))->opposite());
+        $this->assertEquals('=1.0.0', (new Condition(Op::NOT_EQUAL, $version))->opposite());
+        $this->assertEquals('>=1.0.0', (new Condition(Op::LESS_THAN, $version))->opposite());
+        $this->assertEquals('>1.0.0', (new Condition(Op::LESS_THAN_OR_EQUAL, $version))->opposite());
+        $this->assertEquals('<=1.0.0', (new Condition(Op::GREATER_THAN, $version))->opposite());
+        $this->assertEquals('<1.0.0', (new Condition(Op::GREATER_THAN_OR_EQUAL, $version))->opposite());
+    }
+
+    public function testRanges()
+    {
+        $start = new Condition(Op::GREATER_THAN, Version::parse('1.0.0'));
+        $end = new Condition(Op::LESS_THAN, Version::parse('1.1.0'));
+        $this->assertEquals('<=1.0.0 || >=1.1.0', (new Range($start, $end, Op::EQUAL))->opposite());
+        $this->assertEquals('>1.0.0 <1.1.0', (new Range($start, $end, Op::NOT_EQUAL))->opposite());
+        $this->assertEquals('>1.0.0', (new Range($start, $end, Op::LESS_THAN))->opposite());
+        $this->assertEquals('>=1.1.0', (new Range($start, $end, Op::LESS_THAN_OR_EQUAL))->opposite());
+        $this->assertEquals('<1.1.0', (new Range($start, $end, Op::GREATER_THAN))->opposite());
+        $this->assertEquals('<=1.0.0', (new Range($start, $end, Op::GREATER_THAN_OR_EQUAL))->opposite());
     }
 }
