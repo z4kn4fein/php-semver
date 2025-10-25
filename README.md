@@ -302,7 +302,7 @@ In case of an unstable version:
 use z4kn4fein\SemVer\Version;
 use z4kn4fein\SemVer\Inc;
 
-$unstableVersion = Version::parce("1.0.0-alpha.2+build.1");
+$unstableVersion = Version::parse("1.0.0-alpha.2+build.1");
 
 echo $unstableVersion->getNextMajorVersion();        // 2.0.0
 echo $unstableVersion->getNextMinorVersion();        // 1.1.0
@@ -323,7 +323,7 @@ Each incrementing function provides the option to set a pre-release identity on 
 use z4kn4fein\SemVer\Version;
 use z4kn4fein\SemVer\Inc;
 
-$version = Version::parce("1.0.0-alpha.1");
+$version = Version::parse("1.0.0-alpha.1");
 
 echo $version->getNextMajorVersion("beta");         // 2.0.0-beta
 echo $version->getNextMinorVersion("");             // 1.1.0-0
